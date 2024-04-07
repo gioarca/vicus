@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import CardForm from "../components/CardForm";
 import Loader from "../components/Loader";
 // import Search from "../components/Search";
-import axios from "axios";
 
 function LoginSuccess() {
   const [borghi, setBorghi] = useState([]);
@@ -17,10 +16,6 @@ function LoginSuccess() {
         // inserito il timeout di 1.5 secondi
         setIsLoading(true);
         const data = await fetch(`http://localhost:3000/api/v1/borgo`); // porta per il backend
-        // .then((response) => response.json())
-        // .then((data) => {
-        //   console.log(data);
-        // });
         const borgo = await data.json();
         setBorghi(borgo);
         setIsLoading(false);

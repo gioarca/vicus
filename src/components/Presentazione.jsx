@@ -17,26 +17,9 @@ function Presentazione() {
           alt=""
           className="w-screen h-auto mt-5 bg-cover justify-center items-center text-center relative md:h-5/6 w-auto"
         />
-        {/* <img
-          src="https://images.unsplash.com/photo-1515859005217-8a1f08870f59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aXRhbHl8ZW58MHx8MHx8fDA%3D"
-          alt=""
-          className="w-screen h-auto mt-5 bg-cover justify-center items-center text-center relative md:h-5/6 w-auto"
-        /> */}
       </div>
     </div>
   );
 }
 
 export default Presentazione;
-
-// .book {
-//   background-image: url("/assets/images/me.JPG");
-//   background-size: cover;
-//   justify-content: center;
-//   align-items: center;
-//   opacity: 60%;
-//   z-index: -1;
-//   position: absolute;
-//   width:100%;
-//   height: 500px;
-// }

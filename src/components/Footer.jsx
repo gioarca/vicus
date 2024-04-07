@@ -1,11 +1,9 @@
 import React from "react";
-// import { ChatAlt2Icon } from "@heroicons/react/solid";
 
 function Footer() {
   return (
     <div className="text-center m-4">
       <div className="m-1 text-center justify-center item-center">
-        {/* <ChatAlt2Icon /> */}
         <a
           href={"/contatti"}
           className="hover:text-red-500 hover:transition-all"

@@ -11,13 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@auth0/auth0-react": "^2.2.4",
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^1.0.6",
-    "axios": "^1.6.8",
-    "baseui": "^14.0.0",
-    "emailjs": "^4.0.3",
-    "emoji-picker-react": "^4.9.2",
     "framer-motion": "^11.0.20",
     "hamburger-react": "^2.5.0",
     "heroicons": "^2.1.3",

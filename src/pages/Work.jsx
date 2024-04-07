@@ -25,10 +25,9 @@ function Work() {
       <button
         disabled
         type="text"
-        className="bg-grey-600 disabled:opacity-75 hover:outline-none"
+        className="bg-grey-600 disabled:opacity-75 hover:outline-none m-64"
       >
-        <svg class="motion-safe:animate-spin h-1 w-5 mr-5"></svg>
-        Arriverà presto!
+        Arriverà presto! Stay tuned
       </button>
     </div>
   );

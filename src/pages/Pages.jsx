@@ -6,13 +6,14 @@ import LoginSuccess from "./LoginSuccess";
 import Registrazione from "./Registrazione";
 import Searched from "./Searched";
 import Contatti from "./Contatti";
+import Work from "./Work";
 import Grazie from "./Grazie";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import Work from "./Work";
 
 function Pages() {
   const location = useLocation();
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>

@@ -11,7 +11,6 @@ const Nav = () => {
       <div className="flex items-center  text-black">
         <a href={"/"}>
           <span className="font-semibold text-xl tracking-tight text-5xl m-10">
-            {/* <Logo /> */}
             BORGHI
           </span>
         </a>

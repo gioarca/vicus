@@ -1,25 +1,6 @@
 import React, { useRef } from "react";
-// import { emailjs } from "emailjs";
 
 function Contatti() {
-  // const form = useRef();
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-
-  //   emailjs
-  //     .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form.current, {
-  //       publicKey: "YOUR_PUBLIC_KEY",
-  //     })
-  //     .then(
-  //       () => {
-  //         console.log("SUCCESS!");
-  //       },
-  //       (error) => {
-  //         console.log("FAILED...", error.text);
-  //       }
-  //     );
-  // };
-
   return (
     <div>
       <div>
@@ -30,12 +11,7 @@ function Contatti() {
             ringraziamento.
           </p>
         </p>
-        <form
-          // ref={form}
-          // onSubmit={sendEmail}
-          action="submit"
-          className="justify-center items-center md:mx-28"
-        >
+        <form action="submit" className="justify-center items-center md:mx-28">
           <input
             type="text"
             placeholder="Nome"
@@ -67,20 +43,7 @@ function Contatti() {
       </div>
 
       <div className="text-center justify-center  items-center py-4 w-auto m-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm  md:w-2/3 justify-center items-center m-auto">
-        {/* <div className="text-center justify-center items-center w-auto m-5 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm "> */}
         <div className="flex justify-center items-center m-10 space-x-10">
-          {/* <a
-            target="_blank"
-            href="https://www.facebook.com/borghi/"
-            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 hover:opacity-50"
-          >
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1024px-2021_Facebook_icon.svg.png"
-              width="50"
-              height="50"
-            />
-          </a>
-          &emsp; */}
           <a
             target="_blank"
             href="https://www.instagram.com/borghi/"
@@ -136,7 +99,6 @@ function Contatti() {
         >
           borghisud@gmail.com
         </a>
-        {/* <p>+39 333 12345678</p> */}
         <p>via Borgo 1, Ischia, Italia</p>
       </div>
     </div>
