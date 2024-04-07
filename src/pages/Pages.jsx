@@ -14,50 +14,50 @@ function Pages() {
   const location = useLocation();
 
   return (
-    // <AnimatePresence mode="wait">
-    //   <Routes location={location} key={location.pathname}>
-    //     <Route path="/" element={<Home />} />
-    //     <Route path="/about" element={<About />} />
-    //     <Route path="/borgo/:_id" element={<Borgo />} />
-    //     <Route path="/login" element={<Login />} />
-    //     <Route path="/loginSuccess" element={<LoginSuccess />} />
-    //     <Route path="/registrazione" element={<Registrazione />} />
-    //     <Route path="/contatti" element={<Contatti />} />
-    //     <Route path="/grazie" element={<Grazie />} />
-    //     <Route path="/workinprogress" element={<Work />} />
-    //   </Routes>
-    // </AnimatePresence> // per il locale
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
-        <Route path="https://borghisud.netlify.app/about" element={<About />} />
-        <Route
-          path="https://borghisud.netlify.app/borgo/:_id"
-          element={<Borgo />}
-        />
-        <Route path="https://borghisud.netlify.app/login" element={<Login />} />
-        <Route
-          path="https://borghisud.netlify.app/loginSuccess"
-          element={<LoginSuccess />}
-        />
-        <Route
-          path="https://borghisud.netlify.app/registrazione"
-          element={<Registrazione />}
-        />
-        <Route
-          path="https://borghisud.netlify.app/contatti"
-          element={<Contatti />}
-        />
-        <Route
-          path="https://borghisud.netlify.app/grazie"
-          element={<Grazie />}
-        />
-        <Route
-          path="https://borghisud.netlify.app/workinprogress"
-          element={<Work />}
-        />
+        <Route path="/about" element={<About />} />
+        <Route path="/borgo/:_id" element={<Borgo />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/loginSuccess" element={<LoginSuccess />} />
+        <Route path="/registrazione" element={<Registrazione />} />
+        <Route path="/contatti" element={<Contatti />} />
+        <Route path="/grazie" element={<Grazie />} />
+        <Route path="/workinprogress" element={<Work />} />
       </Routes>
-    </AnimatePresence>
+    </AnimatePresence> // per il locale
+    // <AnimatePresence mode="wait">
+    //   <Routes location={location} key={location.pathname}>
+    //     <Route path="/" element={<Home />} />
+    //     <Route path="https://borghisud.netlify.app/about" element={<About />} />
+    //     <Route
+    //       path="https://borghisud.netlify.app/borgo/:_id"
+    //       element={<Borgo />}
+    //     />
+    //     <Route path="https://borghisud.netlify.app/login" element={<Login />} />
+    //     <Route
+    //       path="https://borghisud.netlify.app/loginSuccess"
+    //       element={<LoginSuccess />}
+    //     />
+    //     <Route
+    //       path="https://borghisud.netlify.app/registrazione"
+    //       element={<Registrazione />}
+    //     />
+    //     <Route
+    //       path="https://borghisud.netlify.app/contatti"
+    //       element={<Contatti />}
+    //     />
+    //     <Route
+    //       path="https://borghisud.netlify.app/grazie"
+    //       element={<Grazie />}
+    //     />
+    //     <Route
+    //       path="https://borghisud.netlify.app/workinprogress"
+    //       element={<Work />}
+    //     />
+    //   </Routes>
+    // </AnimatePresence>
   );
 }
 
