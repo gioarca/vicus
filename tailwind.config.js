@@ -28,5 +28,5 @@ module.exports = {
       },
     },
   },
-  plugins: [React(), tailwindcss()],
+  plugins: [React(), tailwindcss(), autoprefixer()],
 };
