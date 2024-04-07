@@ -1,6 +1,30 @@
 import React, { useRef } from "react";
+import emailjs from "emailjs-com";
 
 function Contatti() {
+  const formRef = useRef();
+
+  const inviaEmail = (e) => {
+    e.preventDefault();
+
+    const service_ID = "service_3fbt7pp";
+    const template_ID = "template_kztn8z3";
+    const public_key = "pW2nGcPqsdugwCCsG";
+
+    emailjs.sendForm(service_ID, template_ID, formRef.current, public_key).then(
+      (result) => {
+        console.log(result.text);
+        // Gestione del reindirizzamento dopo l'invio del modulo
+        window.location.href = "/grazie";
+      },
+      (error) => {
+        console.log(error.text);
+      }
+    );
+
+    formRef.current.reset();
+  };
+
   return (
     <div>
       <div>
@@ -11,7 +35,11 @@ function Contatti() {
             ringraziamento.
           </p>
         </p>
-        <form action="submit" className="justify-center items-center md:mx-28">
+        <form
+          ref={formRef}
+          onSubmit={inviaEmail}
+          className="justify-center items-center md:mx-28"
+        >
           <input
             type="text"
             placeholder="Nome"
@@ -38,7 +66,11 @@ function Contatti() {
           />
         </form>
         <a href={"/grazie"}>
-          <button action="submit">Invia</button>
+          <input
+            type="submit"
+            value="Invia"
+            className="m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:cursor-pointer hover:border hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
+          ></input>
         </a>
       </div>
 

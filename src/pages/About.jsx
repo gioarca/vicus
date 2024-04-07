@@ -1,5 +1,5 @@
 import React from "react";
-import Buttons from "../components/Buttons";
+import Registrati from "../components/Registrati";
 
 function About() {
   return (
@@ -41,7 +41,7 @@ function About() {
         <p>Sei curioso del progetto? </p>
         <p>Clicca qui sotto ed entra.</p>
 
-        <Buttons />
+        <Registrati />
       </div>
     </div>
   );
