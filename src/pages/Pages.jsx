@@ -4,7 +4,6 @@ import Borgo from "./Borgo";
 import Login from "./Login";
 import LoginSuccess from "./LoginSuccess";
 import Registrazione from "./Registrazione";
-import Searched from "./Searched";
 import Contatti from "./Contatti";
 import Work from "./Work";
 import Grazie from "./Grazie";
@@ -22,7 +21,6 @@ function Pages() {
         <Route path="/borgo/:_id" element={<Borgo />} />
         <Route path="/login" element={<Login />} />
         <Route path="/loginSuccess" element={<LoginSuccess />} />
-        <Route path="/searched/:search" element={<Searched />} />
         <Route path="/registrazione" element={<Registrazione />} />
         <Route path="/contatti" element={<Contatti />} />
         <Route path="/grazie" element={<Grazie />} />
