@@ -1,4 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+const tailwindcss = require("tailwindcss");
+const autoprefixer = require("autoprefixer");
+
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -11,13 +13,13 @@ module.exports = {
         },
       },
       boxShadow: {
-        "4xl": "rgba(0, 0, 0, 1) 0px 30px 50px 0px",
+        "4xl": "0px 30px 50px rgba(0, 0, 0, 1)",
       },
-      color: {
+      colors: {
         grey: "#888",
         greylight: "#1E1D22",
       },
-      animate: {
+      animation: {
         "spin-slow": "spin 20s linear infinite",
       },
       keyframes: {
@@ -28,5 +30,5 @@ module.exports = {
       },
     },
   },
-  plugins: [React(), tailwindcss(), autoprefixer()],
+  plugins: [tailwindcss, autoprefixer],
 };
