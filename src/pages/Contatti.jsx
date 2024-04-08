@@ -79,7 +79,7 @@ function Contatti() {
         <div className="flex justify-center items-center m-10 space-x-10">
           <a
             target="_blank"
-            href="https://www.instagram.com/borghi/"
+            href="https://www.instagram.com/borghi_sud/"
             className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 hover:opacity-50"
           >
             <img
@@ -91,11 +91,11 @@ function Contatti() {
           &emsp;
           <a
             target="_blank"
-            href="https://www.linkedin.com/in/giorgio-arcamone/"
+            href="https://t.me/+itBwf1Ed0DNjMjdk"
             className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 hover:opacity-50"
           >
             <img
-              src="https://i.pinimg.com/originals/16/05/cd/1605cd36a25c98249cf421b145690992.png"
+              src="https://static-00.iconduck.com/assets.00/telegram-icon-512x512-1s8w0tx0.png"
               width="50"
               height="50"
             />
