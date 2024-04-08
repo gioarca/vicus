@@ -15,8 +15,8 @@ function BorgoNew() {
         // inserito il timeout di 1.5 secondi
         setIsLoading(true);
         const data = await fetch(
-          `http://localhost:3000/api/v1/borgo/${params._id}`
-        ); // 3000 è la porta per il backend
+          `https://borghi-backend.onrender.com/api/v1/borgo/${params._id}`
+        ); // questa serve solo per la produzione, mentre di default 3000 è la porta per il backend
         const detailBorgo = await data.json();
         setBorghi(detailBorgo);
         console.log(detailBorgo.name);
