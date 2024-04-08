@@ -26,15 +26,16 @@ function Contatti() {
   };
 
   return (
-    <div>
+    <div className="flex flex-col text-center justify-center items-center">
       <div>
-        <p className="m-3">
-          Compila i campi del form:
+        <div className="m-3">
+          <p>Compila i campi del form:</p>
           <p>
             che sia un feedback, una richiesta o semplicemente un
             ringraziamento.
           </p>
-        </p>
+        </div>
+
         <form
           ref={formRef}
           onSubmit={inviaEmail}
@@ -74,7 +75,7 @@ function Contatti() {
         </a>
       </div>
 
-      <div className="text-center justify-center  items-center py-4 w-auto m-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm  md:w-2/3 justify-center items-center m-auto">
+      <div className="m-5 text-center py-4 w-auto rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm md:w-2/3 justify-center items-center">
         <div className="flex justify-center items-center m-10 space-x-10">
           <a
             target="_blank"

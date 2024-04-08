@@ -61,7 +61,7 @@ function LoginSuccess() {
         })}
       </div>
 
-      <div className="flex flex-col m-5">
+      <div className="flex flex-col m-5 text-center">
         <p>
           Se ritieni che manchi un borgo aggiungine uno tramite il form qui
           sotto

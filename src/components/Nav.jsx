@@ -8,9 +8,9 @@ const Nav = () => {
 
   return (
     <nav className="flex flex-wrap items-center justify-between bg-transparent m-2">
-      <div className="flex items-center  text-black">
+      <div className="flex items-center text-black">
         <a href={"/"}>
-          <span className="font-semibold text-xl tracking-tight text-5xl m-10">
+          <span className="font-semibold text-xl tracking-tight m-10">
             BORGHI
           </span>
         </a>
@@ -19,7 +19,7 @@ const Nav = () => {
       <div className="block m-5">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center px-2 py-2 border border-2 rounded"
+          className="flex items-center px-2 py-2 border-2 rounded hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out"
         >
           {isOpen ? (
             <XIcon className="h-6 w-6" aria-hidden="true" />

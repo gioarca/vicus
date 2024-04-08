@@ -2,7 +2,7 @@ import React from "react";
 
 function Grazie() {
   return (
-    <div className="my-56">
+    <div className="my-56 flex flex-col text-center justify-center">
       <p className="text-2xl font-bold m-4">Grazie!</p>
       <p>Il tuo messaggio è stato ricevuto,</p>
       <p>provvederemo a risponderti il prima possibile.</p>

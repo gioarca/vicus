@@ -3,7 +3,7 @@ import React from "react";
 function Presentazione() {
   return (
     <div>
-      <div className="m-7">
+      <div className="m-7 text-center">
         <h1 className="font-bold text-xl m-5">Benvenuto</h1>
         <p>Qui potrai partecipare al rinascimento dei borghi d'Italia. </p>
         <p>
