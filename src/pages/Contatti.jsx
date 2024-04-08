@@ -78,31 +78,31 @@ function Contatti() {
         <form
           ref={form}
           onSubmit={sendEmail}
-          className="flex flex-col items-center justify-center md:mx-28"
+          className="flex flex-col items-center justify-center"
         >
           <input
             type="text"
             name="user_name"
             placeholder="Nome"
-            className="m-2 w-96 px-8 py-4 rounded-lg text-sm font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 focus:outline-none focus:border-gray-400 focus:bg-white"
+            className="md:w-96 m-2 px-8 py-4 rounded-lg text-sm font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 focus:outline-none focus:border-gray-400 focus:bg-white"
           />
           <input
             type="text"
             name="user_surname"
             placeholder="Cognome"
-            className="m-2 w-96 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+            className="m-2 md:w-96 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
           />
           <input
             type="text"
             name="user_email"
             placeholder="E-mail"
-            className="m-2 w-96 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+            className="m-2 md:w-96 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
           />
           <textarea
             type="text"
             name="message"
             placeholder="Inserisci qui il tuo messaggio"
-            className="m-2 w-96 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+            className="m-2 md:w-96 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
           />
           <input
             type="submit"
@@ -112,7 +112,7 @@ function Contatti() {
         </form>
       </div>
 
-      <div className="m-5 text-center py-4 w-auto rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm md:w-2/3 justify-center items-center">
+      <div className="m-5 text-center py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm md:w-2/3 justify-center items-center">
         <p className="font-bold m-2">Seguici</p>
         <div className="flex justify-center items-center m-10 space-x-10">
           <a
