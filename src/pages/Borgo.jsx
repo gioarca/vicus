@@ -20,7 +20,7 @@ function BorgoNew() {
         );
         const detailBorgo = await data.json();
         setBorghi(detailBorgo);
-        console.log(detailBorgo.name);
+        // console.log(detailBorgo.name); // manda a schermo qualche dato
         setIsLoading(false);
       }, 2000);
     };
@@ -37,37 +37,37 @@ function BorgoNew() {
 
   return (
     <div className="flex flex-wrap justify-center text-left transition-opacity ease-in delay-150">
-      <div className="rounded-lg overflow-hidden shadow-2xl m-3">
+      <div className=" overflow-hidden md:shadow-2xl md:m-16 md:mx-24 md:rounded-lg">
         <img className="w-full" src={borghi.imgURL} alt={borghi.name} />
         <div key={borghi._id} className="p-4">
           <div>
-            <div className="p-3 font-bold text-xl">
+            <div className="p-5 font-bold text-xl">
               <p>{borghi.name}</p>
             </div>
-            <div className="p-3">
+            <div className="p-5">
               <h3 className="py-1 underline">Luogo</h3>
               <p>{borghi.place}</p>
             </div>
-            <div className="p-3 ">
+            <div className="p-5">
               <h3 className="py-1 underline">Descrizione</h3>
               <p>{borghi.description}</p>
             </div>
-            <div className="m-3 underline hover:text-red-500 hover:transition-all">
+            <div className="p-5 underline hover:text-red-500 hover:transition-all">
               <a href={borghi.internet} target="_blank">
                 <h3>Velocità Internet</h3>
               </a>
             </div>
-            <div className="m-3 underline hover:text-red-500 hover:transition-all">
+            <div className="p-5 underline hover:text-red-500 hover:transition-all">
               <a href={borghi.priceHouses} target="_blank">
                 <h3>Prezzo medio delle case in vendita</h3>
               </a>
             </div>
-            <div className="m-3 underline hover:text-red-500 hover:transition-all">
+            <div className="p-5 underline hover:text-red-500 hover:transition-all">
               <a href={borghi.airbnbFilter} target="_blank">
                 <h3>Prezzo medio per un Airbnb per 4 persone</h3>
               </a>
             </div>
-            <div className="p-3 ">
+            <div className="p-5">
               <p className="mb-2">
                 Se vuoi ottenere informazioni per i servizi eccoli qui:
               </p>

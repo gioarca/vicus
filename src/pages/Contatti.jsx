@@ -1,79 +1,115 @@
 import React, { useRef } from "react";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 
 function Contatti() {
-  const formRef = useRef();
+  const form = useRef();
 
-  const inviaEmail = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
 
-    const service_ID = "service_3fbt7pp";
-    const template_ID = "template_kztn8z3";
-    const public_key = "pW2nGcPqsdugwCCsG";
-
-    emailjs.sendForm(service_ID, template_ID, formRef.current, public_key).then(
-      (result) => {
-        console.log(result.text);
-        // Gestione del reindirizzamento dopo l'invio del modulo
-        window.location.href = "/grazie";
-      },
-      (error) => {
-        console.log(error.text);
-      }
-    );
-
-    formRef.current.reset();
+    emailjs
+      .sendForm("service_4zk556a", "template_0t8cg1n", form.current, {
+        publicKey: "nBwk1Dh-6_dCdi75H",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          window.location.href = "/grazie";
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
   };
 
+  //   return (
+  //     <form ref={form} onSubmit={sendEmail}>
+  //       <label>Name</label>
+  //       <input type="text" name="user_name" />
+  //       <label>Email</label>
+  //       <input type="email" name="user_email" />
+  //       <label>Message</label>
+  //       <textarea name="message" />
+  //       <input type="submit" value="Send" />
+  //     </form>
+  //   );
+  // }
+
+  // export default Contatti;
+
+  // function Contatti() {
+  //   const formRef = useRef();
+
+  //   const inviaEmail = (e) => {
+  //     e.preventDefault();
+
+  //     const service_ID = "service_3fbt7pp";
+  //     const template_ID = "template_kztn8z3";
+  //     const public_key = "pW2nGcPqsdugwCCsG";
+
+  //     emailjs.sendForm(service_ID, template_ID, formRef.current, public_key).then(
+  //       (result) => {
+  //         console.log(result.text);
+  //         // Gestione del reindirizzamento dopo l'invio del modulo
+  //         window.location.href = "/grazie";
+  //       },
+  //       (error) => {
+  //         console.log(error.text);
+  //       }
+  //     );
+
+  //     formRef.current.reset();
+  //   };
+  //className="flex flex-col justify-center items-center"
   return (
     <div className="flex flex-col text-center justify-center items-center">
       <div>
+        {" "}
+        {/*  className="flex flex-col items-center justify-center" */}
         <div className="m-3">
           <p>Compila i campi del form:</p>
           <p>
-            manda un feedback, una richiesta o semplicemente un ringraziamento.
+            mandaci un feedback, una richiesta o semplicemente un
+            ringraziamento.
             <br />
             Ti rispondiamo a prescindere.
           </p>
         </div>
-
         <form
-          ref={formRef}
-          onSubmit={inviaEmail}
-          className="justify-center items-center md:mx-28"
+          ref={form}
+          onSubmit={sendEmail}
+          className="flex flex-col items-center justify-center md:mx-28"
         >
           <input
             type="text"
+            name="user_name"
             placeholder="Nome"
-            name="nome"
-            className="m-2 w-2/3 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+            className="m-2 w-96 px-8 py-4 rounded-lg text-sm font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 focus:outline-none focus:border-gray-400 focus:bg-white"
           />
           <input
             type="text"
-            name="cognome"
+            name="user_surname"
             placeholder="Cognome"
-            className="m-2 w-2/3 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+            className="m-2 w-96 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
           />
           <input
             type="text"
-            name="email"
+            name="user_email"
             placeholder="E-mail"
-            className="m-2 w-2/3 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+            className="m-2 w-96 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
           />
           <textarea
             type="text"
             name="message"
             placeholder="Inserisci qui il tuo messaggio"
-            className="m-2 w-2/3 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+            className="m-2 w-96 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
           />
+          <input
+            type="submit"
+            value="Invia"
+            className="m-2 w-2/3 px-8 py-4 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:cursor-pointer hover:border hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
+          ></input>
         </form>
-        {/* <a href={"/grazie"}> */}
-        <input
-          type="submit"
-          value="Invia"
-          className="m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:cursor-pointer hover:border hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
-        ></input>
-        {/* </a> */}
       </div>
 
       <div className="m-5 text-center py-4 w-auto rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm md:w-2/3 justify-center items-center">
