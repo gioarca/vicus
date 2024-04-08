@@ -17,7 +17,8 @@ function LoginSuccess() {
         setIsLoading(true);
         const data = await fetch(
           `https://borghi-backend.onrender.com/api/v1/borgo`
-        ); // porta per il backend solo per la produzione
+        ); // porta backend solo per la produzione
+        // const data = await fetch(`http://localhost:3000/api/v1/borgo`); // porta per il backend solo per il locale
         const borgo = await data.json();
         setBorghi(borgo);
         setIsLoading(false);

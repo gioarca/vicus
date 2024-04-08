@@ -31,8 +31,9 @@ function Contatti() {
         <div className="m-3">
           <p>Compila i campi del form:</p>
           <p>
-            che sia un feedback, una richiesta o semplicemente un
-            ringraziamento.
+            manda un feedback, una richiesta o semplicemente un ringraziamento.
+            <br />
+            Ti rispondiamo a prescindere.
           </p>
         </div>
 
@@ -66,16 +67,17 @@ function Contatti() {
             className="m-2 w-2/3 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
           />
         </form>
-        <a href={"/grazie"}>
-          <input
-            type="submit"
-            value="Invia"
-            className="m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:cursor-pointer hover:border hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
-          ></input>
-        </a>
+        {/* <a href={"/grazie"}> */}
+        <input
+          type="submit"
+          value="Invia"
+          className="m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:cursor-pointer hover:border hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
+        ></input>
+        {/* </a> */}
       </div>
 
       <div className="m-5 text-center py-4 w-auto rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm md:w-2/3 justify-center items-center">
+        <p className="font-bold m-2">Seguici</p>
         <div className="flex justify-center items-center m-10 space-x-10">
           <a
             target="_blank"
@@ -103,6 +105,20 @@ function Contatti() {
           &emsp;
           <a
             target="_blank"
+            href="https://github.com/gioarca/progettoBorghi"
+            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 hover:opacity-50"
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+              width="50"
+              height="50"
+            />
+          </a>
+        </div>
+        <p className="font-bold m-2">Contattaci</p>
+        <div className="flex flex-col justify-center items-center m-5">
+          <a
+            target="_blank"
             href={"mailto: borghisud@gmail.com"}
             className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 hover:opacity-50"
           >
@@ -114,25 +130,21 @@ function Contatti() {
           </a>
           &emsp;
           <a
-            target="_blank"
-            href="https://github.com/gioarca/vite"
-            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 hover:opacity-50"
+            href={"mailto: borghisud@gmail.com"}
+            className="hover:text-red-500 hover:transition-all"
           >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-              width="50"
-              height="50"
-            />
+            borghisud@gmail.com
+          </a>
+          <a
+            href={
+              "https://www.google.it/maps/place/Via+Boccaccio,+80077+Ischia+NA/@40.731406,13.9572645,17z/data=!3m1!4b1!4m6!3m5!1s0x133b6adf93ae0701:0x59a03cd8406c8628!8m2!3d40.731406!4d13.9598394!16s%2Fg%2F1tgtzlvc?entry=ttu"
+            }
+            className="hover:text-red-500 hover:transition-all"
+            target="_blank"
+          >
+            <p>via Boccaccio, Ischia, Italia</p>
           </a>
         </div>
-        <p className="font-bold m-2">Contattaci</p>
-        <a
-          href={"mailto: borghisud@gmail.com"}
-          className="hover:text-red-500 hover:transition-all"
-        >
-          borghisud@gmail.com
-        </a>
-        <p>via Borgo 1, Ischia, Italia</p>
       </div>
     </div>
   );
