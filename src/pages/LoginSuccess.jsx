@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CardForm from "../components/CardForm";
 import Loader from "../components/Loader";
 // import Search from "../components/Search";

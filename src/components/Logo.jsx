@@ -11,6 +11,4 @@ function Logo() {
   );
 }
 
-// will-change-auto transition transition-duration:300ms hover:drop-shadow-lg
-
 export default Logo;

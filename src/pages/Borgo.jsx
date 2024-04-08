@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Arrow from "../components/Arrow";
-import Loader from "../components/Loader"; // loader component
+import Loader from "../components/Loader";
 import Prenota from "../components/Prenota";
 
 function BorgoNew() {

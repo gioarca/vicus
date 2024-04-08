@@ -1,5 +1,4 @@
 import React from "react";
-import Presentazione from "../components/Presentazione";
 import { motion } from "framer-motion";
 import Buttons from "../components/Buttons";
 
