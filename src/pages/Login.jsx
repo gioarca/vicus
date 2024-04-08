@@ -1,5 +1,4 @@
 import React from "react";
-import Registration from "../components/Registration";
 
 function Login() {
   return (
