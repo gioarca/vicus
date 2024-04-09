@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
+
+// const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+// const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+// const REGISTER_URL = "/register";
 
 function Registrazione() {
+  const userRef = useRef();
+  const errRef = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,12 +18,72 @@ function Registrazione() {
     setPassword(event.target.value);
   };
 
+  //   const [errMsg, setErrMsg] = useState("");
+  //   const [success, setSuccess] = useState(false);
+
+  //   useEffect(() => {
+  //     userRef.current.focus();
+  //   }, []);
+
+  //   useEffect(() => {
+  //     setValidName(USER_REGEX.test(user));
+  //   }, [user]);
+
+  //   useEffect(() => {
+  //     setValidPwd(PWD_REGEX.test(pwd));
+  //     setValidMatch(pwd === matchPwd);
+  //   }, [pwd, matchPwd]);
+
+  //   useEffect(() => {
+  //     setErrMsg("");
+  //   }, [user, pwd, matchPwd]);
+
+  //   const handleSubmit = async (e) => {
+  //     e.preventDefault();
+  //     // if button enabled with JS hack
+  //     const v1 = USER_REGEX.test(user);
+  //     const v2 = PWD_REGEX.test(pwd);
+  //     if (!v1 || !v2) {
+  //       setErrMsg("Invalid Entry");
+  //       return;
+  //     }
+  //     try {
+  //       const response = await axios.post(
+  //         REGISTER_URL,
+  //         JSON.stringify({ user, pwd }),
+  //         {
+  //           headers: { "Content-Type": "application/json" },
+  //           withCredentials: true,
+  //         }
+  //       );
+  //       console.log(response?.data);
+  //       console.log(response?.accessToken);
+  //       console.log(JSON.stringify(response));
+  //       setSuccess(true);
+  //       //clear state and controlled inputs
+  //       //need value attrib on inputs for this
+  //       setUser("");
+  //       setPwd("");
+  //       setMatchPwd("");
+  //     } catch (err) {
+  //       if (!err?.response) {
+  //         setErrMsg("No Server Response");
+  //       } else if (err.response?.status === 409) {
+  //         setErrMsg("Username Taken");
+  //       } else {
+  //         setErrMsg("Registration Failed");
+  //       }
+  //       errRef.current.focus();
+  //     }
+  //   };
+
   const handleSignUp = () => {
     // Simulated registration logic
     console.log("Email:", email);
     console.log("Password:", password);
     // Add your actual registration logic here
   };
+
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
       <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">

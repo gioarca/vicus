@@ -4,20 +4,22 @@ function Footer() {
   return (
     <div className="text-center m-4">
       <footer>
-        <div className="inline flex-row m-3">
+        <div className="flex flex-row justify-between m-5">
           <a
             href={"/contatti"}
             className="hover:text-red-500 hover:transition-all"
           >
             Hai bisogno di aiuto?
           </a>
-        </div>
-        <div className="inline flex-row m-3">
+
           <a
             href={"/workinprogress"}
             className="hover:text-red-500 hover:transition-all"
           >
             Blog
+          </a>
+          <a href={"/news"} className="hover:text-red-500 hover:transition-all">
+            News
           </a>
         </div>
         <p>

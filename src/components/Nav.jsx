@@ -40,7 +40,7 @@ const Nav = () => {
         {(ref) => (
           <div
             ref={ref}
-            className="w-screen justify-center items-center text-center block flex-grow lg:flex lg:items-center lg:w-auto"
+            className="relative bg-transparent w-screen justify-center items-center text-center z-10 lg:flex lg:items-center lg:w-auto"
           >
             <div className="text-m lg:flex-grow">
               <a

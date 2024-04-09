@@ -7,7 +7,6 @@ function CardForm({ onAddBorgo }) {
     description: "",
     imgURL: "",
     internetSpeed: "",
-    _id: "",
   });
 
   const handleSubmit = async (e) => {
@@ -28,13 +27,14 @@ function CardForm({ onAddBorgo }) {
         description: "",
         imgURL: "",
         internetSpeed: "",
-        _id: "",
       });
     } catch (error) {
       console.error("Error adding borgo:", error);
     }
   };
-
+  {
+    /* Gestione degli input */
+  }
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -48,13 +48,6 @@ function CardForm({ onAddBorgo }) {
       onSubmit={handleSubmit}
       className="flex flex-col justify-center items-center text-center gap-3 mb-10 bg-grey-200 p-5 rounded-lg m-auto"
     >
-      {/* Input per il campo _id non visualizzato */}
-      <input
-        type="hidden"
-        name="_id"
-        value={formData._id}
-        onChange={handleInputChange}
-      />
       <div className="flex flex-col m-1 w-72">
         <input
           type="text"
@@ -106,17 +99,6 @@ function CardForm({ onAddBorgo }) {
           className="px-4 shadow-sm rounded-lg py-3 bg-gray-100 border border-gray-200 placeholder-gray-500 text-black"
         ></input>
       </div>
-      {/* Aggiungi un campo per l'ID visualizzato */}
-      {/* <div className="flex flex-col m-1 w-72">
-          <input
-            type="text"
-            name="_id"
-            placeholder="ID del Borgo"
-            value={formData._id}
-            onChange={handleInputChange}
-            className="px-4 shadow-sm rounded-lg py-3 bg-gray-100 border border-gray-200 placeholder-gray-500 text-black"
-          />
-        </div>  */}
       <button
         className="m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:cursor-pointer hover:border hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
         type="submit"

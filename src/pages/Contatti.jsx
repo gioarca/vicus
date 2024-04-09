@@ -171,15 +171,15 @@ function Contatti() {
           >
             borghisud@gmail.com
           </a>
-          <a
+          {/* <a
             href={
               "https://www.google.it/maps/place/Via+Boccaccio,+80077+Ischia+NA/@40.731406,13.9572645,17z/data=!3m1!4b1!4m6!3m5!1s0x133b6adf93ae0701:0x59a03cd8406c8628!8m2!3d40.731406!4d13.9598394!16s%2Fg%2F1tgtzlvc?entry=ttu"
             }
             className="hover:text-red-500 hover:transition-all"
             target="_blank"
-          >
-            <p>via Boccaccio, Ischia, Italia</p>
-          </a>
+          > */}
+          <p>via Boccaccio, Ischia, Italia</p>
+          {/* </a> */}
         </div>
       </div>
     </div>
