@@ -3,16 +3,34 @@ import React from "react";
 function Footer() {
   return (
     <div className="text-center m-4">
-      <div className="m-1 text-center justify-center item-center">
-        <a
-          href={"/contatti"}
-          className="hover:text-red-500 hover:transition-all"
-        >
-          Hai bisogno di aiuto?
-        </a>
-      </div>
       <footer>
-        <p>© 2024 The Last Dance All rights reserved</p>
+        <div className="inline flex-row m-3">
+          <a
+            href={"/contatti"}
+            className="hover:text-red-500 hover:transition-all"
+          >
+            Hai bisogno di aiuto?
+          </a>
+        </div>
+        <div className="inline flex-row m-3">
+          <a
+            href={"/workinprogress"}
+            className="hover:text-red-500 hover:transition-all"
+          >
+            Blog
+          </a>
+        </div>
+        <p>
+          Copyright © 2024{" "}
+          <a
+            href={"https://gioarca.netlify.app/"}
+            target="_blank"
+            className="text-red-500"
+          >
+            The Last Dance
+          </a>{" "}
+          All rights reserved
+        </p>
       </footer>
     </div>
   );

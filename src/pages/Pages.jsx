@@ -7,6 +7,7 @@ import Registrazione from "./Registrazione";
 import Contatti from "./Contatti";
 import Work from "./Work";
 import Grazie from "./Grazie";
+import News from "./News";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
@@ -25,6 +26,7 @@ function Pages() {
         <Route path="/contatti" element={<Contatti />} />
         <Route path="/grazie" element={<Grazie />} />
         <Route path="/workinprogress" element={<Work />} />
+        <Route path="/news" element={<News />} />
       </Routes>
     </AnimatePresence> // per il locale
     // <AnimatePresence mode="wait">

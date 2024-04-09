@@ -42,7 +42,7 @@ const Nav = () => {
             ref={ref}
             className="w-screen justify-center items-center text-center block flex-grow lg:flex lg:items-center lg:w-auto"
           >
-            <div className="text-sm lg:flex-grow">
+            <div className="text-m lg:flex-grow">
               <a
                 href={"/about"}
                 className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
@@ -54,6 +54,12 @@ const Nav = () => {
                 className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
               >
                 Borghi
+              </a>
+              <a
+                href={"/news"}
+                className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
+              >
+                Notizie
               </a>
               <a
                 href={"/contatti"}

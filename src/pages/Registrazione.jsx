@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Registrazione() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSignUp = () => {
+    // Simulated registration logic
+    console.log("Email:", email);
+    console.log("Password:", password);
+    // Add your actual registration logic here
+  };
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
       <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
@@ -30,7 +47,7 @@ function Registrazione() {
                       />
                     </svg>
                   </div>
-                  <span className="ml-4">Sign Up with Google</span>
+                  <span className="ml-4">Continua con Google</span>
                 </button>
 
                 <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
@@ -42,39 +59,48 @@ function Registrazione() {
                       />
                     </svg>
                   </div>
-                  <span className="ml-4">Sign Up with GitHub</span>
+                  <span className="ml-4">Continua con GitHub</span>
                 </button>
               </div>
 
               <div className="my-12 border-b text-center">
                 <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                  <p>Or sign up with e-mail</p>
+                  <p>Oppure continua con Email</p>
                 </div>
               </div>
 
               <div className="lg:max-w-l flex flex-col items-center">
+                {/* Input fields for email and password */}
                 <input
                   className="w-full max-w-xs px-8 py-4 mt-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="email"
                   placeholder="Email"
+                  value={email}
+                  onChange={handleEmailChange}
                 />
                 <input
                   className="w-full max-w-xs px-8 py-4 mt-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="password"
                   placeholder="Password"
+                  value={password}
+                  onChange={handlePasswordChange}
                 />
-                {/* <button className="mt-5 px-8 py-4 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border hover:border-red-800 hover:transition hover:ease-in-out lg:w-full"> */}
-                <button className="w-full max-w-xs font-bold shadow-sm py-3 flex items-center justify-center bg-red-800 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
+                {/* Sign up button */}
+                <button
+                  className="w-full max-w-xs font-bold shadow-sm py-3 flex items-center justify-center bg-red-800 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
+                  onClick={handleSignUp}
+                >
                   <span>Iscriviti</span>
                 </button>
+                {/* Agreement text */}
                 <p className="m-5 text-xs text-gray-600 text-center">
-                  I agree to abide by Borghi's &nbsp;
+                  Continuando accetti i &nbsp;
                   <a href="" className="border-b border-gray-500 border-dotted">
-                    Terms of Service
+                    termini del servizio
                   </a>
-                  &nbsp; and its &nbsp;
+                  &nbsp; e la &nbsp;
                   <a href="" className="border-b border-gray-500 border-dotted">
-                    Privacy Policy
+                    privacy policy
                   </a>
                 </p>
               </div>

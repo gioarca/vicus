@@ -9,7 +9,7 @@ function Work() {
     setTimeout(async () => {
       // inserito il timeout di 1.5 secondi
       setIsLoading(false);
-    }, 1500);
+    });
   }, []);
 
   if (isLoading) {
