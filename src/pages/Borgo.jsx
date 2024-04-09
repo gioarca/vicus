@@ -15,14 +15,14 @@ function BorgoNew() {
         // inserito il timeout di 1.5 secondi
         setIsLoading(true);
         const data = await fetch(
-          `https://borghi-backend.onrender.com/api/v1/borgo/${params._id}` // porta per la produzione
-          // `http://localhost:3000/api/v1/borgo/${params._id}` // porta default per il backend
+          // `https://borghi-backend.onrender.com/api/v1/borgo/${params._id}` // porta per la produzione
+          `http://localhost:3000/api/v1/borgo/${params._id}` // porta default per il backend
         );
         const detailBorgo = await data.json();
         setBorghi(detailBorgo);
         // console.log(detailBorgo.name); // manda a schermo qualche dato
         setIsLoading(false);
-      }, 2000);
+      });
     };
     fetchDetails();
   }, []);
@@ -71,17 +71,40 @@ function BorgoNew() {
               <p className="mb-2">
                 Se vuoi ottenere informazioni per i servizi eccoli qui:
               </p>
-              <a href="" className="hover:text-red-500 hover:transition-all">
+              <a
+                href={borghi.aeroporto}
+                target="_blank"
+                className="hover:text-red-500 hover:transition-all"
+              >
                 <li>Aeroporto più vicino</li>
               </a>
-              <a href="" className="hover:text-red-500 hover:transition-all">
+              <a
+                href={borghi.ospedale}
+                target="_blank"
+                className="hover:text-red-500 hover:transition-all"
+              >
                 <li>Ospedale più vicino</li>
               </a>
-              <a href="" className="hover:text-red-500 hover:transition-all">
+              <a
+                href={borghi.comune}
+                target="_blank"
+                className="hover:text-red-500 hover:transition-all"
+              >
                 <li>Sito del comune</li>
               </a>
-              <a href="" className="hover:text-red-500 hover:transition-all">
+              <a
+                href={borghi.scuole}
+                target="_blank"
+                className="hover:text-red-500 hover:transition-all"
+              >
                 <li>Scuole</li>
+              </a>
+              <a
+                href={borghi.coworking}
+                target="_blank"
+                className="hover:text-red-500 hover:transition-all"
+              >
+                <li>Co-Working</li>
               </a>
             </div>
           </div>

@@ -15,17 +15,33 @@ function LoginSuccess() {
       setTimeout(async () => {
         // inserito il timeout di 1.5 secondi
         setIsLoading(true);
-        const data = await fetch(
-          `https://borghi-backend.onrender.com/api/v1/borgo`
-        ); // porta backend solo per la produzione
-        // const data = await fetch(`http://localhost:3000/api/v1/borgo`); // porta per il backend solo per il locale
+        // const data = await fetch(
+        //   `https://borghi-backend.onrender.com/api/v1/borgo`
+        // ); // porta backend solo per la produzione
+        const data = await fetch(`http://localhost:3000/api/v1/borgo`); // porta per il backend solo per il locale
         const borgo = await data.json();
-        setBorghi(borgo);
+        setBorghi(borgo.sort((a, b) => a.name.localeCompare(b.name)));
         setIsLoading(false);
-      }, 1000);
+      });
     };
     fetchDetails();
   }, []);
+
+  const handleAddBorgo = async (newBorgo) => {
+    try {
+      const response = await fetch(`http://localhost:3000/api/v1/borgo`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newBorgo),
+      });
+      const data = await response.json();
+      setBorghi([...borghi, data.data]); // Aggiungiamo il nuovo borgo alla lista dei borghi
+    } catch (error) {
+      console.error("Error adding borgo:", error);
+    }
+  };
 
   if (isLoading) {
     return (
@@ -49,9 +65,9 @@ function LoginSuccess() {
           return (
             <div
               className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300"
-              key={borgo._id}
+              key={borgo._id ? borgo._id : ""}
             >
-              <Link to={"/borgo/" + borgo._id}>
+              <Link to={"/borgo/" + (borgo._id ? borgo._id : "")}>
                 <img
                   className="w-auto overflow-hidden m-auto"
                   src={borgo.imgURL}
@@ -71,7 +87,7 @@ function LoginSuccess() {
         </p>
         <div>
           <div>
-            <CardForm />
+            <CardForm onAddBorgo={handleAddBorgo} />
           </div>
         </div>
       </div>

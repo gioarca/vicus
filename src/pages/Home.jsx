@@ -1,16 +1,24 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Buttons from "../components/Buttons";
+// import Borghi from "../components/Borghi";
 
 function Home() {
   return (
     <motion.div>
       <div className="m-7 text-center">
-        <h1 className="font-bold text-xl m-5">Benvenuto</h1>
-        <p>Qui potrai partecipare al rinascimento dei borghi d'Italia. </p>
+        <h1 className="font-bold text-xl m-5">Benvenutæ nel progetto Borghi</h1>
+        <p>Il nostro obiettivo è rivitalizzare i borghi del Sud Italia.</p>
+        <p className="m-2">
+          Vogliamo valorizzare i comuni italiani dimenticati, grazie alla
+          partecipazione appassionata della nostra community.
+        </p>
         <p>
-          Per cominciare registrati oppure se sei già registrato entra nella
-          piattaforma
+          <code>Desideri unirti a noi?</code>
+        </p>
+        <p>
+          Per saperne di più, registrati o accedi e scopri la nostra
+          piattaforma.
         </p>
       </div>
       <div>
@@ -20,9 +28,12 @@ function Home() {
           className="w-screen h-auto mt-5 bg-cover justify-center items-center text-center relative md:h-5/6 md:w-auto"
         />
       </div>
+      {/* <Borghi /> */}
       <Buttons />
     </motion.div>
   );
 }
 
 export default Home;
+
+// Una Startup nata per riportare vita nei borghi del Sud Italia. Vogliamo creare valore nei comuni italiani dimenticati, grazie alla passione della community. Vuoi farne parte? Per saperne di più registrati oppure esegui il login ed entra nella piattaforma
