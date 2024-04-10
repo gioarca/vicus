@@ -13,7 +13,7 @@ import Dashboard from "./Dashboard";
 import SignOut from "./SignOut";
 
 import { Route, Routes, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Pages() {
   const location = useLocation();

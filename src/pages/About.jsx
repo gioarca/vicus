@@ -18,7 +18,6 @@ function About() {
         <p className="text-2xl font-bold m-3">
           imprenditori, creativi, marketers, sviluppatori e nomadi digitali.
         </p>
-        {/* <p>Per coloro che hanno perso la fiducia nel nostro paese.</p> */}
         <p>
           Per chi desidera abbracciare lo stile di vita autentico dei borghi e
           sfuggire al caos delle metropoli.

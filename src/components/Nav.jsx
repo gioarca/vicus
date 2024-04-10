@@ -12,9 +12,12 @@ function NavBar() {
   const navigate = useNavigate();
 
   const handleSignOut = () => {
-    auth.signOut().then(() => {
-      navigate("/signout"); // Reindirizza dopo il logout
-    });
+    setTimeout(
+      auth.signOut().then(() => {
+        navigate("/signout"); // Reindirizza dopo il logout
+      }),
+      1000
+    );
   };
 
   return (
@@ -159,7 +162,7 @@ function NavBar() {
                   </a>
                   <button
                     onClick={handleSignOut}
-                    className="block mx-20 w-auto font-bold shadow-sm py-2 text-center items-center justify-center bg-red-800 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline lg:inline-block p-4 lg:w-20"
+                    className="block m-auto w-auto font-bold shadow-sm py-1 text-center items-center justify-center bg-red-800 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline lg:inline-block p-4 lg:w-20"
                   >
                     Esci
                   </button>
