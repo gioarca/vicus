@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div className="text-center m-4">
       <footer>
-        <div className="flex flex-row justify-between m-5">
+        <div className="flex flex-row justify-between m-5 sm:mx-[300px] sm:flex-1">
           <a
             href={"/contatti"}
             className="hover:text-red-500 hover:transition-all"

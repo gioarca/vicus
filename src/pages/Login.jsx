@@ -1,39 +1,107 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../utils/firebase";
+
+// import { AiFillFacebook } from "react-icons/ai";
+// import { CgGoogle } from "react-icons/cg";
 
 function Login() {
+  // Sign in with Google
+  const googleProvider = new GoogleAuthProvider();
+  const googleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      console.log(result.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // Sign in with Email
+  const userRef = useRef();
+  const errRef = useRef();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSignUp = () => {
+    // Simulated registration logic
+    console.log("Email:", email);
+    console.log("Password:", password);
+    // Add your actual registration logic here
+  };
+
+  // const handleSignUp = () => {
+  //   // Simulated registration logic
+  //   console.log("Email:", email);
+  //   console.log("Password:", password);
+  //   // Add your actual registration logic here
+  // };
+
   return (
+    // <div className="shadow-xl mt-32 p-10 text-center justify-center items-center rounded-lg">
+    //   <h2 className="text-3xl font-medium ">Join today</h2>
+    //   <div className="py-4">
+    //     <h3 className="py-4">Sign in with one of the providers</h3>
+    //   </div>
+    //   <div className="flex flex-col gap-4">
+    //     <CgGoogle className="text-2xl" />
+    //     <button onClick={googleLogin}>Sign in with Google</button>
+    //   </div>
+    //   <div>
+    //     <AiFillFacebook className="text-2xl" />
+    //     <button>Sign in with Facebook</button>
+    //   </div>
+    // </div>
+
+    // const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+    // const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+    // const REGISTER_URL = "/register";
+
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
       <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
         <div className="lg:w-1/2 sm:p-12">
           <div className="mt-12 flex flex-col items-center">
-            <h1 className="text-2xl xl:text-3xl font-extrabold">Sign up</h1>
+            <h1 className="text-2xl xl:text-3xl font-extrabold">Bentornato</h1>
             <div className="w-full flex-1 mt-8">
               <div className="flex flex-col items-center">
-                <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
-                  <div className="bg-white p-2 rounded-full">
-                    <svg className="w-4" viewBox="0 0 533.5 544.3">
-                      <path
-                        d="M533.5 278.4c0-18.5-1.5-37.1-4.7-55.3H272.1v104.8h147c-6.1 33.8-25.7 63.7-54.4 82.7v68h87.7c51.5-47.4 81.1-117.4 81.1-200.2z"
-                        fill="#4285f4"
-                      />
-                      <path
-                        d="M272.1 544.3c73.4 0 135.3-24.1 180.4-65.7l-87.7-68c-24.4 16.6-55.9 26-92.6 26-71 0-131.2-47.9-152.8-112.3H28.9v70.1c46.2 91.9 140.3 149.9 243.2 149.9z"
-                        fill="#34a853"
-                      />
-                      <path
-                        d="M119.3 324.3c-11.4-33.8-11.4-70.4 0-104.2V150H28.9c-38.6 76.9-38.6 167.5 0 244.4l90.4-70.1z"
-                        fill="#fbbc04"
-                      />
-                      <path
-                        d="M272.1 107.7c38.8-.6 76.3 14 104.4 40.8l77.7-77.7C405 24.6 339.7-.8 272.1 0 169.2 0 75.1 58 28.9 150l90.4 70.1c21.5-64.5 81.8-112.4 152.8-112.4z"
-                        fill="#ea4335"
-                      />
-                    </svg>
-                  </div>
-                  <span className="ml-4">Accedi con Google</span>
-                </button>
-
-                <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
+                <a href={"/loginSuccess"} className=" w-full max-w-xs ">
+                  <button
+                    // onClick={googleLogin}
+                    className="font-bold shadow-sm rounded-lg py-3 bg-indigo-100  flex text-black items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
+                    // className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
+                  >
+                    <div className="bg-white p-2 rounded-full">
+                      <svg className="w-4" viewBox="0 0 533.5 544.3">
+                        <path
+                          d="M533.5 278.4c0-18.5-1.5-37.1-4.7-55.3H272.1v104.8h147c-6.1 33.8-25.7 63.7-54.4 82.7v68h87.7c51.5-47.4 81.1-117.4 81.1-200.2z"
+                          fill="#4285f4"
+                        />
+                        <path
+                          d="M272.1 544.3c73.4 0 135.3-24.1 180.4-65.7l-87.7-68c-24.4 16.6-55.9 26-92.6 26-71 0-131.2-47.9-152.8-112.3H28.9v70.1c46.2 91.9 140.3 149.9 243.2 149.9z"
+                          fill="#34a853"
+                        />
+                        <path
+                          d="M119.3 324.3c-11.4-33.8-11.4-70.4 0-104.2V150H28.9c-38.6 76.9-38.6 167.5 0 244.4l90.4-70.1z"
+                          fill="#fbbc04"
+                        />
+                        <path
+                          d="M272.1 107.7c38.8-.6 76.3 14 104.4 40.8l77.7-77.7C405 24.6 339.7-.8 272.1 0 169.2 0 75.1 58 28.9 150l90.4 70.1c21.5-64.5 81.8-112.4 152.8-112.4z"
+                          fill="#ea4335"
+                        />
+                      </svg>
+                    </div>
+                    <span className="ml-4">Continua con Google</span>
+                  </button>
+                </a>
+                {/* Iscriviti con GitHub, prossimamente */}
+                {/* <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
                   <div className="bg-white p-1 rounded-full">
                     <svg className="w-6" viewBox="0 0 32 32">
                       <path
@@ -42,31 +110,50 @@ function Login() {
                       />
                     </svg>
                   </div>
-                  <span className="ml-4">Accedi con GitHub</span>
-                </button>
+                  <span className="ml-4">Continua con GitHub</span>
+                </button> */}
               </div>
 
               <div className="my-12 border-b text-center">
                 <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                  <p>Oppure esegui il login con la mail di registrazione</p>
+                  <p>Oppure continua con Email</p>
                 </div>
               </div>
 
               <div className="lg:max-w-l flex flex-col items-center">
+                {/* Input fields for email and password */}
                 <input
                   className="w-full max-w-xs px-8 py-4 mt-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="email"
                   placeholder="Email"
+                  value={email}
+                  onChange={handleEmailChange}
                 />
                 <input
                   className="w-full max-w-xs px-8 py-4 mt-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="password"
                   placeholder="Password"
+                  value={password}
+                  onChange={handlePasswordChange}
                 />
-                {/* <button className="mt-5 px-8 py-4 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border hover:border-red-800 hover:transition hover:ease-in-out lg:w-full"> */}
-                <button className="w-full max-w-xs font-bold shadow-sm py-3 flex items-center justify-center bg-red-800 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
-                  <span>Accedi</span>
+                {/* Sign up button */}
+                <button
+                  className="w-full max-w-xs font-bold shadow-sm py-3 flex items-center justify-center bg-red-800 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
+                  onClick={handleSignUp}
+                >
+                  <span>Iscriviti</span>
                 </button>
+                {/* Agreement text */}
+                <p className="m-5 text-xs text-gray-600 text-center">
+                  Continuando accetti i &nbsp;
+                  <a href="" className="border-b border-gray-500 border-dotted">
+                    termini del servizio
+                  </a>
+                  &nbsp; e la &nbsp;
+                  <a href="" className="border-b border-gray-500 border-dotted">
+                    privacy policy
+                  </a>
+                </p>
               </div>
             </div>
           </div>

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { MenuAlt1Icon, XIcon } from "@heroicons/react/outline";
-import { useRef } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../utils/firebase";
+// import { useRef } from "react";
+import { Link } from "react-router-dom";
 
-const Nav = () => {
+function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, loading] = useAuthState(auth);
 
   return (
     <nav className="flex flex-wrap items-center justify-between bg-transparent m-2">
@@ -16,63 +20,157 @@ const Nav = () => {
         </a>
       </div>
 
-      <div className="block m-5">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center px-2 py-2 border-2 rounded hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out"
-        >
-          {isOpen ? (
-            <XIcon className="h-6 w-6" aria-hidden="true" />
-          ) : (
-            <MenuAlt1Icon className="h-6 w-6" aria-hidden="true" />
-          )}
-        </button>
-      </div>
-      <Transition
-        show={isOpen}
-        enter="transition duration-200 ease-out"
-        enterFrom="opacity-0 scale-95"
-        enterTo="opacity-100 scale-100"
-        leave="transition duration-200 ease-in"
-        leaveFrom="opacity-100 scale-100"
-        leaveTo="opacity-0 scale-95"
-      >
-        {(ref) => (
-          <div
-            ref={ref}
-            className="relative bg-transparent w-screen justify-center items-center text-center z-10 lg:flex lg:items-center lg:w-auto"
-          >
-            <div className="text-m lg:flex-grow">
-              <a
-                href={"/about"}
-                className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
-              >
-                Di cosa si tratta?
-              </a>
-              <a
-                href={"/loginSuccess"}
-                className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
-              >
-                Borghi
-              </a>
-              <a
-                href={"/news"}
-                className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
-              >
-                Notizie
-              </a>
-              <a
-                href={"/contatti"}
-                className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
-              >
-                Contatti
-              </a>
-            </div>
+      {/* Navbar senza utente */}
+      {!user && (
+        // <nav className="flex flex-wrap items-center justify-between bg-transparent m-2">
+        <>
+          <div className="block m-5">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex items-center px-2 py-2 border-2 rounded hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out"
+            >
+              {isOpen ? (
+                <XIcon className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <MenuAlt1Icon className="h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
           </div>
-        )}
-      </Transition>
+          <Transition
+            show={isOpen}
+            enter="transition duration-200 ease-out"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
+            leave="transition duration-200 ease-in"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
+          >
+            {(ref) => (
+              <div
+                ref={ref}
+                className="relative bg-transparent w-screen justify-center items-center text-center z-10 lg:flex lg:items-center lg:w-auto"
+              >
+                <div className="text-m lg:flex-grow">
+                  <a
+                    href={"/about"}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
+                  >
+                    Di cosa si tratta?
+                  </a>
+                  <a
+                    href={"/news"}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
+                  >
+                    Notizie
+                  </a>
+                  <a
+                    href={"/contatti"}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
+                  >
+                    Contatti
+                  </a>
+                </div>
+              </div>
+            )}
+          </Transition>
+        </>
+        // </nav>
+      )}
+
+      {/* Navbar con autenticazione utente */}
+      {user && (
+        <>
+          {/* <nav className="flex flex-wrap items-center justify-between bg-transparent m-2"> */}
+          <div className="block m-5">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex items-center px-2 py-2 rounded hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out"
+            >
+              {isOpen ? (
+                <img
+                  src={user.photoURL}
+                  alt=""
+                  referrerPolicy="no-referrer"
+                  className="h-6 w-6 rounded-full items-center justify-center"
+                  aria-hidden="true"
+                />
+              ) : (
+                <img
+                  src={user.photoURL}
+                  alt=""
+                  referrerPolicy="no-referrer"
+                  className="h-6 w-6 rounded-full items-center justify-center"
+                  aria-hidden="true"
+                />
+              )}
+            </button>
+          </div>
+          <Transition
+            show={isOpen}
+            enter="transition duration-200 ease-out"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
+            leave="transition duration-200 ease-in"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
+          >
+            {(ref) => (
+              <div
+                ref={ref}
+                className="relative bg-transparent w-screen justify-center items-center text-center z-10 lg:flex lg:items-center lg:w-auto"
+              >
+                <div className="text-m lg:flex-grow">
+                  <a
+                    href={"/dashboard"}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
+                  >
+                    Account
+                  </a>
+                  <a
+                    href={"/about"}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
+                  >
+                    Di cosa si tratta?
+                  </a>
+                  <a
+                    href={"/loginSuccess"}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
+                  >
+                    Borghi
+                  </a>
+                  <a
+                    href={"/news"}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
+                  >
+                    Notizie
+                  </a>
+                  <a
+                    href={"/contatti"}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
+                  >
+                    Contatti
+                  </a>
+                  <Link
+                    onClick={() =>
+                      auth.signOut().then(<Link to={"/signout"} />)
+                    }
+                  >
+                    <a
+                      // href={"/signout"}
+                      className="block m-3 w-1/2 font-bold shadow-sm py-2 items-center justify-center bg-red-800 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline lg:inline-block p-4 lg:w-20"
+                    >
+                      Esci
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            )}
+          </Transition>
+          {/* </nav> */}
+        </>
+      )}
     </nav>
   );
-};
+}
 
-export default Nav;
+export default NavBar;

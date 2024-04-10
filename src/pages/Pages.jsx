@@ -8,6 +8,10 @@ import Contatti from "./Contatti";
 import Work from "./Work";
 import Grazie from "./Grazie";
 import News from "./News";
+import Nav from "../components/Nav";
+import Dashboard from "./Dashboard";
+import SignOut from "./SignOut";
+
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
@@ -16,6 +20,7 @@ function Pages() {
 
   return (
     <AnimatePresence mode="wait">
+      <Nav />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -27,8 +32,12 @@ function Pages() {
         <Route path="/grazie" element={<Grazie />} />
         <Route path="/workinprogress" element={<Work />} />
         <Route path="/news" element={<News />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/signout" element={<SignOut />} />
       </Routes>
-    </AnimatePresence> // per il locale
+    </AnimatePresence>
+
+    // per il locale
     // <AnimatePresence mode="wait">
     //   <Routes location={location} key={location.pathname}>
     //     <Route path="/" element={<Home />} />
