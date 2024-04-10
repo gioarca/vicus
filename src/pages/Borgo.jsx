@@ -3,6 +3,15 @@ import { useParams } from "react-router-dom";
 import Arrow from "../components/Arrow";
 import Loader from "../components/Loader";
 import Prenota from "../components/Prenota";
+import { PaperAirplaneIcon } from "@heroicons/react/outline";
+import { AcademicCapIcon } from "@heroicons/react/outline";
+import { DesktopComputerIcon } from "@heroicons/react/outline/";
+import { OfficeBuildingIcon } from "@heroicons/react/outline/";
+import { DeviceMobileIcon } from "@heroicons/react/outline/";
+import { HeartIcon } from "@heroicons/react/outline/";
+import { WifiIcon } from "@heroicons/react/outline/";
+import { CurrencyDollarIcon } from "@heroicons/react/outline/";
+import { HomeIcon } from "@heroicons/react/outline/";
 
 function BorgoNew() {
   let params = useParams();
@@ -54,58 +63,95 @@ function BorgoNew() {
             </div>
             <div className="p-5 underline hover:text-red-500 hover:transition-all">
               <a href={borghi.internet} target="_blank">
-                <h3>Velocità Internet</h3>
+                <h3>
+                  <WifiIcon className="h-5 inline-block m-2" />
+                  Velocità Internet
+                </h3>
               </a>
             </div>
             <div className="p-5 underline hover:text-red-500 hover:transition-all">
               <a href={borghi.priceHouses} target="_blank">
-                <h3>Prezzo medio delle case in vendita</h3>
+                <h3>
+                  <CurrencyDollarIcon className="h-5 inline-block m-2" />
+                  Prezzo medio delle case in vendita
+                </h3>
               </a>
             </div>
             <div className="p-5 underline hover:text-red-500 hover:transition-all">
               <a href={borghi.airbnbFilter} target="_blank">
-                <h3>Prezzo medio per un Airbnb per 4 persone</h3>
+                <h3>
+                  <HomeIcon className="h-5 inline-block m-2" />
+                  Prezzo medio per un Airbnb per 4 persone
+                </h3>
               </a>
             </div>
             <div className="p-5">
               <p className="mb-2">
-                Se vuoi ottenere informazioni per i servizi eccoli qui:
+                Se vuoi ottenere informazioni per i servizi locali eccoli qui:
               </p>
-              <a
-                href={borghi.aeroporto}
-                target="_blank"
-                className="hover:text-red-500 hover:transition-all"
-              >
-                <li>Aeroporto più vicino</li>
-              </a>
-              <a
-                href={borghi.ospedale}
-                target="_blank"
-                className="hover:text-red-500 hover:transition-all"
-              >
-                <li>Ospedale più vicino</li>
-              </a>
-              <a
-                href={borghi.comune}
-                target="_blank"
-                className="hover:text-red-500 hover:transition-all"
-              >
-                <li>Sito del comune</li>
-              </a>
-              <a
-                href={borghi.scuole}
-                target="_blank"
-                className="hover:text-red-500 hover:transition-all"
-              >
-                <li>Scuole</li>
-              </a>
-              <a
-                href={borghi.coworking}
-                target="_blank"
-                className="hover:text-red-500 hover:transition-all"
-              >
-                <li>Co-Working</li>
-              </a>
+              <ul>
+                {" "}
+                <a
+                  href={borghi.airport}
+                  target="_blank"
+                  className="hover:text-red-500 hover:transition-all"
+                >
+                  <li>
+                    <PaperAirplaneIcon className="h-5 inline-block m-2" />
+                    Aeroporto più vicino
+                  </li>
+                </a>
+                <a
+                  href={borghi.hospital}
+                  target="_blank"
+                  className="hover:text-red-500 hover:transition-all"
+                >
+                  <li>
+                    <HeartIcon className="h-5 inline-block m-2" />
+                    Ospedale più vicino
+                  </li>
+                </a>
+                <a
+                  href={borghi.app}
+                  target="_blank"
+                  className="hover:text-red-500 hover:transition-all"
+                >
+                  <li>
+                    <DeviceMobileIcon className="h-5 inline-block m-2" />
+                    Servizi APP IO
+                  </li>
+                </a>
+                <a
+                  href={borghi.school}
+                  target="_blank"
+                  className="hover:text-red-500 hover:transition-all"
+                >
+                  <li>
+                    <AcademicCapIcon className="h-5 inline-block m-2" />
+                    Scuole
+                  </li>
+                </a>
+                <a
+                  href={borghi.district}
+                  target="_blank"
+                  className="hover:text-red-500 hover:transition-all"
+                >
+                  <li>
+                    <OfficeBuildingIcon className="h-5 inline-block m-2" />
+                    Sito del comune
+                  </li>
+                </a>
+                <a
+                  href={borghi.coworking}
+                  target="_blank"
+                  className="hover:text-red-500 hover:transition-all"
+                >
+                  <li>
+                    <DesktopComputerIcon className="h-5 inline-block m-2" />
+                    Co-Working
+                  </li>
+                </a>
+              </ul>
             </div>
           </div>
         </div>

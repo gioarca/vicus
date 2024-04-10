@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import CardForm from "../components/CardForm";
+import BorgoForm from "../components/BorgoForm";
 import Loader from "../components/Loader";
 // import Search from "../components/Search";
 
@@ -27,21 +27,21 @@ function LoginSuccess() {
     fetchDetails();
   }, []);
 
-  const handleAddBorgo = async (newBorgo) => {
-    try {
-      const response = await fetch(`http://localhost:3000/api/v1/borgo`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newBorgo),
-      });
-      const data = await response.json();
-      setBorghi([...borghi, data.data]); // Aggiungiamo il nuovo borgo alla lista dei borghi
-    } catch (error) {
-      console.error("Error adding borgo:", error);
-    }
-  };
+  // const handleAddBorgo = async (newBorgo) => {
+  //   try {
+  //     const response = await fetch(`http://localhost:3000/api/v1/borgo`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(newBorgo),
+  //     });
+  //     const data = await response.json();
+  //     setBorghi([...borghi, data.data]); // Aggiungiamo il nuovo borgo alla lista dei borghi
+  //   } catch (error) {
+  //     console.error("Error adding borgo:", error);
+  //   }
+  // };
 
   if (isLoading) {
     return (
@@ -87,7 +87,7 @@ function LoginSuccess() {
         </p>
         <div>
           <div>
-            <CardForm onAddBorgo={handleAddBorgo} />
+            <BorgoForm />
           </div>
         </div>
       </div>

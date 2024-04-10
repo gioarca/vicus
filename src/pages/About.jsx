@@ -1,5 +1,5 @@
 import React from "react";
-import Registrati from "../components/Registrati";
+import Iscriviti from "../components/Iscriviti";
 
 function About() {
   return (
@@ -38,7 +38,7 @@ function About() {
         <p>Se il nostro progetto ti incuriosisce, </p>
         <p>clicca qui sotto per saperne di più e unisciti a noi.</p>
 
-        <Registrati />
+        <Iscriviti />
       </div>
     </div>
   );

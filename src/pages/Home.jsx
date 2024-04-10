@@ -26,7 +26,8 @@ function Home() {
         <img
           src="https://plus.unsplash.com/premium_photo-1676655014315-63ba125eed52?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt=""
-          className="w-screen h-auto mt-5 bg-cover justify-center items-center text-center relative md:bg-cover md:justify-center md:items-center md:relative md:w-full md:h-[500px]"
+          className="w-auto h-auto mt-5 bg-cover justify-center items-center text-center relative sm:bg-cover
+           md:justify-center md:items-center md:relative md:w-auto md:h-[500px]"
         />
       </div>
       {/* <Borghi /> */}

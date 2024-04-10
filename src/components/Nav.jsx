@@ -3,12 +3,19 @@ import { Transition } from "@headlessui/react";
 import { MenuAlt1Icon, XIcon } from "@heroicons/react/outline";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
-// import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import SignOut from "../pages/SignOut";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    auth.signOut().then(() => {
+      navigate("/signout"); // Reindirizza dopo il logout
+    });
+  };
 
   return (
     <nav className="flex flex-wrap items-center justify-between bg-transparent m-2">
@@ -124,7 +131,7 @@ function NavBar() {
                     href={"/dashboard"}
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
                   >
-                    Account
+                    Il tuo Account
                   </a>
                   <a
                     href={"/about"}
@@ -150,18 +157,12 @@ function NavBar() {
                   >
                     Contatti
                   </a>
-                  <Link
-                    onClick={() =>
-                      auth.signOut().then(<Link to={"/signout"} />)
-                    }
+                  <button
+                    onClick={handleSignOut}
+                    className="block mx-20 w-auto font-bold shadow-sm py-2 text-center items-center justify-center bg-red-800 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline lg:inline-block p-4 lg:w-20"
                   >
-                    <a
-                      // href={"/signout"}
-                      className="block m-3 w-1/2 font-bold shadow-sm py-2 items-center justify-center bg-red-800 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline lg:inline-block p-4 lg:w-20"
-                    >
-                      Esci
-                    </a>
-                  </Link>
+                    Esci
+                  </button>
                 </div>
               </div>
             )}
