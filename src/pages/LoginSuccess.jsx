@@ -15,10 +15,10 @@ function LoginSuccess() {
       setTimeout(async () => {
         // inserito il timeout di 1.5 secondi
         setIsLoading(true);
-        // const data = await fetch(
-        //   `https://borghi-backend.onrender.com/api/v1/borgo`
-        // ); // porta backend solo per la produzione
-        const data = await fetch(`http://localhost:3000/api/v1/borgo`); // porta per il backend solo per il locale
+        const data = await fetch(
+          `https://borghi-backend.onrender.com/api/v1/borgo`
+        ); // porta backend solo per la produzione
+        // const data = await fetch(`http://localhost:3000/api/v1/borgo`); // porta per il backend solo per il locale
         const borgo = await data.json();
         setBorghi(borgo.sort((a, b) => a.name.localeCompare(b.name)));
         setIsLoading(false);
