@@ -6,7 +6,7 @@ function News() {
       <div className="text-center text-2xl font-bold">
         <h1>Ultime notizie</h1>
       </div>
-      <div className="flex flex-wrap justify-center grid-flow-row-dense grid-cols-2 grid-rows-3">
+      <div className="flex flex-wrap justify-center grid-flow-row-dense grid-cols-2 grid-rows-2 m-5">
         {/* ABCD */}
         <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
           <a
@@ -18,7 +18,7 @@ function News() {
               alt=""
               className="h-15"
             />
-            <h3 className="flex flex-col text-center m-2">
+            <h3 className="flex flex-col text-center m-5">
               Bari è all’ABCD, l’evento per chi sogna di vivere e lavorare (d)al
               Sud
             </h3>
@@ -38,7 +38,7 @@ function News() {
               alt=""
               className="h-15"
             />
-            <h3 className="flex flex-col text-center m-2">
+            <h3 className="flex flex-col text-center m-5">
               Nomadi digitali, ecco le regole per ottenere il visto e fare smart
               working in Italia.
             </h3>
@@ -59,7 +59,7 @@ function News() {
               alt=""
               className="h-auto"
             />
-            <h3 className="flex flex-col text-center m-2 justify-center items-center">
+            <h3 className="flex flex-col text-center m-5 justify-center items-center">
               Italy has launched its digital nomad visa: Here’s who is eligible
               and how to apply
             </h3>
@@ -80,7 +80,7 @@ function News() {
               alt=""
               className="h-auto"
             />
-            <h3 className="flex flex-col text-center m-2 justify-center items-center">
+            <h3 className="flex flex-col text-center m-5 justify-center items-center">
               Agevolazioni fiscali per trasferirsi negli incantevoli borghi del
               Centro e Sud Italia
             </h3>
@@ -101,7 +101,7 @@ function News() {
               alt=""
               className="h-auto"
             />
-            <h3 className="flex flex-col text-center m-2 justify-center items-center">
+            <h3 className="flex flex-col text-center m-5 justify-center items-center">
               Galoppa lo spopolamento dei piccoli comuni: l’allarme di Antonio
               Decaro
             </h3>
@@ -109,9 +109,67 @@ function News() {
               Clicca per saperne di più
             </p>
           </a>
-          <div className="text-center text-2xl font-bold">
-            <h1>Notizie su eventi a tema digitale</h1>
-          </div>
+        </div>
+        {/* FAI */}
+        <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
+          <a
+            href="https://fondoambiente.it/news/primavera-2024-quattro-luoghi-del-cuore-avranno-nuova-vita"
+            target="_blank"
+            className="flex flex-col text-center justify-center items-center"
+          >
+            <img
+              src="https://www.custorino.it/content/files/2022/07/logo_FAI-.png"
+              alt=""
+              className="h-auto"
+            />
+            <h3 className="flex flex-col text-center m-5 justify-center items-center">
+              Primavera 2024: quattro Luoghi del Cuore avranno nuova vita
+            </h3>
+            <p className="flex flex-col text-red-500 underline text-center m-3 justify-center items-center">
+              Clicca per saperne di più
+            </p>
+          </a>
+        </div>
+        {/* Invitalia.it */}
+        <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
+          <a
+            href="https://www.invitalia.it/cosa-facciamo/rafforziamo-le-imprese/imprese-borghi"
+            target="_blank"
+            className="flex flex-col text-center justify-center items-center"
+          >
+            <img
+              src="https://www.invitalia.it/-/media/invitalia/images/logo/logo-invitalia.png?h=91&la=it-IT&w=149&hash=887E509922305F763EAC1CD453026F9380500845"
+              alt=""
+              className="h-auto"
+            />
+            <h3 className="flex flex-col text-center m-5 justify-center items-center">
+              Supporto delle imprese che operano nei borghi destinatari di
+              finanziamenti PNRR
+            </h3>
+            <p className="flex flex-col text-red-500 underline text-center m-3 justify-center items-center">
+              Clicca per saperne di più
+            </p>
+          </a>
+        </div>
+        {/* Unioncamere.it */}
+        <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
+          <a
+            href="https://sni.unioncamere.it/notizie/incentivo-imprese-borghi"
+            target="_blank"
+            className="flex flex-col text-center justify-center items-center"
+          >
+            <img
+              src="https://sni.unioncamere.it/sites/default/files/immagini/2023-06-06/logo-unioncamere.png"
+              alt=""
+              className="h-auto"
+            />
+            <h3 className="flex flex-col text-center m-5 justify-center items-center">
+              Incentivo Imprese Borghi
+            </h3>
+            <p className="flex flex-col text-red-500 underline text-center m-3 justify-center items-center">
+              Clicca per saperne di più
+            </p>
+          </a>
         </div>
       </div>
     </div>

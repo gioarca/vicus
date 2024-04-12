@@ -38,7 +38,7 @@ function NavBar() {
           <div className="block m-5">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center px-2 py-2 border-2 rounded hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out"
+              className="flex items-center px-2 py-2 rounded hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out"
             >
               {isOpen ? (
                 <XIcon className="h-6 w-6" aria-hidden="true" />

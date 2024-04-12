@@ -24,10 +24,10 @@ function Home() {
       </div>
       <div>
         <img
-          src="https://plus.unsplash.com/premium_photo-1676655014315-63ba125eed52?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt=""
-          className="w-auto h-auto mt-5 bg-cover justify-center items-center text-center relative sm:bg-cover
-           md:justify-center md:items-center md:relative md:w-auto md:h-[500px]"
+          src="https://images.unsplash.com/photo-1696341299290-ce6648b9b97d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          className="w-auto h-auto bg-cover justify-center items-center text-center md:justify-center md:items-center md:w-auto"
+          // className="w-auto h-auto mt-5 bg-cover justify-center items-center text-center relative sm:bg-cover
+          //  md:justify-center md:items-center md:relative md:w-auto md:h-[500px]"
         />
       </div>
       {/* <Borghi /> */}
@@ -36,5 +36,3 @@ function Home() {
 }
 
 export default Home;
-
-// Una Startup nata per riportare vita nei borghi del Sud Italia. Vogliamo creare valore nei comuni italiani dimenticati, grazie alla passione della community. Vuoi farne parte? Per saperne di più registrati oppure esegui il login ed entra nella piattaforma

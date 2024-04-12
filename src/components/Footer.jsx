@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="text-center m-4">
+    <div className="text-center m-8">
       <footer>
         <div className="flex flex-col justify-center items-center">
           <p className="font-bold">Seguici</p>
@@ -26,14 +26,14 @@ function Footer() {
               className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 hover:opacity-50"
             >
               <img
-                src="https://static-00.iconduck.com/assets.00/telegram-icon-512x512-1s8w0tx0.png"
+                src="https://frankmerenda.com/wp-content/uploads/2019/11/telegram-icon-512.png"
                 width="50"
                 height="50"
               />
             </a>
           </div>
         </div>
-        <div className="flex flex-row justify-between m-5 sm:mx-[300px] sm:flex-1">
+        <div className="flex flex-row justify-between m-5 sm:mx-[450px] sm:flex-1">
           <a
             href={"/contatti"}
             className="hover:text-red-500 hover:transition-all"
