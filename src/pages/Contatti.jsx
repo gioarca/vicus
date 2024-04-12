@@ -61,6 +61,7 @@ function Contatti() {
   //     formRef.current.reset();
   //   };
   //className="flex flex-col justify-center items-center"
+
   return (
     <div className="flex flex-col text-center justify-center items-center">
       <div>
@@ -113,7 +114,7 @@ function Contatti() {
       </div>
 
       <div className="m-5 text-center py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm md:w-2/3 justify-center items-center">
-        <p className="font-bold m-2">Seguici</p>
+        {/* <p className="font-bold m-2">Seguici</p>
         <div className="flex justify-center items-center m-10 space-x-10">
           <a
             target="_blank"
@@ -150,7 +151,7 @@ function Contatti() {
               height="50"
             />
           </a>
-        </div>
+        </div> */}
         <p className="font-bold m-2">Contattaci</p>
         <div className="flex flex-col justify-center items-center m-5">
           <a

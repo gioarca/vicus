@@ -11,6 +11,7 @@ import News from "./News";
 import Nav from "../components/Nav";
 import Dashboard from "./Dashboard";
 import SignOut from "./SignOut";
+import Obiettivi from "./Obiettivi";
 
 import { Route, Routes, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -34,6 +35,7 @@ function Pages() {
         <Route path="/news" element={<News />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/signout" element={<SignOut />} />
+        <Route path="/obiettivi" element={<Obiettivi />} />
       </Routes>
     </AnimatePresence>
 

@@ -1,7 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
-// import { AiFillFacebook } from "react-icons/ai";
+import { AiFillFacebook } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { Link } from "react-router-dom";
 
@@ -10,18 +14,18 @@ import { Link } from "react-router-dom";
 // const REGISTER_URL = "/register";
 
 function Registrazione() {
-  const userRef = useRef();
-  const errRef = useRef();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const userRef = useRef();
+  // const errRef = useRef();
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
+  // const handleEmailChange = (event) => {
+  //   setEmail(event.target.value);
+  // };
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
+  // const handlePasswordChange = (event) => {
+  //   setPassword(event.target.value);
+  // };
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -35,10 +39,21 @@ function Registrazione() {
     }
   };
 
-  const handleSignUp = () => {
-    console.log("Email:", email);
-    console.log("Password:", password);
+  // Sign in with Facebook
+  const facebookProvider = new FacebookAuthProvider();
+  const facebookLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, facebookProvider);
+      console.log(result.user);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  // const handleSignUp = () => {
+  //   console.log("Email:", email);
+  //   console.log("Password:", password);
+  // };
 
   return (
     <div className="min-h-full bg-gray-100 text-gray-900 flex justify-center">
@@ -58,6 +73,17 @@ function Registrazione() {
                   </Link>
                 </button>
 
+                {/* Iscriviti con Facebook, prossimamente */}
+                {/* <button
+                  onClick={facebookLogin}
+                  className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
+                >
+                  <Link to={"/dashboard"}>
+                    <AiFillFacebook className="h-10 w-10 inline-block" />
+                    <span className="ml-4">Continua con Facebook</span>
+                  </Link>
+                </button> */}
+
                 {/* Iscriviti con GitHub, prossimamente */}
                 {/* <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
                   <div className="bg-white p-1 rounded-full">
@@ -70,24 +96,30 @@ function Registrazione() {
                   </div>
                   <span className="ml-4">Continua con GitHub</span>
                 </button> */}
-              </div>
 
-              <div className="flex flex-col items-center">
                 <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-transparent border-2 border-red-500 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
                   <Link to={"/login"}>
-                    <span className="ml-4">Hai già un account? Clicca qui</span>
+                    <span>Hai già un account? Clicca qui</span>
                   </Link>
                 </button>
-              </div>
 
-              {/* <div className="my-12 border-b text-center">
+                <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-transparent border-2 border-red-500 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
+                  <Link to={"/contatti"}>
+                    <span>
+                      Sei un'amministrazione o hai una struttura? Clicca qui per
+                      collaborare
+                    </span>
+                  </Link>
+                </button>
+
+                {/* <div className="my-12 border-b text-center">
                 <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
                   <p>Oppure continua con Email</p>
                 </div>
               </div>
 
               <div className="lg:max-w-l flex flex-col items-center">
-                {/* Input fields for email and password
+                {/* Input fields for email and password 
                 <input
                   className="w-full max-w-xs px-8 py-4 mt-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="email"
@@ -109,23 +141,23 @@ function Registrazione() {
                 >
                   <span>Iscriviti</span>
                 </button> */}
-              {/* Agreement text */}
-              <p className="m-5 text-xs text-gray-600 text-center">
-                Continuando accetti i &nbsp;
-                <a href="" className="border-b border-gray-500 border-dotted">
-                  termini del servizio
-                </a>
-                &nbsp; e la &nbsp;
-                <a href="" className="border-b border-gray-500 border-dotted">
-                  privacy policy
-                </a>
-              </p>
+                {/* Agreement text */}
+                <p className="m-5 text-xs text-gray-600 text-center">
+                  Continuando accetti i &nbsp;
+                  <a href="" className="border-b border-gray-500 border-dotted">
+                    termini del servizio
+                  </a>
+                  &nbsp; e la &nbsp;
+                  <a href="" className="border-b border-gray-500 border-dotted">
+                    privacy policy
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    // </div>
   );
 }
 

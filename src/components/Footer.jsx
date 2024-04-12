@@ -4,6 +4,35 @@ function Footer() {
   return (
     <div className="text-center m-4">
       <footer>
+        <div className="flex flex-col justify-center items-center">
+          <p className="font-bold">Seguici</p>
+          <div className="flex justify-center items-center m-10 space-x-10">
+            <a
+              target="_blank"
+              href="https://www.instagram.com/borghi_sud/"
+              className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 hover:opacity-50"
+            >
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/014/414/683/non_2x/instagram-black-logo-on-transparent-background-free-vector.jpg"
+                width="50"
+                height="50"
+                className="bg-transparent"
+              />
+            </a>
+            &emsp;
+            <a
+              target="_blank"
+              href="https://t.me/+itBwf1Ed0DNjMjdk"
+              className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300 hover:opacity-50"
+            >
+              <img
+                src="https://static-00.iconduck.com/assets.00/telegram-icon-512x512-1s8w0tx0.png"
+                width="50"
+                height="50"
+              />
+            </a>
+          </div>
+        </div>
         <div className="flex flex-row justify-between m-5 sm:mx-[300px] sm:flex-1">
           <a
             href={"/contatti"}

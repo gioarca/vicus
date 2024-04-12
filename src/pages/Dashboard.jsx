@@ -44,9 +44,11 @@ function Dashboard() {
             </div>
             <div className="m-5">
               <p className="text-center">Cosa puoi fare qui?</p>
-              <p className="text-left m-5">
+              <p className="text-center m-5">
                 All'interno della piattaforma puoi ottenere informazioni sui
-                borghi del sud Italia
+                borghi, prenotare un’esperienza presso una delle strutture
+                oppure leggere le ultime notizie su leggi e su come si sta
+                evolvendo il nomadismo digitale in Italia.
               </p>
             </div>
             <div className="text-center items-center justify-center">
@@ -66,7 +68,7 @@ function Dashboard() {
             </div>
             <div className="text-center items-center justify-center">
               <a href={"/workinprogress"}>
-                <button className="m-5 px-8 w-80 py-2 font-semibold bg-white text-black rounded-full hover:bg-white hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out">
+                <button className="m-5 px-8 w-80 py-2 font-semibold border-2 bg-white text-black rounded-full hover:bg-white hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out">
                   Le tue prenotazioni
                 </button>
               </a>

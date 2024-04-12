@@ -3,9 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { Link } from "react-router-dom";
-
-// import { AiFillFacebook } from "react-icons/ai";
-// import { CgGoogle } from "react-icons/cg";
+import { AiFillFacebook } from "react-icons/ai";
 
 function Login() {
   // Sign in with Google
@@ -18,6 +16,18 @@ function Login() {
       console.log(error);
     }
   };
+
+  // Sign in with Facebook
+  const facebookProvider = new GoogleAuthProvider();
+  const facebookLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, facebookProvider);
+      console.log(result.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   // Sign in with Email
   const userRef = useRef();
   const errRef = useRef();
@@ -81,7 +91,17 @@ function Login() {
                 >
                   <Link to={"/dashboard"}>
                     <FcGoogle className="bg-white h-10 w-10 rounded-full inline-block" />
-                    <span className="ml-4">Continua con Google</span>
+                    <span className="ml-4">Accedi con Google</span>
+                  </Link>
+                </button>
+
+                <button
+                  // onClick={facebookLogin}
+                  className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
+                >
+                  <Link to={"/dashboard"}>
+                    <AiFillFacebook className="h-10 w-10 inline-block" />
+                    <span className="ml-4">Accedi con Facebook</span>
                   </Link>
                 </button>
                 {/* Iscriviti con GitHub, prossimamente */}
@@ -96,17 +116,23 @@ function Login() {
                   </div>
                   <span className="ml-4">Continua con GitHub</span>
                 </button> */}
-              </div>
 
-              <div className="flex flex-col items-center">
                 <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-transparent border-2 border-red-500 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
                   <Link to={"/registrazione"}>
-                    <span className="ml-4">Non hai un account? Clicca qui</span>
+                    <span>Non hai un account? Clicca qui</span>
                   </Link>
                 </button>
-              </div>
 
-              {/* <div className="my-12 border-b text-center">
+                <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-transparent border-2 border-red-500 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
+                  <Link to={"/contatti"}>
+                    <span>
+                      Sei un'amministrazione o hai una struttura? Clicca qui per
+                      collaborare
+                    </span>
+                  </Link>
+                </button>
+
+                {/* <div className="my-12 border-b text-center">
                 <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
                   <p>Oppure continua con Email</p>
                 </div>
@@ -135,23 +161,23 @@ function Login() {
                 >
                   <span>Iscriviti</span>
                 </button> */}
-              {/* Agreement text */}
-              <p className="m-5 text-xs text-gray-600 text-center">
-                Continuando accetti i &nbsp;
-                <a href="" className="border-b border-gray-500 border-dotted">
-                  termini del servizio
-                </a>
-                &nbsp; e la &nbsp;
-                <a href="" className="border-b border-gray-500 border-dotted">
-                  privacy policy
-                </a>
-              </p>
+                {/* Agreement text */}
+                <p className="m-5 text-xs text-gray-600 text-center">
+                  Continuando accetti i &nbsp;
+                  <a href="" className="border-b border-gray-500 border-dotted">
+                    termini del servizio
+                  </a>
+                  &nbsp; e la &nbsp;
+                  <a href="" className="border-b border-gray-500 border-dotted">
+                    privacy policy
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    // </div>
   );
 }
 

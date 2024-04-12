@@ -7,6 +7,26 @@ function News() {
         <h1>Ultime notizie</h1>
       </div>
       <div className="flex flex-wrap justify-center grid-flow-row-dense grid-cols-2 grid-rows-3">
+        {/* ABCD */}
+        <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
+          <a
+            href="https://www.ilsole24ore.com/art/bari-e-all-abcd-l-evento-chi-sogna-vivere-e-lavorare-dal-sud-AF9dcDSD?refresh_ce=1"
+            target="_blank"
+          >
+            <img
+              src="https://i2.res.24o.it/images2010/S24/Documenti/2024/04/11/Immagini/Ritagli/abcd_2-k4NI-U63875736883lDl-1440x624@IlSole24Ore-Web.jpg?r=1300x564"
+              alt=""
+              className="h-15"
+            />
+            <h3 className="flex flex-col text-center m-2">
+              Bari è all’ABCD, l’evento per chi sogna di vivere e lavorare (d)al
+              Sud
+            </h3>
+            <p className="flex flex-col text-center m-3 text-red-500 underline">
+              Clicca per saperne di più
+            </p>
+          </a>
+        </div>
         {/* IlSole24Ore */}
         <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
           <a
@@ -89,6 +109,9 @@ function News() {
               Clicca per saperne di più
             </p>
           </a>
+          <div className="text-center text-2xl font-bold">
+            <h1>Notizie su eventi a tema digitale</h1>
+          </div>
         </div>
       </div>
     </div>

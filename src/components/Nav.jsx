@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, createRef } from "react";
 import { Transition } from "@headlessui/react";
 import { MenuAlt1Icon, XIcon } from "@heroicons/react/outline";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
-import SignOut from "../pages/SignOut";
+import { Link, useNavigate } from "react-router-dom";
+// import SignOut from "../pages/SignOut";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
+  const divRef = createRef();
 
   const handleSignOut = () => {
     setTimeout(
@@ -24,7 +25,7 @@ function NavBar() {
     <nav className="flex flex-wrap items-center justify-between bg-transparent m-2">
       <div className="flex items-center text-black">
         <a href={"/"}>
-          <span className="font-semibold text-xl tracking-tight m-10">
+          <span className="font-semibold text-xl tracking-tight flex m-10 w-auto transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110 hover:duration-300 hover:opacity-50">
             BORGHI
           </span>
         </a>
@@ -55,9 +56,11 @@ function NavBar() {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            {(ref) => (
+            {(divRef) => (
               <div
-                ref={ref}
+                ref={(ref) => {
+                  divRef.current = ref;
+                }}
                 className="relative bg-transparent w-screen justify-center items-center text-center z-10 lg:flex lg:items-center lg:w-auto"
               >
                 <div className="text-m lg:flex-grow">
@@ -66,6 +69,12 @@ function NavBar() {
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
                   >
                     Di cosa si tratta?
+                  </a>
+                  <a
+                    href={"/obiettivi"}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
+                  >
+                    Obiettivi
                   </a>
                   <a
                     href={"/news"}
@@ -91,30 +100,30 @@ function NavBar() {
       {user && (
         <>
           {/* <nav className="flex flex-wrap items-center justify-between bg-transparent m-2"> */}
-          <div className="block m-5">
+          <div className="flex px-2 m-4">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center px-2 py-2 rounded hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out"
+              className="flex items-center px-2 py-2 border-none rounded hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out"
             >
               {isOpen ? (
-                <img
-                  src={user.photoURL}
-                  alt=""
-                  referrerPolicy="no-referrer"
-                  className="h-6 w-6 rounded-full items-center justify-center"
-                  aria-hidden="true"
-                />
+                <XIcon className="h-6 w-6" aria-hidden="true" />
               ) : (
-                <img
-                  src={user.photoURL}
-                  alt=""
-                  referrerPolicy="no-referrer"
-                  className="h-6 w-6 rounded-full items-center justify-center"
-                  aria-hidden="true"
-                />
+                <MenuAlt1Icon className="h-6 w-6" aria-hidden="true" />
               )}
             </button>
+            <Link to={"/dashboard"}>
+              <button className="flex items-center px-2 py-2 rounded hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out">
+                <img
+                  src={user.photoURL}
+                  alt={user.name}
+                  referrerPolicy="no-referrer"
+                  className="h-6 w-6 rounded-full items-center justify-center"
+                  aria-hidden="true"
+                />
+              </button>
+            </Link>
           </div>
+
           <Transition
             show={isOpen}
             enter="transition duration-200 ease-out"
@@ -126,7 +135,9 @@ function NavBar() {
           >
             {(ref) => (
               <div
-                ref={ref}
+                ref={(ref) => {
+                  divRef.current = ref;
+                }}
                 className="relative bg-transparent w-screen justify-center items-center text-center z-10 lg:flex lg:items-center lg:w-auto"
               >
                 <div className="text-m lg:flex-grow">
@@ -147,6 +158,12 @@ function NavBar() {
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
                   >
                     Borghi
+                  </a>
+                  <a
+                    href={"/obiettivi"}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
+                  >
+                    Obiettivi
                   </a>
                   <a
                     href={"/news"}

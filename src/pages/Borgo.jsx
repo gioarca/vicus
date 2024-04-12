@@ -61,40 +61,65 @@ function BorgoNew() {
               <h3 className="py-1 underline">Descrizione</h3>
               <p>{borghi.description}</p>
             </div>
-            <div className="p-5 underline hover:text-red-500 hover:transition-all">
-              <a href={borghi.internet} target="_blank">
+            <div className="p-5">
+              <a
+                href={borghi.internet}
+                target="_blank"
+                className=" underline hover:text-red-500 hover:transition-all"
+              >
                 <h3>
                   <WifiIcon className="h-5 inline-block m-2" />
                   Velocità Internet
                 </h3>
               </a>
+              <p>
+                Qualità media della connessione locale del wi-fi, dacci uno
+                sguardo
+              </p>
             </div>
-            <div className="p-5 underline hover:text-red-500 hover:transition-all">
-              <a href={borghi.priceHouses} target="_blank">
+            <div className="p-5">
+              <a
+                href={borghi.priceHouses}
+                target="_blank"
+                className="underline hover:text-red-500 hover:transition-all"
+              >
                 <h3>
                   <CurrencyDollarIcon className="h-5 inline-block m-2" />
                   Prezzo medio delle case in vendita
                 </h3>
               </a>
-            </div>
-            <div className="p-5 underline hover:text-red-500 hover:transition-all">
-              <a href={borghi.airbnbFilter} target="_blank">
-                <h3>
-                  <HomeIcon className="h-5 inline-block m-2" />
-                  Prezzo medio per un Airbnb per 4 persone
-                </h3>
-              </a>
+              <p>
+                Vorresti trasferirti e comprare casa qui? Dai un'occhiata ai
+                prezzi qui sopra
+              </p>
             </div>
             <div className="p-5">
+              <a
+                href={borghi.priceHouses}
+                target="_blank"
+                className="underline hover:text-red-500 hover:transition-all"
+              >
+                <h3>
+                  <HomeIcon className="h-5 inline-block m-2" />
+                  Prezzo medio per un Airbnb
+                </h3>
+              </a>
+              <p>
+                Al momento non abbiamo ancora una struttura dove ospitare tutti
+                i membri, ma qui sopra c'è un prezzo indicativo per un gruppo di
+                4 persone (il numero è arbitrario)
+              </p>
+            </div>
+            <div className="px-5 py-10">
               <p className="mb-2">
-                Se vuoi ottenere informazioni per i servizi locali eccoli qui:
+                Se vuoi ottenere più informazioni sui servizi locali clicca sui
+                link qui sotto:
               </p>
               <ul>
-                {" "}
                 <a
                   href={borghi.airport}
                   target="_blank"
-                  className="hover:text-red-500 hover:transition-all"
+                  className="hover:text-red-500 hover:transition-all "
                 >
                   <li>
                     <PaperAirplaneIcon className="h-5 inline-block m-2" />
