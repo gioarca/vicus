@@ -1,15 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Buttons from "../components/Buttons";
+import { useTranslation } from "react-i18next";
 // import Borghi from "../components/Borghi";
 
 function Home() {
+  const { t } = useTranslation();
+
   return (
     <motion.div>
       <div className="m-7 text-center">
-        <h1 className="font-bold text-2xl m-5">
-          Tutto ciò di cui avevi bisogno per lavorare e restare al Sud Italia
-        </h1>
+        <h1 className="font-bold text-2xl m-5">{t("greeting")}</h1>
         {/* <h1 className="font-bold text-2xl m-5">
           Benvenuta/o nel progetto Borghi
         </h1> */}

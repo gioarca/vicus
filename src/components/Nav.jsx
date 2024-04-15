@@ -4,7 +4,7 @@ import { MenuAlt1Icon, XIcon } from "@heroicons/react/outline";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
 import { Link, useNavigate } from "react-router-dom";
-// import SignOut from "../pages/SignOut";
+import LanguageSelector from "./LanguageSelector";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +35,7 @@ function NavBar() {
       {!user && (
         // <nav className="flex flex-wrap items-center justify-between bg-transparent m-2">
         <>
-          <div className="block m-5">
+          <div className="inline m-5">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="flex items-center px-2 py-2 rounded hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out"
@@ -64,6 +64,9 @@ function NavBar() {
                 className="relative bg-transparent w-screen justify-center items-center text-center z-10 lg:flex lg:items-center lg:w-auto"
               >
                 <div className="text-m lg:flex-grow lg:visible lg">
+                  <a className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500">
+                    <LanguageSelector />
+                  </a>
                   <a
                     href={"/about"}
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
@@ -99,7 +102,6 @@ function NavBar() {
       {/* Navbar con autenticazione utente */}
       {user && (
         <>
-          {/* <nav className="flex flex-wrap items-center justify-between bg-transparent m-2"> */}
           <div className="flex px-2 m-4">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -138,15 +140,12 @@ function NavBar() {
                 ref={(ref) => {
                   divRef.current = ref;
                 }}
-                className="flex flex-col bg-transparent w-auto m-auto justify-center items-center text-center z-10 lg:flex lg:items-center lg:w-auto"
+                className="relative bg-transparent w-screen justify-center items-center text-center z-10 lg:flex lg:items-center lg:w-auto"
               >
                 <div className="text-m lg:flex-grow">
-                  {/* <a
-                    href={"/dashboard"}
-                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
-                  >
-                    Il tuo Account
-                  </a> */}
+                  <a className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500">
+                    <LanguageSelector />
+                  </a>
                   <a
                     href={"/about"}
                     className="block m-3 text-center lg:inline-block lg:mt-0 hover:text-red-500"
@@ -159,18 +158,6 @@ function NavBar() {
                   >
                     Borghi
                   </a>
-                  {/* <a
-                    href={"/obiettivi"}
-                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
-                  >
-                    Obiettivi
-                  </a> */}
-                  {/* <a
-                    href={"/news"}
-                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
-                  >
-                    Notizie
-                  </a> */}
                   <a
                     href={"/contatti"}
                     className="block m-3 text-center lg:inline-block lg:mt-0 hover:text-red-600"

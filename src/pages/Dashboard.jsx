@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import Login from "./Login";
 import Registrazione from "./Registrazione";
 import { useNavigate } from "react-router-dom";
-import { HeartIcon } from "@heroicons/react/outline/";
 
 function Dashboard() {
   const [user, isLoading] = useAuthState(auth);
@@ -38,23 +37,27 @@ function Dashboard() {
           <div className="lg:w-1/2 sm:p-12">
             <div className="mt-12 flex flex-col items-center">
               <h1 className="text-2xl xl:text-3xl font-extrabold text-center">
-                Ciao <HeartIcon className="h-8 inline-block" />
+                Ciao{" "}
+                <span role="img" aria-label="hi" className="h-5">
+                  👋
+                </span>
               </h1>
               <p className="text-xl">{user.displayName}</p>
             </div>
             <div className="m-5">
-              <p className="text-center">Cosa puoi fare qui?</p>
+              {/* <p className="text-center">Cosa puoi fare qui?</p> */}
               <p className="text-center m-5">
-                All'interno della piattaforma puoi ottenere informazioni sui
+                All'interno della piattaforma puoi:
+                {/* ottenere informazioni sui
                 borghi, prenotare un’esperienza presso una delle strutture
                 oppure leggere le ultime notizie su leggi e su come si sta
-                evolvendo il nomadismo digitale in Italia.
+                evolvendo il nomadismo digitale in Italia. */}
               </p>
             </div>
             <div className="text-center items-center justify-center">
               <a href={"/loginSuccess"}>
                 <button className="m-5 px-8 w-80 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
-                  Cicca qui per accedere ai borghi
+                  Accedere ai borghi
                 </button>
               </a>
             </div>
@@ -62,14 +65,14 @@ function Dashboard() {
             <div className="text-center items-center justify-center">
               <a href={"/news"}>
                 <button className="m-5 px-8 w-80 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
-                  Last News
+                  Leggere le ultime notizie
                 </button>
               </a>
             </div>
             <div className="text-center items-center justify-center">
               <a href={"/workinprogress"}>
                 <button className="m-5 px-8 w-80 py-2 font-semibold border-2 bg-white text-black rounded-full hover:bg-white hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out">
-                  Le tue prenotazioni
+                  Vedere le tue prenotazioni
                 </button>
               </a>
             </div>
@@ -78,7 +81,7 @@ function Dashboard() {
                 onClick={handleSignOut}
                 className="m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
               >
-                Log Out
+                Esci
               </button>
             </div>
           </div>

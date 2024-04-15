@@ -33,29 +33,29 @@ function Footer() {
             </a>
           </div>
         </div>
-        <div className="flex flex-col justify-between m-5 sm:mx-[450px] sm:flex-row">
+        <div className="flex flex-col justify-between m-5 sm:mx-[200px] sm:flex sm:flex-row lg:mx-[400px]">
           <a
             href={"/contatti"}
-            className="block m-1 lg:inline-block lg:mt-0 hover:text-red-600"
+            className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"
           >
             Hai bisogno di aiuto?
           </a>
           <a
             href={"/obiettivi"}
-            className="block m-1 lg:inline-block lg:mt-0 hover:text-red-600"
+            className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"
           >
             Obiettivi
           </a>
 
           <a
             href={"/workinprogress"}
-            className="block m-1 lg:inline-block lg:mt-0 hover:text-red-600"
+            className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"
           >
             Blog
           </a>
           <a
             href={"/news"}
-            className="block m-1 lg:inline-block lg:mt-0 hover:text-red-600"
+            className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"
           >
             News
           </a>

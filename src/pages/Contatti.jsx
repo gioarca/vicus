@@ -65,15 +65,13 @@ function Contatti() {
   return (
     <div className="flex flex-col text-center justify-center items-center">
       <div>
-        {" "}
-        {/*  className="flex flex-col items-center justify-center" */}
         <div className="m-3">
           <p>Compila i campi del form:</p>
           <p>
             mandaci un feedback, una richiesta o semplicemente un
             ringraziamento.
             <br />
-            Ti rispondiamo a prescindere.
+            Ti rispondiamo, sempre.
           </p>
         </div>
         <form

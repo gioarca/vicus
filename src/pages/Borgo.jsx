@@ -167,7 +167,7 @@ function BorgoNew() {
                   </li>
                 </a>
                 <a
-                  href={borghi.coworking}
+                  href={borghi.coworking ? borghi.coworking : "/workinprogress"}
                   target="_blank"
                   className="hover:text-red-500 hover:transition-all"
                 >

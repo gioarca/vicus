@@ -68,6 +68,26 @@ function News() {
             </p>
           </a>
         </div>
+        {/* The independent */}
+        <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
+          <a
+            href="https://www.independent.co.uk/travel/europe/italy/italy-one-euro-homes-buy-house-b2470838.html"
+            target="_blank"
+            className="flex flex-col text-center justify-center items-center"
+          >
+            <img
+              src="https://www.independentadvertising.com/wp-content/uploads/2023/06/INDY_BRAND-scaled.jpg"
+              alt=""
+              className="h-auto"
+            />
+            <h3 className="flex flex-col text-center m-5 justify-center items-center">
+              Italy’s one euro houses: Who can buy one and how does it work?
+            </h3>
+            <p className="flex flex-col text-red-500 underline text-center m-3 justify-center items-center">
+              Clicca per saperne di più
+            </p>
+          </a>
+        </div>
         {/* Italia.it */}
         <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
           <a
@@ -99,13 +119,13 @@ function News() {
             <img
               src="https://www.lentepubblica.it/wp-content/themes/lentepubblica/immagini/lentepubblica.svg"
               alt=""
-              className="h-auto"
+              className="flex h-auto text-center justify-center my-12"
             />
-            <h3 className="flex flex-col text-center m-5 justify-center items-center">
+            <h3 className="flex flex-col text-center my-16 justify-center items-center">
               Galoppa lo spopolamento dei piccoli comuni: l’allarme di Antonio
               Decaro
             </h3>
-            <p className="flex flex-col text-red-500 underline text-center m-3 justify-center items-center">
+            <p className="flex flex-col text-red-500 underline text-center m-5 justify-center items-center">
               Clicca per saperne di più
             </p>
           </a>
@@ -170,6 +190,95 @@ function News() {
               Clicca per saperne di più
             </p>
           </a>
+        </div>
+
+        {/* Youtube */}
+        <div className="flex text-center justify-center m-5 text-xl font-bold">
+          <p>Qui invece trovi alcuni video interessanti</p>
+        </div>
+        <div className="flex flex-wrap justify-center grid-flow-row-dense grid-cols-2 grid-rows-2 m-5">
+          <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
+            <a
+              href="https://www.youtube.com/watch?v=nSAZz2kHAus"
+              target="_blank"
+              className="flex flex-col text-center justify-center items-center"
+            >
+              <img
+                src="https://i.ytimg.com/vi/NHfoS8OLCyQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDzUlpv0ct3RRCo-Jal4-pRrVFW4Q"
+                alt=""
+                className="h-auto"
+              />
+              <h3 className="flex flex-col text-center m-6 justify-center items-center">
+                SPOPOLAMENTO al SUD: nel 2080 oltre 8 milioni di residenti in
+                meno
+              </h3>
+              <p className="flex flex-col text-red-500 underline text-center m-3 justify-center items-center">
+                Clicca per vedere il video
+              </p>
+            </a>
+          </div>
+          {/* Yotube casa in sicilia */}
+          <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
+            <a
+              href="https://www.youtube.com/watch?v=oXP5fdFq2Xc"
+              target="_blank"
+              className="flex flex-col text-center justify-center items-center"
+            >
+              <img
+                src="https://www.newscaststudio.com/wp-content/uploads/2024/03/make-it-logo.png"
+                alt=""
+                className="h-auto"
+              />
+              <h3 className="flex flex-col text-center m-5 justify-center items-center">
+                I Bought A Home In Sicily For $62,000 - Now I Live In Both
+                America & Italy
+              </h3>
+              <p className="flex flex-col text-red-500 underline text-center m-3 justify-center items-center">
+                Clicca per vedere il video
+              </p>
+            </a>
+          </div>
+          {/* Yotube casa in sicilia */}
+          <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
+            <a
+              href="https://www.youtube.com/watch?v=AC6KRdKOKeI"
+              target="_blank"
+              className="flex flex-col text-center justify-center items-center"
+            >
+              <img
+                src="https://www.repstatic.it/cless/main/nazionale/2013-v1/img/common/favicon/favicon-1500.png"
+                alt=""
+                className="h-auto"
+              />
+              <h3 className="flex flex-col text-center m-5 justify-center items-center">
+                Cecilia, l'argentina che ha comprato casa a un euro in Sicilia:
+                "Voglio vivere qui"
+              </h3>
+              <p className="flex flex-col text-red-500 underline text-center m-3 justify-center items-center">
+                Clicca per vedere il video
+              </p>
+            </a>
+          </div>
+          {/* Yotube casa in sicilia */}
+          <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
+            <a
+              href="https://www.youtube.com/watch?v=814SuM8gQCs"
+              target="_blank"
+              className="flex flex-col text-center justify-center items-center"
+            >
+              <img
+                src="https://logowik.com/content/uploads/images/cnbc4159.jpg"
+                alt=""
+                className="h-auto"
+              />
+              <h3 className="flex flex-col text-center m-5 justify-center items-center">
+                Americans Bought Abandoned $1 Homes In Italy — Was It Worth It?
+              </h3>
+              <p className="flex flex-col text-red-500 underline text-center m-3 justify-center items-center">
+                Clicca per vedere il video
+              </p>
+            </a>
+          </div>
         </div>
       </div>
     </div>
