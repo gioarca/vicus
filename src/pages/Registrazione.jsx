@@ -65,13 +65,25 @@ function Registrazione() {
               <div className="flex flex-col items-center">
                 <button
                   onClick={googleLogin}
-                  className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
+                  className="w-full max-w-xs font-bold shadow-sm rounded-full py-3 bg-transparent border-2 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
                 >
                   <Link to={"/dashboard"}>
                     <FcGoogle className="bg-white h-10 w-10 rounded-full inline-block" />
                     <span className="ml-4">Continua con Google</span>
                   </Link>
                 </button>
+
+                {/* Agreement text */}
+                <p className="m-5 text-xs text-gray-600 text-center">
+                  Continuando accetti i &nbsp;
+                  <a href="" className="border-b border-gray-500 border-dotted">
+                    termini del servizio
+                  </a>
+                  &nbsp; e la &nbsp;
+                  <a href="" className="border-b border-gray-500 border-dotted">
+                    privacy policy
+                  </a>
+                </p>
 
                 {/* Iscriviti con Facebook, prossimamente */}
                 {/* <button
@@ -97,17 +109,20 @@ function Registrazione() {
                   <span className="ml-4">Continua con GitHub</span>
                 </button> */}
 
-                <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-transparent border-2 border-red-500 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
+                <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-transparent border-none border-slate text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
                   <Link to={"/login"}>
-                    <span>Hai già un account? Clicca qui</span>
+                    <span>
+                      Hai già un account?{" "}
+                      <p className="text-red-600">Clicca qui</p>
+                    </span>
                   </Link>
                 </button>
 
-                <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-transparent border-2 border-red-500 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
+                <button className="mb-5 w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-transparent border-none border-slate text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
                   <Link to={"/contatti"}>
                     <span>
-                      Sei un'amministrazione o hai una struttura? Clicca qui per
-                      collaborare
+                      Sei un'amministrazione o hai una struttura?{" "}
+                      <p className="text-red-600">Clicca qui per collaborare</p>
                     </span>
                   </Link>
                 </button>
@@ -141,17 +156,6 @@ function Registrazione() {
                 >
                   <span>Iscriviti</span>
                 </button> */}
-                {/* Agreement text */}
-                <p className="m-5 text-xs text-gray-600 text-center">
-                  Continuando accetti i &nbsp;
-                  <a href="" className="border-b border-gray-500 border-dotted">
-                    termini del servizio
-                  </a>
-                  &nbsp; e la &nbsp;
-                  <a href="" className="border-b border-gray-500 border-dotted">
-                    privacy policy
-                  </a>
-                </p>
               </div>
             </div>
           </div>

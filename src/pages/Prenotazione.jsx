@@ -4,8 +4,8 @@ import BorgoForm from "../components/BorgoForm";
 import Loader from "../components/Loader";
 // import Search from "../components/Search";
 
-function LoginSuccess() {
-  const [borghi, setBorghi] = useState([]);
+function Prenotazione() {
+  //   const [borghi, setBorghi] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -15,33 +15,17 @@ function LoginSuccess() {
       setTimeout(async () => {
         // inserito il timeout di 1.5 secondi
         setIsLoading(true);
-        const data = await fetch(
-          `https://borghi-backend.onrender.com/api/v1/borgo`
-        ); // porta backend solo per la produzione
-        // const data = await fetch(`http://localhost:3000/api/v1/borgo`); // porta per il backend solo per il locale
+        // const data = await fetch(
+        //   `https://borghi-backend.onrender.com/api/v1/borgo`
+        // ); // porta backend solo per la produzione
+        const data = await fetch(`http://localhost:3000/api/v1/borgo/`); // porta per il backend solo per il locale
         const borgo = await data.json();
-        setBorghi(borgo.sort((a, b) => a.name.localeCompare(b.name)));
+        // setBorghi(borgo.sort((a, b) => a.name.localeCompare(b.name)));
         setIsLoading(false);
       });
     };
     fetchDetails();
   }, []);
-
-  // const handleAddBorgo = async (newBorgo) => {
-  //   try {
-  //     const response = await fetch(`http://localhost:3000/api/v1/borgo`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(newBorgo),
-  //     });
-  //     const data = await response.json();
-  //     setBorghi([...borghi, data.data]); // Aggiungiamo il nuovo borgo alla lista dei borghi
-  //   } catch (error) {
-  //     console.error("Error adding borgo:", error);
-  //   }
-  // };
 
   if (isLoading) {
     return (
@@ -54,13 +38,9 @@ function LoginSuccess() {
   return (
     <div>
       <div className="flex-wrap m-4 text-center justify-center">
-        <p>
-          Seleziona uno dei seguenti borghi per esplorarne le caratteristiche
-        </p>
-        {/* <p>oppure usa la barra di ricerca per cercare un borgo</p> */}
-        {/* <Search /> verrà implementata in un secondo momento*/}
+        <p>Hai scelto:</p>
       </div>
-      <div className="flex flex-wrap justify-center grid-flow-row-dense grid-cols-2 grid-rows-3">
+      {/* <div className="flex flex-wrap justify-center grid-flow-row-dense grid-cols-2 grid-rows-3">
         {borghi.map((borgo) => {
           return (
             <div
@@ -80,9 +60,9 @@ function LoginSuccess() {
             </div>
           );
         })}
-      </div>
+      </div> */}
 
-      <div className="flex flex-col m-5 text-center">
+      {/* <div className="flex flex-col m-5 text-center">
         <p>
           Se ritieni che manchi un borgo aggiungine uno tramite il form qui
           sotto
@@ -92,9 +72,9 @@ function LoginSuccess() {
             <BorgoForm />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
 
-export default LoginSuccess;
+export default Prenotazione;

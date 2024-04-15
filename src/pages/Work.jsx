@@ -22,10 +22,16 @@ function Work() {
 
   return (
     <div className="flex flex-col justify-center items-center text-center">
+      <p
+        className="mt-20
+      "
+      >
+        Questa pagina non è ancora disponibile, ma
+      </p>
       <button
         disabled
         type="text"
-        className="mt-24 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none disabled:opacity-75 hover:outline-none md:my-16"
+        className="m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none disabled:opacity-75 hover:outline-none md:my-16"
       >
         Arriverà presto!
       </button>

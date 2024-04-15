@@ -81,13 +81,16 @@ function Login() {
         <div className="lg:w-1/2 sm:p-12">
           <div className="mt-12 flex flex-col items-center">
             <h1 className="text-2xl xl:text-3xl font-extrabold">
-              Bentornata/o
+              Bentornat*{" "}
+              <span role="img" aria-label="hi" className="h-5">
+                👋
+              </span>
             </h1>
             <div className="w-full flex-1 mt-8">
               <div className="flex flex-col items-center">
                 <button
                   onClick={googleLogin}
-                  className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
+                  className="w-full max-w-xs font-bold shadow-sm rounded-full py-3 bg-transparent border-2 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
                 >
                   <Link to={"/dashboard"}>
                     <FcGoogle className="bg-white h-10 w-10 rounded-full inline-block" />
@@ -97,13 +100,23 @@ function Login() {
 
                 <button
                   // onClick={facebookLogin}
-                  className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
+                  className="w-full max-w-xs font-bold shadow-sm rounded-full py-3 bg-transparent border-2 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
                 >
                   <Link to={"/dashboard"}>
                     <AiFillFacebook className="h-10 w-10 inline-block" />
                     <span className="ml-4">Accedi con Facebook</span>
                   </Link>
                 </button>
+                <p className="m-5 text-xs text-gray-600 text-center">
+                  Continuando accetti i &nbsp;
+                  <a href="" className="border-b border-gray-500 border-dotted">
+                    termini del servizio
+                  </a>
+                  &nbsp; e la &nbsp;
+                  <a href="" className="border-b border-gray-500 border-dotted">
+                    privacy policy
+                  </a>
+                </p>
                 {/* Iscriviti con GitHub, prossimamente */}
                 {/* <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
                   <div className="bg-white p-1 rounded-full">
@@ -117,17 +130,22 @@ function Login() {
                   <span className="ml-4">Continua con GitHub</span>
                 </button> */}
 
-                <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-transparent border-2 border-red-500 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
+                <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-transparent border-none border-slate text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
                   <Link to={"/registrazione"}>
-                    <span>Non hai un account? Clicca qui</span>
+                    <span>
+                      Non hai un account?{" "}
+                      <p className="text-red-600 font-bold">
+                        Crea il tuo account
+                      </p>
+                    </span>
                   </Link>
                 </button>
 
-                <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-transparent border-2 border-red-500 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
+                <button className="mb-5 w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-transparent border-none border-slate text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5">
                   <Link to={"/contatti"}>
                     <span>
-                      Sei un'amministrazione o hai una struttura? Clicca qui per
-                      collaborare
+                      Sei un'amministrazione o hai una struttura?{" "}
+                      <p className="text-red-600">Clicca qui per collaborare</p>
                     </span>
                   </Link>
                 </button>
@@ -162,16 +180,6 @@ function Login() {
                   <span>Iscriviti</span>
                 </button> */}
                 {/* Agreement text */}
-                <p className="m-5 text-xs text-gray-600 text-center">
-                  Continuando accetti i &nbsp;
-                  <a href="" className="border-b border-gray-500 border-dotted">
-                    termini del servizio
-                  </a>
-                  &nbsp; e la &nbsp;
-                  <a href="" className="border-b border-gray-500 border-dotted">
-                    privacy policy
-                  </a>
-                </p>
               </div>
             </div>
           </div>

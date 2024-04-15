@@ -63,7 +63,7 @@ function NavBar() {
                 }}
                 className="relative bg-transparent w-screen justify-center items-center text-center z-10 lg:flex lg:items-center lg:w-auto"
               >
-                <div className="text-m lg:flex-grow">
+                <div className="text-m lg:flex-grow lg:visible lg">
                   <a
                     href={"/about"}
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
@@ -138,42 +138,42 @@ function NavBar() {
                 ref={(ref) => {
                   divRef.current = ref;
                 }}
-                className="relative bg-transparent w-screen justify-center items-center text-center z-10 lg:flex lg:items-center lg:w-auto"
+                className="flex flex-col bg-transparent w-auto m-auto justify-center items-center text-center z-10 lg:flex lg:items-center lg:w-auto"
               >
                 <div className="text-m lg:flex-grow">
-                  <a
+                  {/* <a
                     href={"/dashboard"}
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
                   >
                     Il tuo Account
-                  </a>
+                  </a> */}
                   <a
                     href={"/about"}
-                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
+                    className="block m-3 text-center lg:inline-block lg:mt-0 hover:text-red-500"
                   >
                     Di cosa si tratta?
                   </a>
                   <a
                     href={"/loginSuccess"}
-                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
+                    className="block m-3 text-center lg:inline-block lg:mt-0 hover:text-red-600"
                   >
                     Borghi
                   </a>
-                  <a
+                  {/* <a
                     href={"/obiettivi"}
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
                   >
                     Obiettivi
-                  </a>
-                  <a
+                  </a> */}
+                  {/* <a
                     href={"/news"}
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
                   >
                     Notizie
-                  </a>
+                  </a> */}
                   <a
                     href={"/contatti"}
-                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
+                    className="block m-3 text-center lg:inline-block lg:mt-0 hover:text-red-600"
                   >
                     Contatti
                   </a>

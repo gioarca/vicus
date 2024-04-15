@@ -8,19 +8,27 @@ function Home() {
     <motion.div>
       <div className="m-7 text-center">
         <h1 className="font-bold text-2xl m-5">
-          Benvenuta/o nel progetto Borghi
+          Tutto ciò di cui avevi bisogno per lavorare e restare al Sud Italia
         </h1>
+        {/* <h1 className="font-bold text-2xl m-5">
+          Benvenuta/o nel progetto Borghi
+        </h1> */}
         <p>Il nostro obiettivo è rivitalizzare i borghi del Sud Italia.</p>
         <p className="m-2">
           Vogliamo valorizzare i comuni italiani dimenticati, grazie alla
           partecipazione appassionata della nostra community.
         </p>
-        <p className="font-bold text-xl m-5">Desideri unirti a noi?</p>
-        <p>
+
+        <a href={"/registrazione"}>
+          <button className="m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
+            Desideri unirti a noi?
+          </button>
+        </a>
+        {/* <p>
           Per saperne di più, registrati o accedi e scopri la nostra
           piattaforma.
         </p>
-        <Buttons />
+        <Buttons /> */}
       </div>
       <div>
         <img
