@@ -8,7 +8,7 @@ function BorgoForm() {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_4zk556a", "template_0t8cg1n", form.current, {
+      .sendForm("service_4zk556a", "template_ce9dj06", form.current, {
         publicKey: "nBwk1Dh-6_dCdi75H",
       })
       .then(
@@ -21,47 +21,6 @@ function BorgoForm() {
         }
       );
   };
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   place: "",
-  //   description: "",
-  //   imgURL: "",
-  //   internetSpeed: "",
-  // });
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await fetch(`http://localhost:3000/api/v1/borgo`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(formData),
-  //     });
-  //     const data = await response.json();
-  //     onAddBorgo(data); // Aggiungi il nuovo borgo alla lista visualizzata
-  //     setFormData({
-  //       name: "",
-  //       place: "",
-  //       description: "",
-  //       imgURL: "",
-  //       internetSpeed: "",
-  //     });
-  //   } catch (error) {
-  //     console.error("Error adding borgo:", error);
-  //   }
-  // };
-  {
-    /* Gestione degli input */
-  }
-  // const handleInputChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData({
-  //     ...formData,
-  //     [name]: value,
-  //   });
-  // };
 
   return (
     <form
@@ -72,7 +31,7 @@ function BorgoForm() {
       <div className="flex flex-col m-1 w-72">
         <input
           type="text"
-          name="name"
+          name="borgo_name"
           placeholder="Nome del Borgo"
           className="px-4 shadow-sm rounded-lg py-3 bg-gray-100 border border-gray-200 placeholder-gray-500 text-black"
         ></input>
@@ -80,8 +39,8 @@ function BorgoForm() {
       <div className="flex flex-col m-1 w-72">
         <input
           type="text"
-          name="place"
-          placeholder="Luogo"
+          name="borgo_place"
+          placeholder="Provincia & Regione"
           className="px-4 shadow-sm rounded-lg py-3 bg-gray-100 border border-gray-200 placeholder-gray-500 text-black"
         ></input>
       </div>
@@ -90,7 +49,7 @@ function BorgoForm() {
         {/* Link immagine */}
         <input
           type="text"
-          name="imgURL"
+          name="borgo_imgURL"
           placeholder="Link dell'immagine"
           className="px-4 shadow-sm rounded-lg py-3 bg-gray-100 border border-gray-200 placeholder-gray-500 text-black"
         ></input>
@@ -99,7 +58,7 @@ function BorgoForm() {
         {/* Velocità internet */}
         <input
           type="text"
-          name="internetSpeed"
+          name="borgo_internetSpeed"
           placeholder="Link della velocità di internet"
           className="px-4 shadow-sm rounded-lg py-3 bg-gray-100 border border-gray-200 placeholder-gray-500 text-black"
         ></input>
@@ -107,7 +66,8 @@ function BorgoForm() {
       {/* Descrizione */}
       <div className="flex flex-col m-1 w-72">
         <textarea
-          name="description"
+          type="text"
+          name="borgo_motivation"
           placeholder="Motivazione"
           className="px-4 shadow-sm rounded-lg py-3 bg-gray-100 border border-gray-200 placeholder-gray-500 text-black"
         ></textarea>

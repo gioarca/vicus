@@ -193,8 +193,8 @@ function News() {
         </div>
 
         {/* Youtube */}
-        <div className="flex text-center justify-center m-5 text-xl font-bold">
-          <p>Qui invece trovi alcuni video interessanti</p>
+        <div className="flex flex-col text-center justify-center items-center m-5 text-xl font-bold">
+          <h1>Qui invece trovi alcuni video interessanti</h1>
         </div>
         <div className="flex flex-wrap justify-center grid-flow-row-dense grid-cols-2 grid-rows-2 m-5">
           <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">

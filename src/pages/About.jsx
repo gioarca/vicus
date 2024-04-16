@@ -4,8 +4,8 @@ import Iscriviti from "../components/Iscriviti";
 function About() {
   return (
     <div className="text-center">
-      <h1 className="text-center font-bold text-xl m-5">Benvenut*!</h1>
-      <div className="mt-5 mb-10">
+      <h1 className="text-center font-bold text-xl m-14">Benvenut*!</h1>
+      <div className="mt-20 mb-10">
         <img src="https://images.unsplash.com/photo-1528214096798-37891d32174c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></img>
       </div>
       <div className="m-5">
@@ -16,7 +16,8 @@ function About() {
         <p>Nasce per promuovere la rivitalizzazione delle piccole realtà.</p>
         <p className="">Rivolto a tutti coloro che credono nel cambiamento:</p>
         <p className="text-2xl font-bold m-3">
-          imprenditori, creativi, marketers, sviluppatori e remote workers.
+          imprenditori, creativi, marketers, sviluppatori e lavoratori da
+          remoto.
         </p>
         <p>
           Per chi desidera abbracciare lo stile di vita autentico dei borghi e

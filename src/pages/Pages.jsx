@@ -12,7 +12,7 @@ import Nav from "../components/Nav";
 import Dashboard from "./Dashboard";
 import SignOut from "./SignOut";
 import Obiettivi from "./Obiettivi";
-import Prenotazione from "./Prenotazione";
+import GrazieBorgo from "./GrazieBorgo";
 
 import { Route, Routes, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -32,12 +32,12 @@ function Pages() {
         <Route path="/registrazione" element={<Registrazione />} />
         <Route path="/contatti" element={<Contatti />} />
         <Route path="/grazie" element={<Grazie />} />
+        <Route path="/grazieperilsupporto" element={<GrazieBorgo />} />
         <Route path="/workinprogress" element={<Work />} />
         <Route path="/news" element={<News />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/obiettivi" element={<Obiettivi />} />
-        <Route path="/prenotazione" element={<Prenotazione />} />
       </Routes>
     </AnimatePresence>
 

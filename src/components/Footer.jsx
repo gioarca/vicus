@@ -1,11 +1,12 @@
 import React from "react";
+// import LanguageSelector from "./LanguageSelector";
 
 function Footer() {
   return (
     <div className="text-center m-8">
       <footer>
         <div className="flex flex-col justify-center items-center">
-          <p className="font-bold">Seguici</p>
+          <p className="font-bold">Seguici ed entra nella community</p>
           <div className="flex justify-center items-center m-10 space-x-10">
             <a
               target="_blank"
@@ -33,13 +34,8 @@ function Footer() {
             </a>
           </div>
         </div>
-        <div className="flex flex-col justify-between m-5 sm:mx-[200px] sm:flex sm:flex-row lg:mx-[400px]">
-          <a
-            href={"/contatti"}
-            className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"
-          >
-            Hai bisogno di aiuto?
-          </a>
+        <div className="flex flex-col justify-between m-5 sm:mx-[150px] sm:flex sm:flex-row lg:mx-[400px]">
+          {/* <LanguageSelector /> */}
           <a
             href={"/obiettivi"}
             className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"
@@ -57,7 +53,13 @@ function Footer() {
             href={"/news"}
             className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"
           >
-            News
+            Notizie
+          </a>
+          <a
+            href={"/contatti"}
+            className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"
+          >
+            Hai bisogno di aiuto?
           </a>
         </div>
         <p>
@@ -67,9 +69,9 @@ function Footer() {
             target="_blank"
             className="text-red-500"
           >
-            The Last Dance
+            Borghi.
           </a>{" "}
-          All rights reserved
+          Tutti i diritti riservati
         </p>
       </footer>
     </div>
