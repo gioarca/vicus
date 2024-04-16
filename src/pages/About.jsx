@@ -16,8 +16,8 @@ function About() {
         <p>Nasce per promuovere la rivitalizzazione delle piccole realtà.</p>
         <p className="">Rivolto a tutti coloro che credono nel cambiamento:</p>
         <p className="text-2xl font-bold m-3">
-          imprenditori, creativi, marketers, sviluppatori e lavoratori da
-          remoto.
+          imprenditori, creators, professionisti del marketing, sviluppatori e
+          lavoratori da remoto.
         </p>
         <p>
           Per chi desidera abbracciare lo stile di vita autentico dei borghi e

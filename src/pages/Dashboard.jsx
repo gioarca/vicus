@@ -44,20 +44,23 @@ function Dashboard() {
               </h1>
               <p className="text-xl">{user.displayName}</p>
             </div>
-            <div className="m-5">
-              {/* <p className="text-center">Cosa puoi fare qui?</p> */}
-              <p className="text-center m-5">
-                All'interno della piattaforma puoi:
-                {/* ottenere informazioni sui
-                borghi, prenotare un’esperienza presso una delle strutture
-                oppure leggere le ultime notizie su leggi e su come si sta
-                evolvendo il nomadismo digitale in Italia. */}
-              </p>
+            <div className="text-center m-5">
+              <p className="">Cosa puoi fare qui?</p>
+              <p>All'interno della piattaforma puoi:</p>
             </div>
+
             <div className="text-center items-center justify-center">
               <a href={"/loginSuccess"}>
                 <button className="m-5 px-8 w-80 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
                   Accedere ai borghi
+                </button>
+              </a>
+            </div>
+
+            <div className="text-center items-center justify-center">
+              <a href={"/aggiungiunborgo"}>
+                <button className="m-5 px-8 w-80 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
+                  Aggiungere un borgo
                 </button>
               </a>
             </div>
@@ -69,13 +72,7 @@ function Dashboard() {
                 </button>
               </a>
             </div>
-            <div className="text-center items-center justify-center">
-              <a href={"/workinprogress"}>
-                <button className="m-5 px-8 w-80 py-2 font-semibold border-2 bg-white text-black rounded-full hover:bg-white hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out">
-                  Vedere le tue prenotazioni
-                </button>
-              </a>
-            </div>
+
             <div className="text-center items-center justify-center">
               <button
                 onClick={handleSignOut}

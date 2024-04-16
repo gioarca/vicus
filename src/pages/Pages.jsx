@@ -16,6 +16,7 @@ import GrazieBorgo from "./GrazieBorgo";
 
 import { Route, Routes, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import AggiungiBorgo from "./AggiungiBorgo";
 
 function Pages() {
   const location = useLocation();
@@ -38,6 +39,7 @@ function Pages() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/obiettivi" element={<Obiettivi />} />
+        <Route path="/aggiungiunborgo" element={<AggiungiBorgo />} />
       </Routes>
     </AnimatePresence>
 

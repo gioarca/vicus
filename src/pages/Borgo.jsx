@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Arrow from "../components/Arrow";
+// import Arrow from "../components/Arrow";
 import Loader from "../components/Loader";
 import Prenota from "../components/Prenota";
 import { PaperAirplaneIcon } from "@heroicons/react/outline";
@@ -107,7 +107,7 @@ function BorgoNew() {
               <p>
                 Al momento non abbiamo ancora una struttura dove ospitare tutti
                 i membri, ma qui sopra c'è un prezzo indicativo per un gruppo di
-                4 persone (il numero è arbitrario)
+                4 persone (il numero è puramente arbitrario)
               </p>
             </div>
             <div className="px-5 py-10">
@@ -182,7 +182,7 @@ function BorgoNew() {
         </div>
         <div className="p-2 ">
           <Prenota />
-          <Arrow />
+          {/* <Arrow /> */}
         </div>
       </div>
     </div>

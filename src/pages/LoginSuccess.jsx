@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import BorgoForm from "../components/BorgoForm";
 import Loader from "../components/Loader";
 // import Search from "../components/Search";
 
@@ -80,18 +79,6 @@ function LoginSuccess() {
             </div>
           );
         })}
-      </div>
-
-      <div className="flex flex-col m-5 text-center">
-        <p>
-          Se ritieni che manchi un borgo aggiungine uno tramite il form qui
-          sotto
-        </p>
-        <div>
-          <div>
-            <BorgoForm />
-          </div>
-        </div>
       </div>
     </div>
   );

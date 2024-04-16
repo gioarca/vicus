@@ -9,5 +9,15 @@ export default defineConfig(({ mode }) => {
       "process.env.SOME_KEY": JSON.stringify(env.SOME_KEY),
     },
     plugins: [react()],
+    esbuild: {
+      loader: "jsx",
+    },
+    optimizeDeps: {
+      esbuildOptions: {
+        loader: {
+          ".js": "jsx",
+        },
+      },
+    },
   };
 });

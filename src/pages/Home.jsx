@@ -37,7 +37,7 @@ function Home() {
           <p> soprattutto nel Sud Italia.</p>
           <p>Rivolto a tutti coloro che credono in questo cambiamento:</p>
           <p className="text-2xl font-bold m-3">
-            imprenditori, creativi, marketers, sviluppatori e lavoratori da
+            imprenditori, creators, marketers, sviluppatori e lavoratori da
             remoto.
           </p>
         </div>

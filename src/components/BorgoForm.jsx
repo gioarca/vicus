@@ -14,7 +14,7 @@ function BorgoForm() {
       .then(
         () => {
           console.log("SUCCESS!");
-          window.location.href = "/grazie";
+          window.location.href = "/grazieperilsupporto";
         },
         (error) => {
           console.log("FAILED...", error.text);

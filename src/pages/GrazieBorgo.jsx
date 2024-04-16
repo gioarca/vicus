@@ -4,7 +4,7 @@ function Grazie() {
   return (
     <div className="my-56 flex flex-col text-center justify-center">
       <p className="text-2xl font-bold m-4">
-        Grazie!
+        Grazie assai!
         <span role="img" aria-label="hi" className="h-5">
           🙏
         </span>
