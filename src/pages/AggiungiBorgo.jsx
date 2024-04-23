@@ -4,10 +4,10 @@ import BorgoForm from "../components/BorgoForm";
 function AggiungiBorgo() {
   return (
     <div className="flex flex-col text-center">
-      <h1 className="text-center font-bold text-xl m-14">
+      <h1 className="text-center font-bold text-2xl m-14">
         Intanto vogliamo ringraziarti per il supporto
       </h1>
-      <div className="mt-5 mb-5 sm:mt-20">
+      <div className="flex text-center items-center justify-center mt-5 mb-5 sm:mt-20">
         <img src="https://images.unsplash.com/photo-1518335935020-cfd6580c1ab4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></img>
       </div>
       <div className="m-5">
@@ -20,12 +20,12 @@ function AggiungiBorgo() {
           questi criteri oggettivi:
           <ul className="flex flex-col text-left justify-center list-disc sm:my-16 sm:mx-48">
             <li>qualità della vita;</li>
-            <li>la presenza dei servizi pubblici (ospedali, scuole, );</li>
+            <li>la presenza dei servizi pubblici (ospedali, scuole ecc.);</li>
             <li>la bellezza del borgo;</li>
             <li>
               la facilità di raggiungimento del borgo tramite mezzi pubblici;
             </li>
-            <li>la velocità di internet;</li>
+            <li>la velocità media di internet;</li>
             <li>la vicinanza al mare;</li>
             {/* <li>le esperienze che si possono fare nelle vicinanze;</li> */}
             <li>la presenza di uno spazio di coworking nelle vicinanze;</li>

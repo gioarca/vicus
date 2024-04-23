@@ -21,7 +21,7 @@ function NavBar() {
   };
 
   return (
-    <nav className="flex flex-wrap items-center justify-between bg-transparent m-2">
+    <nav className="flex flex-wrap items-center justify-between bg-white m-2">
       <div className="flex items-center text-black">
         <a href={"/"}>
           <span className="font-semibold text-xl tracking-tight flex m-10 w-auto transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110 hover:duration-300 hover:opacity-50">

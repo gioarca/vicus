@@ -1,11 +1,15 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
-function Login() {
-  // Sign in with Google
+function Login({ user }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+
   const googleProvider = new GoogleAuthProvider();
   const googleLogin = async () => {
     try {
@@ -16,12 +20,6 @@ function Login() {
     }
   };
 
-  // Sign in with Email
-  const userRef = useRef();
-  const errRef = useRef();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -30,25 +28,23 @@ function Login() {
     setPassword(event.target.value);
   };
 
-  const handleSignUp = () => {
-    // Simulated registration logic
-    console.log("Email:", email);
-    console.log("Password:", password);
-    // Add your actual registration logic here
+  const handleSignIn = async () => {
+    if (!email || !password) return;
+    try {
+      setError(null);
+      await signInWithEmailAndPassword(auth, email, password);
+      return <Navigate to="/dashboard" />;
+    } catch (error) {
+      setError(error.message);
+      console.error("Errore durante il login:", error.message);
+    }
   };
 
-  // const handleSignUp = () => {
-  //   // Simulated registration logic
-  //   console.log("Email:", email);
-  //   console.log("Password:", password);
-  //   // Add your actual registration logic here
-  // };
+  if (user) {
+    return <Navigate to="/dashboard" />;
+  }
 
   return (
-    // const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-    // const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-    // const REGISTER_URL = "/register";
-
     <div className="min-h-full bg-gray-100 text-gray-900 flex justify-center">
       <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
         <div className="lg:w-1/2 sm:p-12">
@@ -65,24 +61,27 @@ function Login() {
                   onClick={googleLogin}
                   className="w-full max-w-xs font-bold shadow-sm rounded-full py-3 bg-transparent border-2 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
                 >
-                  <Link to={"/dashboard"}>
-                    <FcGoogle className="bg-white h-10 w-10 rounded-full inline-block" />
-                    <span className="ml-4">Accedi con Google</span>
-                  </Link>
+                  <FcGoogle className="bg-white h-10 w-10 rounded-full inline-block" />
+                  <span className="ml-4">Accedi con Google</span>
                 </button>
-                {/* Agreement text */}
+
                 <p className="m-5 text-xs text-gray-600 text-center">
                   Continuando accetti i &nbsp;
-                  <a href="" className="border-b border-gray-500 border-dotted">
+                  <a
+                    href="#"
+                    className="border-b border-gray-500 border-dotted"
+                  >
                     termini del servizio
                   </a>
                   &nbsp; e la &nbsp;
-                  <a href="" className="border-b border-gray-500 border-dotted">
+                  <a
+                    href="#"
+                    className="border-b border-gray-500 border-dotted"
+                  >
                     privacy policy
                   </a>
                 </p>
 
-                {/* Input fields for email and password */}
                 <div className="lg:max-w-xl flex flex-col items-center">
                   <div className="leading px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
                     <p>Oppure continua con Email e Password</p>
@@ -105,22 +104,19 @@ function Login() {
                     onChange={handlePasswordChange}
                   />
 
-                  {/* Sign in button */}
                   <button
                     className="sm:w-96 w-80 font-bold shadow-sm py-3 flex items-center justify-center bg-red-800 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
-                    onClick={handleSignUp}
+                    onClick={handleSignIn}
+                    type="submit"
                   >
-                    <Link to={"/dashboard"}>
-                      <span>Accedi</span>
-                    </Link>
+                    <span>Accedi</span>
                   </button>
 
-                  {/* Hai già un account? */}
                   <button className="w-full max-w-xs mt-10 font-bold shadow-sm rounded-lg py-3 bg-transparent border-none border-slate text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline">
-                    <Link to={"/registrazione"}>
+                    <Link to="/registrazione">
                       <span>
                         Non hai un account?{" "}
-                        <p className="text-red-600">Clicca qui</p>
+                        <span className="text-red-600">Clicca qui</span>
                       </span>
                     </Link>
                   </button>

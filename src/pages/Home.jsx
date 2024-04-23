@@ -21,10 +21,10 @@ function Home() {
           </button>
         </a>
       </div>
-      <div>
+      <div className="flex flex-col text-center items-center justify-center">
         <img
           src="https://images.unsplash.com/photo-1694768096854-fe97551cd445?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          className="w-auto h-auto bg-cover justify-center items-center text-center md:justify-center md:items-center md:w-auto"
+          className="flex text-center items-center justify-center"
         />
         <div className="m-5 text-center sm:m-28">
           <p>
@@ -39,6 +39,9 @@ function Home() {
           <p className="text-2xl font-bold m-3">
             imprenditori, creators, marketers, sviluppatori e lavoratori da
             remoto.
+          </p>
+          <p>
+            Che credono che grazie al digitale possano fare qualcosa di grande.
           </p>
         </div>
         <img

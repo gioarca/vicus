@@ -13,22 +13,47 @@ import Dashboard from "./Dashboard";
 import SignOut from "./SignOut";
 import Obiettivi from "./Obiettivi";
 import GrazieBorgo from "./GrazieBorgo";
-
+import AggiungiBorgo from "./AggiungiBorgo";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import AggiungiBorgo from "./AggiungiBorgo";
+import { onAuthStateChanged, getAuth } from "firebase/auth";
+import React, { useEffect, useState } from "react";
+import Loader from "../components/Loader";
 
 function Pages() {
   const location = useLocation();
+  const [user, setUser] = useState(null);
+  const [isFetching, setIsFetching] = useState(true);
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        setIsFetching(false);
+        return;
+      }
+      setUser(null);
+      setIsFetching(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  if (isFetching) {
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
+  }
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence>
       <Nav />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/borgo/:_id" element={<Borgo />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login user={user} />} />
         <Route path="/loginSuccess" element={<LoginSuccess />} />
         <Route path="/registrazione" element={<Registrazione />} />
         <Route path="/contatti" element={<Contatti />} />
@@ -42,39 +67,6 @@ function Pages() {
         <Route path="/aggiungiunborgo" element={<AggiungiBorgo />} />
       </Routes>
     </AnimatePresence>
-
-    // per il locale
-    // <AnimatePresence mode="wait">
-    //   <Routes location={location} key={location.pathname}>
-    //     <Route path="/" element={<Home />} />
-    //     <Route path="https://borghisud.netlify.app/about" element={<About />} />
-    //     <Route
-    //       path="https://borghisud.netlify.app/borgo/:_id"
-    //       element={<Borgo />}
-    //     />
-    //     <Route path="https://borghisud.netlify.app/login" element={<Login />} />
-    //     <Route
-    //       path="https://borghisud.netlify.app/loginSuccess"
-    //       element={<LoginSuccess />}
-    //     />
-    //     <Route
-    //       path="https://borghisud.netlify.app/registrazione"
-    //       element={<Registrazione />}
-    //     />
-    //     <Route
-    //       path="https://borghisud.netlify.app/contatti"
-    //       element={<Contatti />}
-    //     />
-    //     <Route
-    //       path="https://borghisud.netlify.app/grazie"
-    //       element={<Grazie />}
-    //     />
-    //     <Route
-    //       path="https://borghisud.netlify.app/workinprogress"
-    //       element={<Work />}
-    //     />
-    //   </Routes>
-    // </AnimatePresence>
   );
 }
 
