@@ -20,7 +20,7 @@ function LoginSuccess() {
           // inserito il timeout di 1.5 secondi
           setIsLoading(true);
           const data = await fetch(
-            `https://borghi-backend.onrender.com/api/v1/borghi/?limit=10&page=${currentPage}`
+            `https://borghi-backend.onrender.com/api/v1/borghi/?limit=5&page=${currentPage}`
             // `http://localhost:3000/api/v1/borghi/?limit=10&page=${currentPage}`
           );
           const { borghi: initialBorghi, totalPages } = await data.json();
