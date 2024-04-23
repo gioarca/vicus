@@ -20,7 +20,8 @@ function LoginSuccess() {
           // inserito il timeout di 1.5 secondi
           setIsLoading(true);
           const data = await fetch(
-            `http://localhost:3000/api/v1/borghi/?limit=15&page=${currentPage}`
+            `https://borghi-backend.onrender.com/api/v1/borghi/?limit=10&page=${currentPage}`
+            // `http://localhost:3000/api/v1/borghi/?limit=10&page=${currentPage}`
           );
           const { borghi: initialBorghi, totalPages } = await data.json();
           setBorghi(initialBorghi.sort((a, b) => a.name.localeCompare(b.name))); // Imposta solo i borghi iniziali
@@ -43,7 +44,7 @@ function LoginSuccess() {
       const nextPage = currentPage + 1;
       const limit = 5;
       const data = await fetch(
-        `http://localhost:3000/api/v1/borghi/?page=${nextPage}&limit=${limit}`
+        `https://borghi-backend.onrender.comapi/v1/borghi/?page=${nextPage}&limit=${limit}`
       );
       if (!data.ok) {
         // Gestisci l'errore

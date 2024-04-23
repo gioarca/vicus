@@ -84,6 +84,12 @@ function Registrazione() {
                   </a>
                 </p>
 
+                <div className="lg:max-w-xl flex flex-col items-center">
+                  <div className="leading px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
+                    <p>Oppure iscrivit con Email e Password</p>
+                  </div>
+                </div>
+
                 <form
                   // onSubmit={handleSubmit}
                   className="sm:w-96 flex flex-col items-center"
