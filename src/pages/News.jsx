@@ -68,6 +68,46 @@ function News() {
             </p>
           </a>
         </div>
+        {/* AGI */}
+        <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
+          <a
+            href="https://www.agi.it/cronaca/news/2024-04-17/borghi-italia-digitalizzazione-smart-working-per-rilancio-26051718/"
+            target="_blank"
+            className="flex flex-col text-center justify-center items-center"
+          >
+            <img
+              src="https://www.agi.it/static4.0/images/logo_seo.png"
+              alt=""
+              className="h-auto"
+            />
+            <h3 className="flex flex-col text-center m-5 justify-center items-center">
+              Il riscatto dei piccoli borghi, vita digitale e smart working
+            </h3>
+            <p className="flex flex-col text-red-500 underline text-center m-3 justify-center items-center">
+              Clicca per saperne di più
+            </p>
+          </a>
+        </div>
+        {/* Shape of EU */}
+        <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
+          <a
+            href="https://open.spotify.com/episode/0sIxz8UDPzftTapYDT5Np2?si=5e45d2ae51ad4f64"
+            target="_blank"
+            className="flex flex-col text-center justify-center items-center"
+          >
+            <img
+              src="https://i.scdn.co/image/ab6765630000ba8adb1aa0170d712a338ce6fcd0"
+              alt=""
+              className="h-auto"
+            />
+            <h3 className="flex flex-col text-center m-5 justify-center items-center">
+              EXPLAINER | Cosa sono i fondi di coesione e perché ci servono
+            </h3>
+            <p className="flex flex-col text-red-500 underline text-center m-3 justify-center items-center">
+              Clicca per ascoltare il podcast
+            </p>
+          </a>
+        </div>
         {/* The independent */}
         <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
           <a

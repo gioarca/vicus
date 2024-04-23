@@ -7,7 +7,7 @@ function Footer() {
       <footer>
         <div className="flex flex-col justify-center items-center">
           <p className="font-bold">Seguici ed entra nella community</p>
-          <div className="flex justify-center items-center m-10 space-x-10">
+          <div className="flex justify-center items-center m-10 space-x-10 sm:space-x-32">
             <a
               target="_blank"
               href="https://www.instagram.com/borghi_sud/"
@@ -34,7 +34,7 @@ function Footer() {
             </a>
           </div>
         </div>
-        <div className="flex flex-col justify-between m-5 sm:mx-[150px] sm:flex sm:flex-row lg:mx-[400px]">
+        <div className="flex flex-col justify-between m-5 sm:flex-row sm:mx-[100px] lg:mx-[600px]">
           {/* <LanguageSelector /> */}
           <a
             href={"/obiettivi"}
@@ -49,12 +49,12 @@ function Footer() {
           >
             Blog
           </a>
-          <a
+          {/* <a
             href={"/news"}
             className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"
           >
             Notizie
-          </a>
+          </a> */}
           <a
             href={"/contatti"}
             className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"

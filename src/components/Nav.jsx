@@ -74,12 +74,12 @@ function NavBar() {
                   >
                     Obiettivi
                   </a>
-                  <a
+                  {/* <a
                     href={"/news"}
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
                   >
                     Notizie
-                  </a>
+                  </a> */}
                   <a
                     href={"/contatti"}
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
