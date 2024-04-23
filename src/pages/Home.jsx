@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-// import { useTranslation } from "react-i18next";
 
 function Home() {
   return (
@@ -41,7 +40,8 @@ function Home() {
             remoto.
           </p>
           <p>
-            Che credono che grazie al digitale possano fare qualcosa di grande.
+            All'interno si possono trovare informazioni, notizie e una community
+            che la pensa come te.
           </p>
         </div>
         <img

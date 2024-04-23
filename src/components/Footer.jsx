@@ -1,5 +1,4 @@
 import React from "react";
-// import LanguageSelector from "./LanguageSelector";
 
 function Footer() {
   return (
@@ -35,7 +34,6 @@ function Footer() {
           </div>
         </div>
         <div className="flex flex-col justify-between m-5 sm:flex-row sm:mx-[100px] lg:mx-[600px]">
-          {/* <LanguageSelector /> */}
           <a
             href={"/obiettivi"}
             className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"
