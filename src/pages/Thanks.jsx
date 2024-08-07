@@ -1,6 +1,6 @@
 import React from "react";
 
-function Grazie() {
+function Thanks() {
   return (
     <div className="my-56 flex flex-col text-center justify-center">
       <p className="text-2xl font-bold m-4">
@@ -16,4 +16,4 @@ function Grazie() {
   );
 }
 
-export default Grazie;
+export default Thanks;

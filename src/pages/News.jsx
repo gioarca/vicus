@@ -128,6 +128,27 @@ function News() {
             </p>
           </a>
         </div>
+        {/* Millionaire */}
+        <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
+          <a
+            href=""
+            target="_blank"
+            className="flex flex-col text-center justify-center items-center"
+          >
+            <img
+              src="https://www.millionaire.it/wp-content/uploads/2023/03/logo_millionaire_2023.jpg"
+              alt=""
+              className="h-auto"
+            />
+            <h3 className="flex flex-col text-center m-5 justify-center items-center">
+              L’economia dei borghi italiani: i dati sorprendenti presentati da
+              Deloitte
+            </h3>
+            <p className="flex flex-col text-red-500 underline text-center m-3 justify-center items-center">
+              Clicca per saperne di più
+            </p>
+          </a>
+        </div>
         {/* Italia.it */}
         <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300">
           <a

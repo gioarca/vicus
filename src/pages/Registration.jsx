@@ -1,26 +1,18 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
-import { Link, Navigate } from "react-router-dom";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useTranslation } from "react-i18next";
-import { signInWithEmailAndPassword } from "firebase/auth";
 
-function Login({ user }) {
+function Registration({ user }) {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-
-  const googleProvider = new GoogleAuthProvider();
-  const googleLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, googleProvider);
-      console.log(result.user);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const navigate = useNavigate();
+  const emailError = document.querySelector(".email.error");
+  const passwordError = document.querySelector(".password.error");
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -30,21 +22,30 @@ function Login({ user }) {
     setPassword(event.target.value);
   };
 
-  const handleSignIn = async (event) => {
+  const handleSignUp = async (event) => {
     event.preventDefault();
+
+    emailError.textContent = "";
+    passwordError.textContent = "";
+
+    const email = form.email.value;
+    const password = form.password.value;
 
     try {
       setError(null);
-      const res = await fetch("http://localhost:3000/api/v1/authRoutes/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+        "http://localhost:3000/api/v1/authRoutes/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await res.json();
-      console.log("Login successful:", data);
+      console.log("Registrazione avvenuta con successo:", data);
 
       if (data.errors) {
         emailError.textContent = data.errors.email;
@@ -56,12 +57,39 @@ function Login({ user }) {
       }
     } catch (error) {
       setError(error.message);
-      console.error("Error during login:", error.message);
+      console.error("Errore durante la registrazione:", error.message);
+    }
+  };
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const googleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      console.log("Google Login Success:", user);
+
+      const response = await fetch("http://localhost:3000/google-login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: user.email, uid: user.uid }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || "Google Login failed");
+      }
+      navigate("/dashboard");
+    } catch (error) {
+      setError(error.message);
+      console.error("Errore durante il login con Google:", error.message);
     }
   };
 
   if (user) {
-    return <Navigate to="/dashboard" />;
+    navigate("/dashboard");
   }
 
   return (
@@ -70,10 +98,7 @@ function Login({ user }) {
         <div className="lg:w-1/2 sm:p-12">
           <div className="mt-12 flex flex-col items-center">
             <h1 className="text-2xl xl:text-3xl font-extrabold">
-              {t("welcome_back")}{" "}
-              <span role="img" aria-label="hi" className="h-5">
-                👋
-              </span>
+              {t("signUp")}
             </h1>
             <div className="w-full flex-1 mt-8">
               <div className="flex flex-col items-center">
@@ -98,13 +123,13 @@ function Login({ user }) {
 
                 <div className="lg:max-w-xl flex flex-col items-center">
                   <div className="leading px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                    <p>{t("or_sign_in_with_email")}</p>
+                    <p>{t("orSignUpWithEmail")}</p>
                   </div>
                 </div>
 
                 <form
                   className="sm:w-96 flex flex-col items-center"
-                  onSubmit={handleSignIn}
+                  onSubmit={handleSignUp}
                 >
                   <input
                     className="sm:w-96 w-80 px-8 py-4 mt-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
@@ -124,7 +149,7 @@ function Login({ user }) {
                     className="sm:w-96 w-80 font-bold shadow-sm py-3 flex items-center justify-center bg-red-800 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
                     type="submit"
                   >
-                    <span>{t("sign_in")}</span>
+                    <span>{t("signUp")}</span>
                   </button>
                 </form>
 
@@ -134,14 +159,25 @@ function Login({ user }) {
                   </p>
                 )}
 
-                <button className="w-full max-w-xs mt-10 font-bold shadow-xl rounded-lg py-3 bg-transparent border-none border-slate text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline">
-                  <Link to="/registration">
-                    <span>
-                      {t("no_account")}{" "}
-                      <span className="text-red-600">{t("click_here")}</span>
-                    </span>
-                  </Link>
-                </button>
+                <div className="sm:w-96 flex flex-col items-center">
+                  <button className="w-full max-w-xs mt-10 font-bold shadow-xl rounded-lg py-3 bg-transparent border-slate text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline">
+                    <Link to={"/login"}>
+                      <span>
+                        {t("alreadyHaveAccount")}{" "}
+                        <p className="text-red-600">{t("click_here")}</p>
+                      </span>
+                    </Link>
+                  </button>
+
+                  <button className="m-5 w-full max-w-xs font-bold shadow-xl rounded-lg py-3 bg-transparent border-slate text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-xl focus:shadow-outline">
+                    <Link to={"/contacts"}>
+                      <span>
+                        {t("admin_or_structure")}{" "}
+                        <p className="text-red-600">{t("collaborate")}</p>
+                      </span>
+                    </Link>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -151,4 +187,4 @@ function Login({ user }) {
   );
 }
 
-export default Login;
+export default Registration;

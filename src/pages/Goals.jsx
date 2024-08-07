@@ -1,6 +1,6 @@
 import React from "react";
 
-function Obiettivi() {
+function Goals() {
   return (
     <div className="flex flex-col items-center text-center justify-center">
       <h1 className="text-2xl font-bold m-3">Obiettivi</h1>
@@ -55,4 +55,4 @@ function Obiettivi() {
   );
 }
 
-export default Obiettivi;
+export default Goals;

@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { auth } from "../utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Loader from "../components/Loader";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Dashboard() {
   const [user, isLoading] = useAuthState(auth);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleSignOut = () => {
     setTimeout(async () => {
@@ -34,11 +35,11 @@ function Dashboard() {
         }}
         className="min-h-screen z-0 flex justify-center bg-gradient-to-t"
       >
-        <div className="flex justify-center flex-1 max-w-screen-xl m-0 z-10 bg-white shadow sm:rounded-lg sm:my-32 sm:mx-80 ">
-          <div className="lg:w-1/2 sm:p-12">
-            <div className="mt-12 flex flex-col items-center">
+        <div className="flex justify-center flex-1 max-w-screen-xl m-0 z-10 bg-white shadow sm:rounded-lg sm:my-20 sm:mx-96">
+          <div className="lg:w-1/2 sm:mx-10">
+            <div className="mt-40 flex flex-col items-center">
               <h1 className="text-2xl xl:text-3xl font-extrabold text-center">
-                Ciao{" "}
+                {t("hello")}{" "}
                 <span role="img" aria-label="hi" className="h-5">
                   👋
                 </span>
@@ -46,30 +47,38 @@ function Dashboard() {
               <p className="text-xl">{user.displayName}</p>
             </div>
             <div className="text-center m-5">
-              <p className="">Cosa puoi fare qui?</p>
-              <p>All'interno della piattaforma puoi:</p>
+              <p>{t("what_you_can_do")}</p>
+              {/* <p>All'interno della piattaforma puoi:</p> */}
             </div>
 
             <div className="text-center items-center justify-center">
               <a href={"/loginSuccess"}>
-                <button className="m-5 px-8 w-72 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
-                  Accedere ai borghi
+                <button className="m-5 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none sm:px-10 md:px-32 md:w-auto">
+                  {t("access_borghi")}
                 </button>
               </a>
             </div>
 
             <div className="text-center items-center justify-center">
-              <a href={"/aggiungiunborgo"}>
-                <button className="m-5 px-8 w-72 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
+              <a href={"/favourites"}>
+                <button className="m-5 px-8 w-72 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none sm:px-10 md:px-32 md:w-auto">
+                  {t("your_favourites")}
+                </button>
+              </a>
+            </div>
+
+            {/* <div className="text-center items-center justify-center">
+              <a href={"/addborgo"}>
+                <button className="m-5 px-8 w-72 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none sm:px-10 md:px-32 md:w-auto">
                   Aggiungere un borgo
                 </button>
               </a>
-            </div>
+            </div> */}
 
             <div className="text-center items-center justify-center">
               <a href={"/news"}>
-                <button className="m-5 px-8 w-72 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
-                  Leggere le ultime notizie
+                <button className="m-5 w-72 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none sm:px-10 md:px-32 md:w-auto">
+                  {t("read_news")}
                 </button>
               </a>
             </div>
@@ -79,7 +88,7 @@ function Dashboard() {
                 onClick={handleSignOut}
                 className="m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
               >
-                Esci
+                {t("logout")}
               </button>
             </div>
           </div>

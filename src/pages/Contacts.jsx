@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { useTranslation } from "react-i18next";
 
-function Contatti() {
+function Contacts() {
   const form = useRef();
+  const { t } = useTranslation();
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -26,12 +28,11 @@ function Contatti() {
     <div className="flex flex-col text-center justify-center items-center">
       <div>
         <div className="m-3">
-          <p>Compila i campi del form:</p>
+          <p>{t("fill_form")}</p>
           <p>
-            mandaci un feedback, una richiesta o semplicemente un
-            ringraziamento.
+            {t("feedback_request_thanks")}
             <br />
-            Ti rispondiamo, sempre.
+            {t("we_reply")}
           </p>
         </div>
         <form
@@ -42,37 +43,37 @@ function Contatti() {
           <input
             type="text"
             name="user_name"
-            placeholder="Nome"
+            placeholder={t("name")}
             className="md:w-96 m-2 px-8 py-4 rounded-lg text-sm font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 focus:outline-none focus:border-gray-400 focus:bg-white"
           />
           <input
             type="text"
             name="user_surname"
-            placeholder="Cognome"
+            placeholder={t("surname")}
             className="m-2 md:w-96 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
           />
           <input
             type="text"
             name="user_email"
-            placeholder="E-mail"
+            placeholder={t("email")}
             className="m-2 md:w-96 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
           />
           <textarea
             type="text"
             name="message"
-            placeholder="Inserisci qui il tuo messaggio"
+            placeholder={t("message_placeholder")}
             className="m-2 md:w-96 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
           />
           <input
             type="submit"
-            value="Invia"
+            value={t("send")}
             className="m-2 w-2/3 px-8 py-4 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:cursor-pointer hover:border hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
-          ></input>
+          />
         </form>
       </div>
 
-      <div className="m-5 text-center py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm md:w-2/3 justify-center items-center">
-        <p className="font-bold m-2">Contattaci</p>
+      <div className="m-5 text-center py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm justify-center items-center md:w-96">
+        <p className="font-bold m-2">{t("contact_us")}</p>
         <div className="flex flex-col justify-center items-center m-5">
           <a
             target="_blank"
@@ -90,13 +91,13 @@ function Contatti() {
             href={"mailto: borghisud@gmail.com"}
             className="hover:text-red-500 hover:transition-all"
           >
-            borghisud@gmail.com
+            {t("email_us")}
           </a>
-          <p>via Boccaccio, Ischia, Italia</p>
+          <p>{t("address")}</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default Contatti;
+export default Contacts;

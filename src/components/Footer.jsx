@@ -1,12 +1,15 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
+  const { t } = useTranslation();
+
   return (
     <div className="text-center m-8">
       <footer>
         <div className="flex flex-col justify-center items-center">
-          <p className="font-bold">Seguici ed entra nella community</p>
-          <div className="flex justify-center items-center m-10 space-x-10 sm:space-x-32">
+          <p className="font-bold">{t("followUs")}</p>
+          <div className="flex justify-center items-center m-10 space-x-10 sm:space-x-26">
             <a
               target="_blank"
               href="https://www.instagram.com/borghi_sud/"
@@ -17,6 +20,7 @@ function Footer() {
                 width="50"
                 height="50"
                 className="bg-transparent"
+                alt="Instagram"
               />
             </a>
             &emsp;
@@ -29,48 +33,45 @@ function Footer() {
                 src="https://frankmerenda.com/wp-content/uploads/2019/11/telegram-icon-512.png"
                 width="50"
                 height="50"
+                alt="Telegram"
               />
             </a>
           </div>
         </div>
-        <div className="flex flex-col justify-between m-5 sm:flex-row sm:mx-[100px] lg:mx-[600px]">
+        <div className="flex flex-col justify-between m-5 sm:flex-row sm:mx-[100px] lg:mx-[500px]">
           <a
-            href={"/obiettivi"}
+            href={"/goals"}
             className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"
           >
-            Obiettivi
+            {t("goals")}
           </a>
 
           <a
             href={"/workinprogress"}
             className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"
           >
-            Blog
+            {t("blog")}
           </a>
-          {/* <a
-            href={"/news"}
-            className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"
-          >
-            Notizie
-          </a> */}
           <a
-            href={"/contatti"}
+            href={"/contacts"}
             className="block m-1 sm:inline-block sm:mt-0 hover:text-red-600"
           >
-            Hai bisogno di aiuto?
+            {t("needHelp")}
           </a>
         </div>
-        <p>
-          Copyright © 2024{" "}
-          <a
-            href={"https://gioarca.netlify.app/"}
-            target="_blank"
-            className="text-red-500"
-          >
-            Borghi.
-          </a>{" "}
-          Tutti i diritti riservati
-        </p>
+        <div className="mx-12">
+          <p>
+            Copyright © 2024{" "}
+            <a
+              href={"https://gioarca.netlify.app/"}
+              target="_blank"
+              className="text-red-500"
+            >
+              Borghi.
+            </a>{" "}
+            {t("allRightsReserved")}
+          </p>
+        </div>
       </footer>
     </div>
   );

@@ -4,12 +4,18 @@ import { MenuAlt1Icon, XIcon } from "@heroicons/react/outline";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
   const divRef = createRef();
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
   const handleSignOut = () => {
     setTimeout(
@@ -25,7 +31,7 @@ function NavBar() {
       <div className="flex items-center text-black">
         <a href={"/"}>
           <span className="font-semibold text-xl tracking-tight flex m-10 w-auto transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110 hover:duration-300 hover:opacity-50">
-            BORGHI
+            {t("vicus")}
           </span>
         </a>
       </div>
@@ -66,25 +72,37 @@ function NavBar() {
                     href={"/about"}
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
                   >
-                    Di cosa si tratta?
+                    {t("about")}
                   </a>
                   <a
-                    href={"/obiettivi"}
+                    href={"/goals"}
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
                   >
-                    Obiettivi
+                    {t("goals")}
                   </a>
-                  {/* <a
-                    href={"/news"}
-                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
-                  >
-                    Notizie
-                  </a> */}
                   <a
-                    href={"/contatti"}
+                    href={"/loginSuccess"}
+                    className="block m-3 text-center lg:inline-block lg:mt-0 hover:text-red-600"
+                  >
+                    {t("borghi")}
+                  </a>
+                  <a
+                    href={"/contacts"}
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600"
                   >
-                    Contatti
+                    {t("contacts")}
+                  </a>
+                  <a
+                    onClick={() => changeLanguage("en")}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600 hover:cursor-pointer"
+                  >
+                    {t("english")}
+                  </a>
+                  <a
+                    onClick={() => changeLanguage("it")}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600 hover:cursor-pointer"
+                  >
+                    {t("italian")}
                   </a>
                 </div>
               </div>
@@ -141,25 +159,37 @@ function NavBar() {
                     href={"/about"}
                     className="block m-3 text-center lg:inline-block lg:mt-0 hover:text-red-500"
                   >
-                    Di cosa si tratta?
+                    {t("about")}
                   </a>
                   <a
                     href={"/loginSuccess"}
                     className="block m-3 text-center lg:inline-block lg:mt-0 hover:text-red-600"
                   >
-                    Borghi
+                    {t("borghi")}
                   </a>
                   <a
-                    href={"/contatti"}
+                    href={"/contacts"}
                     className="block m-3 text-center lg:inline-block lg:mt-0 hover:text-red-600"
                   >
-                    Contatti
+                    {t("contacts")}
+                  </a>
+                  <a
+                    onClick={() => changeLanguage("en")}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600 hover:cursor-pointer"
+                  >
+                    {t("english")}
+                  </a>
+                  <a
+                    onClick={() => changeLanguage("it")}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600 hover:cursor-pointer"
+                  >
+                    {t("italian")}
                   </a>
                   <button
                     onClick={handleSignOut}
                     className="block m-auto w-auto font-bold shadow-sm py-1 text-center items-center justify-center bg-red-800 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline lg:inline-block p-4 lg:w-20"
                   >
-                    Esci
+                    {t("logout")}
                   </button>
                 </div>
               </div>
