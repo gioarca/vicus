@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function SingOut() {
+  const { t } = useTranslation();
   return (
     <div className="my-52 text-center sm:my-64">
       <h1 className="font-bold text-2xl">
@@ -9,7 +11,7 @@ function SingOut() {
           👋
         </span>
       </h1>
-      <p>Torna presto a trovarci</p>
+      <p>{t(comeBack)}</p>
     </div>
   );
 }

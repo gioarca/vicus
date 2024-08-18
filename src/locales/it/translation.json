@@ -39,8 +39,8 @@
   "passwordPlaceholder": "Password",
   "alreadyHaveAccount": "Hai già un account?",
   "clickHere": "Clicca qui",
-  "adminOrStructure": "Sei un'amministrazione o hai una struttura?",
-  "collaborateClickHere": "Clicca qui per collaborare",
+  "admin_or_structure": "Sei un'amministrazione o hai una struttura?",
+  "collaborate": "Clicca qui per collaborare",
 
   "welcome": "Benvenut*!",
   "borghi_initiative": "Borghi: un'iniziativa nata dalla volontà popolare per la rinascita dei nostri borghi.",
@@ -107,7 +107,8 @@
   "borghi": "Borghi",
   "contacts": "Contatti",
 
-  "english": "🇬🇧 English",
+  "deutsch": "🇩🇪 Tedesco",
+  "english": "🇬🇧 Inglese",
   "italian": "🇮🇹 Italiano",
 
   "quote": "Pe' fa' 'e cose bone ce vo' tiemp'",
@@ -122,5 +123,20 @@
   "addedSoon": "provvederemo ad aggiungerlo il prima possibile.",
 
   "select_borghi": "Seleziona uno dei seguenti borghi per esplorarne le caratteristiche",
-  "load_more_borghi": "Carica più borghi"
+  "load_more_borghi": "Carica più borghi",
+
+  "loader": "Caricamento...",
+
+  "booking": "Prenota uno spazio nel co-working",
+
+  "comeBack": "Torna presto a trovarci",
+
+  "goals_page": {
+    "title": "Obiettivi",
+    "intro": "Questi sono gli obiettivi potenzialmente raggiungibili attraverso la realizzazione di questa Startup:",
+    "goal_1": "Si potrebbero creare più posti di lavoro sia nel mondo digitale che in quello offline",
+    "goal_2": "Raggiungibile con un'adeguata innovazione: promuovere eventi finalizzati allo sviluppo delle competenze digitali e alla diffusione delle capacità imprenditoriali.",
+    "goal_3_intro": "Il progetto è stato realizzato con la collaborazione di un'associazione di categoria. Realizzabile attraverso partnership con",
+    "goal_3_partners": "aziende locali, servizi infrastrutturali e pubblica amministrazione"
+  }
 }

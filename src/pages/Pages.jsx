@@ -23,6 +23,7 @@ import AddBorgo from "./AddBorgo";
 import Favourites from "./Favourites";
 import AdminBorghi from "./AdminBorghi";
 import Loader from "../components/Loader";
+import RegistrationAdmin from "../pages/RegistrationAdmin";
 
 function Pages() {
   const location = useLocation();
@@ -68,6 +69,7 @@ function Pages() {
           <Route path="/addBorgo" element={<AddBorgo />} />
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/adminborghi" element={<AdminBorghi />} />
+          <Route path="/registrationadmin" element={<RegistrationAdmin />} />
         </Routes>
       </AnimatePresence>
     </AuthProvider>

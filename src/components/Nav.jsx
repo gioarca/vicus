@@ -93,6 +93,12 @@ function NavBar() {
                     {t("contacts")}
                   </a>
                   <a
+                    onClick={() => changeLanguage("de")}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600 hover:cursor-pointer"
+                  >
+                    {t("deutsch")}
+                  </a>
+                  <a
                     onClick={() => changeLanguage("en")}
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600 hover:cursor-pointer"
                   >
@@ -172,6 +178,12 @@ function NavBar() {
                     className="block m-3 text-center lg:inline-block lg:mt-0 hover:text-red-600"
                   >
                     {t("contacts")}
+                  </a>
+                  <a
+                    onClick={() => changeLanguage("de")}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-600 hover:cursor-pointer"
+                  >
+                    {t("deutsch")}
                   </a>
                   <a
                     onClick={() => changeLanguage("en")}

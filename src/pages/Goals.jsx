@@ -1,13 +1,13 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function Goals() {
+  const { t } = useTranslation(); // Inizializza useTranslation
+
   return (
     <div className="flex flex-col items-center text-center justify-center">
-      <h1 className="text-2xl font-bold m-3">Obiettivi</h1>
-      <p>
-        Questi sono quelli potenzialmente raggiungibili attraverso la
-        realizzazione di questa Startup:
-      </p>
+      <h1 className="text-2xl font-bold m-3">{t("goals_page.title")}</h1>
+      <p>{t("goals_page.intro")}</p>
       <div className="flex flex-wrap justify-center grid-flow-row-dense grid-cols-2 grid-rows-2 m-5">
         <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 hover:duration-300">
           <img
@@ -16,10 +16,7 @@ function Goals() {
             width="80"
             className="flex flex-col items-center text-center m-auto"
           />
-          <p className="m-3">
-            Si potrebbero creare più posti di lavoro sia nel digitale che nel
-            mondo offline
-          </p>
+          <p className="m-3">{t("goals_page.goal_1")}</p>
         </div>
         <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 hover:duration-300">
           <img
@@ -28,11 +25,7 @@ function Goals() {
             width="80"
             className="flex flex-col items-center text-center m-auto"
           />
-          <p className="m-3">
-            Realizzabile con un'adeguata innovazione: promuovendo eventi mirati
-            allo sviluppo di competenze digitali e diffondendo le skill in
-            imprenditoria
-          </p>
+          <p className="m-3">{t("goals_page.goal_2")}</p>
         </div>
         <div className="max-w-80 rounded-lg overflow-hidden shadow-lg m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 hover:duration-300">
           <img
@@ -42,11 +35,9 @@ function Goals() {
             className="flex flex-col items-center text-center m-auto"
           />
           <div className="m-3">
-            {" "}
-            <p>Realizzabile attraverso le partnership con</p>
+            <p>{t("goals_page.goal_3_intro")}</p>
             <p className="font-bold text-black">
-              aziende locali, servizi per le infrastrutture e la pubblica
-              amministrazione
+              {t("goals_page.goal_3_partners")}
             </p>
           </div>
         </div>

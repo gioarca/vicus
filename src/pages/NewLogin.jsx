@@ -65,11 +65,11 @@ function LoginSuccess() {
   //   setCurrentPage((prevPage) => prevPage + 1);
   // };
 
-  const handleCardClick = () => {
+  const handleCardClick = (borgo_id) => {
     if (!user) {
       navigate("/login");
-    } else {
-      navigate("/borgo/${borgo.id}");
+      // } else {
+      //   navigate(`/borgo/${borgo_id}`);
     }
   };
 

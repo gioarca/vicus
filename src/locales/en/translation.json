@@ -38,8 +38,6 @@
   "alreadyHaveAccount": "Already have an account?",
   "clickHere": "Click here",
   "adminOrStructure": "Are you an administration or do you have a structure?",
-  "collaborateClickHere": "Click here to collaborate",
-
   "collaborate": "Click here to collaborate",
   "admin_or_structure": "Are you an administration or have a structure?",
 
@@ -108,6 +106,7 @@
   "borghi": "Borghi",
   "contacts": "Contacts",
 
+  "deutsch": "🇩🇪 German",
   "english": "🇬🇧 English",
   "italian": "🇮🇹 Italian",
 
@@ -123,5 +122,20 @@
   "addedSoon": "we will add it as soon as possible.",
 
   "select_borghi": "Select one of the following villages to explore its features",
-  "load_more_borghi": "Load more villages"
+  "load_more_borghi": "Load more villages",
+
+  "loader": "Loading...",
+
+  "booking": "Book a space in a co-working",
+
+  "comeBack": "Come back to visit us",
+
+  "goals_page": {
+    "title": "Goals",
+    "intro": "These are the goals potentially achievable through the realization of this Startup:",
+    "goal_1": "More jobs could be created both in the digital and offline world.",
+    "goal_2": "Achievable with proper innovation: promoting events aimed at developing digital skills and spreading entrepreneurial skills.",
+    "goal_3_intro": "Achievable through partnerships with",
+    "goal_3_partners": "local companies, infrastructure services, and public administration."
+  }
 }
