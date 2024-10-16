@@ -81,7 +81,7 @@ function NavBar() {
                     {t("goals")}
                   </a>
                   <a
-                    href={"/loginSuccess"}
+                    href={"/borghi"}
                     className="block m-3 text-center lg:inline-block lg:mt-0 hover:text-red-600"
                   >
                     {t("borghi")}
@@ -168,7 +168,7 @@ function NavBar() {
                     {t("about")}
                   </a>
                   <a
-                    href={"/loginSuccess"}
+                    href={"/borghi"}
                     className="block m-3 text-center lg:inline-block lg:mt-0 hover:text-red-600"
                   >
                     {t("borghi")}

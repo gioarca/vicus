@@ -25,7 +25,7 @@ function Dashboard() {
       </div>
     );
 
-  if (!user) return <Link to={"/registrazione"}></Link>;
+  if (!user) return <Link to={"/registration"}></Link>;
 
   if (user)
     return (
@@ -48,7 +48,6 @@ function Dashboard() {
             </div>
             <div className="text-center m-5">
               <p>{t("what_you_can_do")}</p>
-              {/* <p>All'interno della piattaforma puoi:</p> */}
             </div>
 
             <div className="text-center items-center justify-center">

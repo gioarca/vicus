@@ -14,7 +14,7 @@ function BorgoForm() {
       .then(
         () => {
           console.log("SUCCESS!");
-          window.location.href = "/grazieperilsupporto";
+          window.location.href = "/thankyouforyoursupport";
         },
         (error) => {
           console.log("FAILED...", error.text);
@@ -72,11 +72,13 @@ function BorgoForm() {
           className="px-4 shadow-sm rounded-lg py-3 bg-gray-100 border border-gray-200 placeholder-gray-500 text-black"
         ></textarea>
       </div>
-      <input
-        className="disabled:opacity-75 m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
-        type="submit"
-        value="Invia richiesta"
-      ></input>
+      <button>
+        <input
+          className="disabled:opacity-75 m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
+          type="submit"
+          value="Invia richiesta"
+        ></input>
+      </button>
     </form>
   );
 }

@@ -48,11 +48,10 @@ function Dashboard() {
             </div>
             <div className="text-center m-5">
               <p>{t("what_you_can_do")}</p>
-              {/* <p>All'interno della piattaforma puoi:</p> */}
             </div>
 
             <div className="text-center items-center justify-center">
-              <a href={"/loginSuccess"}>
+              <a href={"/borghi"}>
                 <button className="m-5 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none sm:px-10 md:px-32 md:w-auto">
                   {t("access_borghi")}
                 </button>

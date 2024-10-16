@@ -8,7 +8,7 @@ import Home from "./Home";
 import About from "./About";
 import Borgo from "./Borgo";
 import Login from "./Login";
-import LoginSuccess from "./LoginSuccess";
+import Borghi from "./Borghi";
 import Registration from "./Registration";
 import Contacts from "./Contacts";
 import Work from "./Work";
@@ -24,6 +24,7 @@ import Favourites from "./Favourites";
 import AdminBorghi from "./AdminBorghi";
 import Loader from "../components/Loader";
 import RegistrationAdmin from "../pages/RegistrationAdmin";
+import DashboardAdmin from "./DashboardAdmin";
 
 function Pages() {
   const location = useLocation();
@@ -56,7 +57,7 @@ function Pages() {
           <Route path="/about" element={<About />} />
           <Route path="/borgo/:_id" element={<Borgo />} />
           <Route path="/login" element={<Login user={user} />} />
-          <Route path="/loginSuccess" element={<LoginSuccess />} />
+          <Route path="/borghi" element={<Borghi />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/thanks" element={<Thanks />} />
@@ -70,6 +71,7 @@ function Pages() {
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/adminborghi" element={<AdminBorghi />} />
           <Route path="/registrationadmin" element={<RegistrationAdmin />} />
+          <Route path="/dashboardadmin" element={<DashboardAdmin />} />
         </Routes>
       </AnimatePresence>
     </AuthProvider>

@@ -9,6 +9,7 @@
   "description3": "Rivolto a tutti coloro che credono in questo cambiamento:",
   "description4": "imprenditori, creators, marketers, sviluppatori e lavoratori da remoto.",
   "description5": "All'interno si possono trovare informazioni, notizie e una community che la pensa come te.",
+  "buttonBorghi": "Entra nei Borghi",
   "followUs": "Seguici ed entra nella community",
   "goals": "Obiettivi",
   "blog": "Blog",
@@ -75,6 +76,8 @@
   "house_price_info": "Vorresti trasferirti e comprare casa qui? Dai un'occhiata ai prezzi qui sopra",
   "airbnb_price": "Prezzo medio per un Airbnb",
   "airbnb_price_info": "Al momento non abbiamo ancora una struttura dove ospitare tutti i membri, ma qui sopra c'è un prezzo indicativo per un gruppo di 4 persone (il numero è puramente arbitrario)",
+  "experience": "Esperienze",
+  "experience_info": "Esplora il borgo! Fai le esperienze locali, non te ne pentirai.",
   "need_more": "Hai bisogno di più? Premi uno dei pulsanti qui sotto per ottenere più informazioni sui servizi locali",
   "nearest_airport": "Aeroporto più vicino",
   "nearest_hospital": "Ospedale più vicino",
@@ -129,6 +132,7 @@
 
   "booking": "Prenota uno spazio nel co-working",
 
+  "seeYou": "Arrivederci!",
   "comeBack": "Torna presto a trovarci",
 
   "goals_page": {
@@ -138,5 +142,7 @@
     "goal_2": "Raggiungibile con un'adeguata innovazione: promuovere eventi finalizzati allo sviluppo delle competenze digitali e alla diffusione delle capacità imprenditoriali.",
     "goal_3_intro": "Il progetto è stato realizzato con la collaborazione di un'associazione di categoria. Realizzabile attraverso partnership con",
     "goal_3_partners": "aziende locali, servizi infrastrutturali e pubblica amministrazione"
-  }
+  },
+
+  "slowness": "Livello di lentezza:"
 }

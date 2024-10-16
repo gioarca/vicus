@@ -128,6 +128,7 @@
 
   "booking": "Book a space in a co-working",
 
+  "seeYou": "Good Bye!",
   "comeBack": "Come back to visit us",
 
   "goals_page": {
@@ -137,5 +138,7 @@
     "goal_2": "Achievable with proper innovation: promoting events aimed at developing digital skills and spreading entrepreneurial skills.",
     "goal_3_intro": "Achievable through partnerships with",
     "goal_3_partners": "local companies, infrastructure services, and public administration."
-  }
+  },
+
+  "slowness": "Livello di lentezza:"
 }

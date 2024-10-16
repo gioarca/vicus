@@ -128,6 +128,7 @@
 
   "booking": "Buchen Sie einen Platz in einem Co-Working",
 
+  "seeYou": "Auf wiedersehen!",
   "comeBack": "Besuchen Sie uns wieder",
 
   "goals_page": {
@@ -137,5 +138,7 @@
     "goal_2": "Erreichbar mit der richtigen Innovation: Förderung von Veranstaltungen zur Entwicklung digitaler Fähigkeiten und Verbreitung unternehmerischer Kompetenzen.",
     "goal_3_intro": "Erreichbar durch Partnerschaften mit",
     "goal_3_partners": "lokalen Unternehmen, Infrastrukturdiensten und der öffentlichen Verwaltung."
-  }
+  },
+
+  "slowness": "Livello di lentezza:"
 }

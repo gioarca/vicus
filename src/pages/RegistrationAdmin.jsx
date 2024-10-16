@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { checkVAT } from "viesapi-client";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
+import { auth } from "../utils/firebase";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+// import { FcGoogle } from "react-icons/fc";
 
-const VatVerification = () => {
+function VatVerification({ user }) {
   const [vatNumber, setVatNumber] = useState("");
   const [countryCode, setCountryCode] = useState("IT"); // Imposta il codice del paese, ad esempio 'IT' per Italia
   const [isValid, setIsValid] = useState(null);
@@ -12,10 +15,9 @@ const VatVerification = () => {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
   const emailError = document.querySelector(".email.error");
   const passwordError = document.querySelector(".password.error");
-
+  const navigate = useNavigate();
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -63,6 +65,37 @@ const VatVerification = () => {
     }
   };
 
+  const googleProvider = new GoogleAuthProvider();
+
+  const googleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      console.log("Google Login Success:", user);
+
+      const response = await fetch("http://localhost:3000/google-login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: user.email, uid: user.uid }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || "Google Login failed");
+      }
+      navigate("/dashboard");
+    } catch (error) {
+      setError(error.message);
+      console.error("Errore durante il login con Google:", error.message);
+    }
+  };
+
+  // if (user) {
+  //   navigate("/dashboard");
+  // }
+
   const verifyVat = async () => {
     setLoading(true);
     setError(null);
@@ -77,6 +110,10 @@ const VatVerification = () => {
     }
   };
 
+  if (user) {
+    return <Navigate to="/dashboardadmin" />;
+  }
+
   return (
     <div className="min-h-full bg-gray-100 text-gray-900 flex justify-center">
       <div className="max-w-screen-xl m-0 sm:m-5 bg-white shadow sm:rounded-lg flex justify-center flex-1">
@@ -90,9 +127,17 @@ const VatVerification = () => {
                 <div className="lg:max-w-xl flex flex-col items-center">
                   <div className="leading px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
                     {/* <p>{t("orSignUpWithEmail")}</p> */}
-                    <p>inserisci i dati nei campi qui sotto</p>
+                    <p>Inserisci i dati nei campi qui sotto</p>
                   </div>
                 </div>
+
+                {/* <button
+                  onClick={googleLogin}
+                  className="w-full max-w-xs font-bold shadow-sm rounded-full py-3 bg-transparent border-2 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
+                >
+                  <FcGoogle className="bg-white h-10 w-10 rounded-full inline-block" />
+                  <span className="ml-4">{t("continue_with_google")}</span>
+                </button> */}
 
                 <form
                   className="sm:w-96 flex flex-col items-center"
@@ -204,6 +249,6 @@ const VatVerification = () => {
       </div>
     </div>
   );
-};
+}
 
 export default VatVerification;
