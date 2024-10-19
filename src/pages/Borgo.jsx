@@ -66,10 +66,12 @@ function BorgoNew() {
               <p>{borghi.name}</p>{" "}
             </div>
             <div className="p-5">
-              <button className="m-1 px-6 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
-                <h3>{t("place")}</h3>
-              </button>
-              <p>{borghi.place}</p>
+              <a href={borghi.place} target="_blank" rel="noopener noreferrer">
+                <button className="m-1 px-6 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
+                  <h3>{t("place")}</h3>
+                </button>
+              </a>
+              <p>{borghi.place_description}</p>
             </div>
             <div className="p-5">
               <button className="m-1 px-6 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
@@ -131,7 +133,7 @@ function BorgoNew() {
             </div>
             <div className="p-5">
               <a
-                // href={borghi.airbnbFilter}
+                href={borghi.experience ? borghi.experience : "/workinprogress"}
                 // target="_blank"
                 rel="noopener noreferrer"
                 className="underline hover:text-red-500 hover:transition-all"
