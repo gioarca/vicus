@@ -25,7 +25,7 @@ function Dashboard() {
       </div>
     );
 
-  if (!user) return <Link to={"/registrazione"}></Link>;
+  if (!user) return <Link to={"/registration"}></Link>;
 
   if (user)
     return (
@@ -65,14 +65,6 @@ function Dashboard() {
                 </button>
               </a>
             </div>
-
-            {/* <div className="text-center items-center justify-center">
-              <a href={"/addborgo"}>
-                <button className="m-5 px-8 w-72 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none sm:px-10 md:px-32 md:w-auto">
-                  Aggiungere un borgo
-                </button>
-              </a>
-            </div> */}
 
             <div className="text-center items-center justify-center">
               <a href={"/news"}>

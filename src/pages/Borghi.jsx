@@ -20,7 +20,8 @@ function LoginSuccess() {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `https://borghi-backend.onrender.com/api/v1/borghi/?limit=15&page=${currentPage}`
+          // `https://borghi-backend.onrender.com/api/v1/borghi/?limit=15&page=${currentPage}`
+          `http://localhost:3000/api/v1/borghi` // porta default per il backend
         );
         const { borghi: initialBorghi, totalPages } = await response.json();
 

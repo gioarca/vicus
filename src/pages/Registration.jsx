@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useTranslation } from "react-i18next";
@@ -25,11 +25,11 @@ function Registration({ user }) {
   const handleSignUp = async (event) => {
     event.preventDefault();
 
-    emailError.textContent = "";
-    passwordError.textContent = "";
+    // emailError.textContent = "";
+    // passwordError.textContent = "";
 
-    const email = form.email.value;
-    const password = form.password.value;
+    // const email = form.email.value;
+    // const password = form.password.value;
 
     try {
       setError(null);
@@ -59,6 +59,38 @@ function Registration({ user }) {
       setError(error.message);
       console.error("Errore durante la registrazione:", error.message);
     }
+    // };
+
+    //   try {
+    //     setError(null);
+    //     const res = await fetch(
+    //       "http://localhost:3000/api/v1/authRoutes/signup",
+    //       {
+    //         method: "POST",
+    //         headers: {
+    //           "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({ email, password }), // Usa direttamente email e password dallo stato
+    //       }
+    //     );
+
+    //     const data = await res.json();
+    //     console.log("Registrazione avvenuta con successo:", data);
+
+    //     if (data.errors) {
+    //       // Gestione degli errori
+    //       document.querySelector(".email.error").textContent = data.errors.email;
+    //       document.querySelector(".password.error").textContent =
+    //         data.errors.password;
+    //     }
+
+    //     if (data.user) {
+    //       navigate("/dashboard"); // Usa navigate invece di location.assign
+    //     }
+    //   } catch (error) {
+    //     setError(error.message);
+    //     console.error("Errore durante la registrazione:", error.message);
+    //   }
   };
 
   const googleProvider = new GoogleAuthProvider();
@@ -89,7 +121,7 @@ function Registration({ user }) {
   };
 
   if (user) {
-    navigate("/dashboard");
+    return <Navigate to="/dashboard" />;
   }
 
   return (

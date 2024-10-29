@@ -33,13 +33,12 @@ function Work() {
         <p className="md:my-2">{t("cit")}</p>
       </div>
       <p className="mt-5">{t("pageNotAvailable")}</p>
-      <button
-        disabled
-        type="text"
-        className="m-2 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none disabled:opacity-75 hover:outline-none md:my-10"
+      <p
+        // className="m-2 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none disabled:opacity-75 hover:outline-none md:my-10"
+        className="m-2 px-8 py-2 text-center items-center justify-center font-bold hover:text-red-800 text-black hover:border-2 hover:border-red-800 hover:transition-all hover:duration-300 hover:ease-in-out hover:rounded-full focus:shadow-outline focus:outline-none disabled:opacity-75 hover:outline-none md:my-10"
       >
         {t("comingSoon")}
-      </button>
+      </p>
     </div>
   );
 }
