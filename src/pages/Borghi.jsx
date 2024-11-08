@@ -4,6 +4,7 @@ import Loader from "../components/Loader";
 import { HeartIcon } from "@heroicons/react/outline";
 import { useAuth } from "../context/AuthContext";
 import { useTranslation } from "react-i18next"; // Importa useTranslation
+import { motion } from "framer-motion";
 
 function LoginSuccess() {
   const { t } = useTranslation(); // Inizializza useTranslation
@@ -79,7 +80,16 @@ function LoginSuccess() {
   }
 
   return (
-    <div>
+    <motion.div
+      className="box"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+    >
       <div className="flex-wrap m-4 text-center justify-center">
         <p>{t("select_borghi")}</p> {/* Traduci il testo */}
       </div>
@@ -127,7 +137,7 @@ function LoginSuccess() {
           </button>
         </div>
       )} */}
-    </div>
+    </motion.div>
   );
 }
 

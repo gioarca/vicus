@@ -6,7 +6,16 @@ function Home() {
   const { t } = useTranslation();
 
   return (
-    <motion.div>
+    <motion.div
+      className="box"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+    >
       <div className="m-7 text-center sm:mx-28">
         <h1 className="font-bold text-2xl m-5">{t("title")}</h1>
         <p>{t("goal")}</p>

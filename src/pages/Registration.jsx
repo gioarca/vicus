@@ -22,8 +22,8 @@ function Registration({ user }) {
     setPassword(event.target.value);
   };
 
-  const handleSignUp = async (event) => {
-    event.preventDefault();
+  const handleSignUp = async () => {
+    // event.preventDefault(); // aggiungi event all'interno delle parentesi se scegli questa strada
 
     // emailError.textContent = "";
     // passwordError.textContent = "";
@@ -159,10 +159,7 @@ function Registration({ user }) {
                   </div>
                 </div>
 
-                <form
-                  className="sm:w-96 flex flex-col items-center"
-                  onSubmit={handleSignUp}
-                >
+                <div className="sm:w-96 flex flex-col items-center">
                   <input
                     className="sm:w-96 w-80 px-8 py-4 mt-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                     type="email"
@@ -179,11 +176,11 @@ function Registration({ user }) {
                   />
                   <button
                     className="sm:w-96 w-80 font-bold shadow-sm py-3 flex items-center justify-center bg-red-800 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
-                    type="submit"
+                    onClick={handleSignUp}
                   >
                     <span>{t("signUp")}</span>
                   </button>
-                </form>
+                </div>
 
                 {error && (
                   <p className="text-red-600 mt-2">
