@@ -42,8 +42,8 @@ function BorgoNew() {
         setIsLoading(true);
         try {
           const response = await fetch(
-            // `https://borghi-backend.onrender.com/api/v1/borghi/${params._id}`
-            `http://localhost:3000/api/v1/borghi/${params._id}`
+            `https://borghi-backend.onrender.com/api/v1/borghi/${params._id}`
+            // `http://localhost:3000/api/v1/borghi/${params._id}`
           );
           const detailBorgo = await response.json();
           setBorghi(detailBorgo);
