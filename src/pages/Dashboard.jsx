@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { auth } from "../utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Loader from "../components/Loader";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 
 function Dashboard() {
   const [user, isLoading] = useAuthState(auth);
+  const [data] = useState("");
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const location = useLocation();
 
   const handleSignOut = () => {
     setTimeout(async () => {
       auth.signOut().then(() => {
         navigate("/signout"); // Reindirizza dopo il logout
       });
-    }, 2000);
+    });
   };
 
   if (isLoading)
@@ -27,7 +30,7 @@ function Dashboard() {
 
   if (!user) return <Link to={"/registration"}></Link>;
 
-  if (user)
+  if (user || data)
     return (
       <div
         style={{
@@ -44,7 +47,9 @@ function Dashboard() {
                   👋
                 </span>
               </h1>
-              <p className="text-xl">{user.displayName}</p>
+              <p className="text-xl">
+                Welcome, {user?.name || user.displayName || "User"}!
+              </p>
             </div>
             <div className="text-center m-5">
               <p>{t("what_you_can_do")}</p>

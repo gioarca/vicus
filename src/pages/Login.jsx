@@ -4,13 +4,15 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { Link, Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { signInWithEmailAndPassword } from "firebase/auth";
+// import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
-function Login({ user }) {
+function Login({ user, data }) {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const googleProvider = new GoogleAuthProvider();
   const googleLogin = async () => {
@@ -30,12 +32,12 @@ function Login({ user }) {
     setPassword(event.target.value);
   };
 
-  const handleSignIn = async (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
 
     try {
       setError(null);
-      const res = await fetch("http://localhost:3000/api/v1/authRoutes/login", {
+      const res = await fetch("http://localhost:3000/api/v1/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,8 +53,8 @@ function Login({ user }) {
         passwordError.textContent = data.errors.password;
       }
 
-      if (data.user) {
-        location.assign("/dashboard");
+      if (data) {
+        navigate("/dashboard");
       }
     } catch (error) {
       setError(error.message);
@@ -60,7 +62,7 @@ function Login({ user }) {
     }
   };
 
-  if (user) {
+  if (user || data) {
     return <Navigate to="/dashboard" />;
   }
 
@@ -104,7 +106,7 @@ function Login({ user }) {
 
                 <form
                   className="sm:w-96 flex flex-col items-center"
-                  onSubmit={handleSignIn}
+                  onSubmit={handleLogin}
                 >
                   <input
                     className="sm:w-96 w-80 px-8 py-4 mt-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"

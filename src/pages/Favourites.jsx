@@ -166,7 +166,9 @@ function Favourites() {
     // Fetch dei borghi preferiti
     const fetchFavorites = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/v1/borghi/");
+        const response = await fetch(
+          "https://borghi-backend.onrender.com/api/v1/borghi/"
+        );
         const { borghi } = await response.json();
         const filteredFavorites = borghi.filter((borgo) =>
           savedFavorites.includes(borgo._id)

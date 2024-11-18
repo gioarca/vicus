@@ -5,7 +5,7 @@ import { auth } from "../utils/firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useTranslation } from "react-i18next";
 
-function Registration({ user }) {
+function Registration({ user, data }) {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,16 +33,13 @@ function Registration({ user }) {
 
     try {
       setError(null);
-      const res = await fetch(
-        "http://localhost:3000/api/v1/authRoutes/signup",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        }
-      );
+      const res = await fetch("http://localhost:3000/api/v1/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
       const data = await res.json();
       console.log("Registrazione avvenuta con successo:", data);
@@ -120,7 +117,7 @@ function Registration({ user }) {
     }
   };
 
-  if (user) {
+  if (user || data) {
     return <Navigate to="/dashboard" />;
   }
 
