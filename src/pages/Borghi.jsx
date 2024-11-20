@@ -23,6 +23,7 @@ function LoginSuccess() {
         const response = await fetch(
           `https://borghi-backend.onrender.com/api/v1/borghi/` // porta default per la produzione
           // `http://localhost:3000/api/v1/borghi` // porta default per il backend
+          // { mode: "no-cors" }
         );
         const { borghi: initialBorghi, totalPages } = await response.json();
 

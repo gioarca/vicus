@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-// import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 
 function Login({ user, data }) {
   const { t } = useTranslation();
@@ -13,6 +11,8 @@ function Login({ user, data }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const emailError = document.querySelector(".email.error");
+  const passwordError = document.querySelector(".password.error");
 
   const googleProvider = new GoogleAuthProvider();
   const googleLogin = async () => {
@@ -47,14 +47,13 @@ function Login({ user, data }) {
 
       const data = await res.json();
       console.log("Login successful:", data);
+      if (data.token) {
+        <Navigate to="/dashboard" />;
+      }
 
       if (data.errors) {
         emailError.textContent = data.errors.email;
         passwordError.textContent = data.errors.password;
-      }
-
-      if (data) {
-        navigate("/dashboard");
       }
     } catch (error) {
       setError(error.message);
@@ -62,7 +61,7 @@ function Login({ user, data }) {
     }
   };
 
-  if (user || data) {
+  if (user) {
     return <Navigate to="/dashboard" />;
   }
 
