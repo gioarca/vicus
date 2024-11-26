@@ -128,9 +128,9 @@ function BorgoForm() {
         />
       </label>
       <label>
-        Descrizione:
+        Foto:
         <textarea
-          name="description"
+          name="photo"
           value={borgoData.description}
           onChange={handleChange}
           required
@@ -144,25 +144,6 @@ function BorgoForm() {
           value={borgoData.location}
           onChange={handleChange}
           required
-        />
-      </label>
-      <label>
-        Velocità Internet:
-        <input
-          type="number"
-          name="internetSpeed"
-          value={borgoData.internetSpeed}
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <label>
-        Spazio Coworking:
-        <input
-          type="checkbox"
-          name="coworkingSpace"
-          checked={borgoData.coworkingSpace}
-          onChange={handleChange}
         />
       </label>
       <button type="submit">Aggiungi Borgo</button>

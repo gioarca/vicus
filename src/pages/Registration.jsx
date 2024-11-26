@@ -48,10 +48,7 @@ function Registration({ user, data }) {
         emailError.textContent = data.errors.email;
         passwordError.textContent = data.errors.password;
       }
-
-      if (data.user) {
-        location.assign("/dashboard");
-      }
+      navigate("/dashboard");
     } catch (error) {
       setError(error.message);
       console.error("Errore durante la registrazione:", error.message);
@@ -131,13 +128,13 @@ function Registration({ user, data }) {
             </h1>
             <div className="w-full flex-1 mt-8">
               <div className="flex flex-col items-center">
-                <button
+                {/* <button
                   onClick={googleLogin}
                   className="w-full max-w-xs font-bold shadow-sm rounded-full py-3 bg-transparent border-2 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
                 >
                   <FcGoogle className="bg-white h-10 w-10 rounded-full inline-block" />
                   <span className="ml-4">{t("continue_with_google")}</span>
-                </button>
+                </button> */}
 
                 <p className="m-5 text-xs text-gray-600 text-center">
                   {t("accept_terms")} &nbsp;

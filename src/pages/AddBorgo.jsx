@@ -44,12 +44,54 @@
 
 // export default AddBorgo;
 
-import React from "react";
-import BorgoForm from "../components/BorgoForm";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link, useNavigate } from "react-router-dom";
 
 function AddBorgo() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const [borgoData, setBorgoData] = useState({
+    name: "",
+    place: "",
+    imgURL: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setBorgoData({
+      ...borgoData,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:3000/api/v1/borghi/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(borgoData),
+      });
+      if (response.ok) {
+        alert("Borgo aggiunto con successo!");
+        setBorgoData({
+          name: "",
+          place: "",
+          imgURL: "",
+          // reset campi...
+        });
+        navigate("/thanks");
+        // } else {
+        //   alert("Errore nell'aggiungere il borgo.");
+      }
+    } catch (error) {
+      console.error("Errore:", error);
+      alert("Errore di connessione al server.");
+    }
+  };
 
   return (
     <div className="flex flex-col text-center">
@@ -77,7 +119,54 @@ function AddBorgo() {
         <div className="flex flex-col m-5 text-center font-light">
           <p>{t("add_borgo")}</p>
           <div>
-            <BorgoForm />
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col justify-center items-center text-center gap-3 mb-10 bg-grey-200 p-5 rounded-lg m-auto"
+            >
+              <label className="m-4 px-10 shadow-sm rounded-lg py-3 bg-gray-100 border border-gray-200 placeholder-gray-500 text-black">
+                Nome del borgo
+                <input
+                  className="px-12 m-2"
+                  type="text"
+                  name="name"
+                  placeholder="Inserisci il nome intero"
+                  value={borgoData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+
+              <label className="m-2 px-5 shadow-sm rounded-lg py-5 bg-gray-100 border border-gray-200 placeholder-gray-500 text-black">
+                Posizione su Google Maps
+                <input
+                  className="px-12 m-2"
+                  type="text"
+                  name="place"
+                  placeholder="Link di maps"
+                  value={borgoData.location}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <label className="px-4 shadow-sm rounded-lg py-3 bg-gray-100 border border-gray-200 placeholder-gray-500 text-black">
+                Foto
+                <input
+                  className="px-12 m-2"
+                  type="text"
+                  name="imgURL"
+                  placeholder="Linka una foto stupenda del borgo"
+                  value={borgoData.photo}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <button
+                type="submit"
+                className="disabled:opacity-75 m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
+              >
+                Aggiungi Borgo
+              </button>
+            </form>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import Loader from "../components/Loader";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
+// import { data } from "../pages/Registration";
 
 function Dashboard() {
   const [user, isLoading] = useAuthState(auth);
@@ -30,6 +31,7 @@ function Dashboard() {
 
   if (!user) return <Link to={"/registration"}></Link>;
 
+  // if (data)
   if (user || data)
     return (
       <div
@@ -47,9 +49,9 @@ function Dashboard() {
                   👋
                 </span>
               </h1>
-              <p className="text-xl">
+              {/* <p className="text-xl">
                 Welcome, {user?.name || user.displayName || "User"}!
-              </p>
+              </p> */}
             </div>
             <div className="text-center m-5">
               <p>{t("what_you_can_do")}</p>
@@ -59,6 +61,14 @@ function Dashboard() {
               <a href={"/borghi"}>
                 <button className="m-5 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none sm:px-10 md:px-32 md:w-auto">
                   {t("access_borghi")}
+                </button>
+              </a>
+            </div>
+
+            <div className="text-center items-center justify-center">
+              <a href={"/addborgo"}>
+                <button className="m-5 px-8 w-72 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none sm:px-10 md:px-32 md:w-auto">
+                  Aggiungere un borgo
                 </button>
               </a>
             </div>
