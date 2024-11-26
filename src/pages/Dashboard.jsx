@@ -74,6 +74,14 @@ function Dashboard() {
             </div>
 
             <div className="text-center items-center justify-center">
+              <a href={"/deleteborgo"}>
+                <button className="m-5 px-8 w-72 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none sm:px-10 md:px-32 md:w-auto">
+                  Cancellare un borgo dalla lista
+                </button>
+              </a>
+            </div>
+
+            <div className="text-center items-center justify-center">
               <a href={"/favourites"}>
                 <button className="m-5 px-8 w-72 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none sm:px-10 md:px-32 md:w-auto">
                   {t("your_favourites")}
