@@ -95,15 +95,15 @@ function Registration({ user, data }) {
       const user = result.user;
       console.log("Google Login Success:", user);
 
-      const response = await fetch("http://localhost:3000/google-login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: user.email, uid: user.uid }),
-      });
+      // const response = await fetch("http://localhost:3000/google-login", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({ email: user.email, uid: user.uid }),
+      // });
 
-      const data = await response.json();
+      // const data = await response.json();
       if (!response.ok) {
         throw new Error(data.message || "Google Login failed");
       }
@@ -114,7 +114,7 @@ function Registration({ user, data }) {
     }
   };
 
-  if (user || data) {
+  if (user) {
     return <Navigate to="/dashboard" />;
   }
 
