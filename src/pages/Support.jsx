@@ -12,9 +12,9 @@ function Support() {
           🙏
         </span>
       </p>
-      <p>{t("requestReceived")}</p>
-      <p>{t("requirementsMet")}</p>
-      <p>{t("addedSoon")}</p>
+      <p>{t("thankYouBorgo")}</p>
+      <p>{t("borgoAdded")}</p>
+      <p>{t("goToTheList")}</p>
       <p></p>
     </div>
   );

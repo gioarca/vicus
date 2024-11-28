@@ -4,7 +4,8 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 
-import Home from "./Home";
+// import Home from "./Home";
+import HomeReal from "./HomeReal";
 import About from "./About";
 import Borgo from "./Borgo";
 import Login from "./Login";
@@ -54,7 +55,8 @@ function Pages() {
       <Nav />
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<HomeReal />} />
           <Route path="/about" element={<About />} />
           <Route path="/borgo/:_id" element={<Borgo />} />
           <Route path="/login" element={<Login user={user} />} />

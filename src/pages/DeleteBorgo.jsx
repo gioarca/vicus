@@ -13,9 +13,9 @@ function Delete() {
   const navigate = useNavigate();
   const [borghi, setBorghi] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [favorites, setFavorites] = useState([]);
+  // const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -121,7 +121,7 @@ function Delete() {
       }}
     >
       <div className="flex-wrap m-4 text-center justify-center">
-        <p>{t("select_borghi")}</p> {/* Traduci il testo */}
+        <p>{t("deleteBorgo")}</p> {/* Traduci il testo */}
       </div>
       <div className="flex flex-wrap justify-center grid-flow-row-dense grid-cols-2 grid-rows-3">
         {borghi.map((borgo) => {
@@ -131,16 +131,16 @@ function Delete() {
               className="max-w-80 rounded-lg overflow-hidden shadow-xl m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:duration-300"
               key={borgo._id ? borgo._id : ""}
             >
-              <Link to={"/borgo/" + (borgo._id ? borgo._id : "")}>
-                <img
-                  className="w-auto overflow-hidden m-auto"
-                  src={borgo.imgURL}
-                  alt={borgo.name}
-                />
-                <h1 className="flex flex-col text-center justify-center font-semibold mt-5">
-                  {borgo.name}
-                </h1>
-              </Link>
+              {/* <Link to={"/borgo/" + (borgo._id ? borgo._id : "")}> */}
+              <img
+                className="w-auto overflow-hidden m-auto"
+                src={borgo.imgURL}
+                alt={borgo.name}
+              />
+              <h1 className="flex flex-col text-center justify-center font-semibold mt-5">
+                {borgo.name}
+              </h1>
+              {/* </Link> */}
               <button
                 onClick={(e) => {
                   e.stopPropagation(); // Impedisce al click del bottone di attivare il click della card
