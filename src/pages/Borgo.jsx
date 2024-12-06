@@ -6,6 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import Prenota from "../components/Prenota";
 import {
   PaperAirplaneIcon,
   AcademicCapIcon,
@@ -269,10 +270,9 @@ function BorgoNew() {
                 </div>
               </div>
             </div>
-            {/* <div className="p-2">
-          <Prenota />
-          <Arrow />
-        </div> */}
+            <div className="p-2">
+              <Prenota />
+            </div>
           </div>
         </div>
       </motion.div>

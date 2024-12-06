@@ -100,9 +100,11 @@ function Home() {
           <h2 className="text-lg font-bold mt-5 mx-12 mb-3">
             {t("callToActionBody")}
           </h2>
-          <button className="m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
-            {t("callToActionButtonText")}
-          </button>
+          <a href={"/borghi"}>
+            <button className="m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
+              {t("callToActionButtonText")}
+            </button>
+          </a>
         </div>
         <img
           src="https://images.unsplash.com/photo-1650521986932-86bbeded3fc2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

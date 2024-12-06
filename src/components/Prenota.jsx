@@ -8,7 +8,7 @@ function Prenota() {
       <a href={"/workinprogress"}>
         <CreditCardIcon className="justify-center items-center text-center h-16 m-auto" />
         <p className="flex flex-col justify-center items-center text-center">
-          {t(booking)}
+          {t("booking")}
         </p>
       </a>
     </div>

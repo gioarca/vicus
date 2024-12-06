@@ -12,7 +12,7 @@ function Dashboard() {
   const [data] = useState("");
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const location = useLocation();
+  // const location = useLocation();
 
   const handleSignOut = () => {
     setTimeout(async () => {
@@ -59,7 +59,7 @@ function Dashboard() {
 
             <div className="text-center items-center justify-center">
               <a href={"/borghi"}>
-                <button className="m-5 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none sm:px-10 md:px-32 md:w-auto">
+                <button className="m-5 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none sm:px-10 md:px-30 md:w-auto sm:text-center">
                   {t("access_borghi")}
                 </button>
               </a>
@@ -91,7 +91,14 @@ function Dashboard() {
 
             <div className="text-center items-center justify-center">
               <a href={"/news"}>
-                <button className="m-5 w-72 py-2 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none sm:px-10 md:px-32 md:w-auto">
+                <button
+                  className="md:m-5 md:px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
+                  // className="m-5 w-72 py-2 font-semibold bg-red-800
+                  //   text-white rounded-full hover:bg-white hover:text-black
+                  //   hover:border-2 hover:border-red-800 transition-all
+                  //   duration-300 ease-in-out focus:shadow-outline
+                  //   focus:outline-none sm:px-10 md:px-32 md:w-auto"
+                >
                   {t("read_news")}
                 </button>
               </a>

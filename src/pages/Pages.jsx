@@ -27,6 +27,7 @@ import Loader from "../components/Loader";
 import RegistrationAdmin from "../pages/RegistrationAdmin";
 import DashboardAdmin from "./DashboardAdmin";
 import Delete from "./DeleteBorgo";
+import Update from "./UpdateBorgo";
 
 function Pages() {
   const location = useLocation();
@@ -76,6 +77,7 @@ function Pages() {
           <Route path="/registrationadmin" element={<RegistrationAdmin />} />
           <Route path="/dashboardadmin" element={<DashboardAdmin />} />
           <Route path="/deleteborgo" element={<Delete />} />
+          <Route path="/updateborgo" element={<Update />} />
         </Routes>
       </AnimatePresence>
     </AuthProvider>

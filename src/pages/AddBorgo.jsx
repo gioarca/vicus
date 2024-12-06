@@ -68,13 +68,17 @@ function AddBorgo() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/api/v1/borghi/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(borgoData),
-      });
+      const response = await fetch(
+        "https://borghi-backend.onrender.com/api/v1/borghi",
+        {
+          // const response = await fetch("http://localhost:3000/api/v1/borghi/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(borgoData),
+        }
+      );
       if (response.ok) {
         alert("Borgo aggiunto con successo!");
         setBorgoData({
