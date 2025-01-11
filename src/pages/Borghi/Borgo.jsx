@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Loader from "../components/Loader";
+import Loader from "../../components/Loader";
 import { useTranslation } from "react-i18next";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../utils/firebase";
-import { Link, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../hooks/auth/useAuthContext";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import Prenota from "../components/Prenota";
+import Prenota from "../../components/Prenota";
 import {
   PaperAirplaneIcon,
   AcademicCapIcon,
@@ -20,8 +19,8 @@ import {
   GlobeIcon,
 } from "@heroicons/react/outline";
 
-function BorgoNew() {
-  const [user] = useAuthState(auth);
+function Borgo() {
+  const { user } = useAuthContext(); // Uso il contesto di autenticazione
   const navigate = useNavigate();
   let params = useParams();
   const [borghi, setBorghi] = useState(
@@ -30,22 +29,23 @@ function BorgoNew() {
   const [isLoading, setIsLoading] = useState(!borghi.length);
   const { t } = useTranslation();
 
-  // Redirect if user is not logged in
+  // // Redirect if user is not logged in
   useEffect(() => {
     if (!user) {
-      navigate("/registration");
+      navigate("/login");
     }
   }, [user, navigate]);
 
   useEffect(() => {
     const fetchDetails = async () => {
       if (!borghi.length) {
+        const baseURL =
+          process.env.NODE_ENV === "development"
+            ? "http://localhost:3000"
+            : "https://borghi-backend.onrender.com";
         setIsLoading(true);
         try {
-          const response = await fetch(
-            `https://borghi-backend.onrender.com/api/v1/borghi/${params._id}`
-            // `http://localhost:3000/api/v1/borghi/${params._id}`
-          );
+          const response = await fetch(`${baseURL}/borghi/${params._id}`);
           const detailBorgo = await response.json();
           setBorghi(detailBorgo);
           localStorage.setItem(
@@ -93,7 +93,7 @@ function BorgoNew() {
             <div key={borghi._id} className="p-4">
               <div>
                 <div className="p-5 font-bold text-xl">
-                  <p>{borghi.name}</p>{" "}
+                  <h1>{borghi.name}</h1>{" "}
                 </div>
                 <div className="p-5">
                   <a
@@ -108,19 +108,15 @@ function BorgoNew() {
                   <p>{borghi.place_description}</p>
                 </div>
                 <div className="p-5">
-                  <button className="m-1 px-6 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
-                    <h3>{t("description")}</h3>
-                  </button>
+                  {/* <button className="m-1 px-6 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"> */}
+                  <h3 className="font-bold text-black ">{t("description")}</h3>
+                  {/* </button> */}
                   <p>{borghi.description}</p>
                 </div>
-                <div className="p-5">
-                  <button className="m-1 px-6 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
-                    <h3>{t("slowness")}</h3>{" "}
-                  </button>
-                </div>
+
                 <div className="p-5">
                   <a
-                    href={borghi.internet}
+                    href={borghi.internet ? borghi.internet : "/workinprogress"}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -135,7 +131,11 @@ function BorgoNew() {
                 </div>
                 <div className="p-5">
                   <a
-                    href={borghi.priceHouses}
+                    href={
+                      borghi.priceHouses
+                        ? borghi.priceHouses
+                        : "/workinprogress"
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline hover:text-red-500 hover:transition-all"
@@ -151,7 +151,11 @@ function BorgoNew() {
                 </div>
                 <div className="p-5">
                   <a
-                    href={borghi.airbnbFilter}
+                    href={
+                      borghi.airbnbFilter
+                        ? borghi.airbnbFilter
+                        : "/workinprogress"
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline hover:text-red-500 hover:transition-all"
@@ -187,11 +191,9 @@ function BorgoNew() {
                   <p className="mb-2">{t("need_more")}</p>
                   <ul>
                     <a
-                      href={borghi.airport}
+                      href={borghi.airport ? borghi.airport : "/workinprogress"}
                       target="_blank"
                       rel="noopener noreferrer"
-                      // className="py-2 font-semibold bg-red-800 text-yellow-700 rounded-sm hover:transition-all hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-non"
-                      // m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full
                     >
                       <button className="m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
                         <li>
@@ -201,7 +203,9 @@ function BorgoNew() {
                       </button>
                     </a>
                     <a
-                      href={borghi.hospital}
+                      href={
+                        borghi.hospital ? borghi.hospital : "/workinprogress"
+                      }
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-red-500 hover:transition-all"
@@ -214,7 +218,7 @@ function BorgoNew() {
                       </button>
                     </a>
                     <a
-                      href={borghi.app}
+                      href={borghi.app ? borghi.app : "/workinprogress"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-red-500 hover:transition-all"
@@ -227,7 +231,7 @@ function BorgoNew() {
                       </button>
                     </a>
                     <a
-                      href={borghi.school}
+                      href={borghi.school ? borghi.school : "/workinprogress"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-red-500 hover:transition-all"
@@ -240,7 +244,9 @@ function BorgoNew() {
                       </button>
                     </a>
                     <a
-                      href={borghi.district}
+                      href={
+                        borghi.district ? borghi.district : "/workinprogress"
+                      }
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-red-500 hover:transition-all"
@@ -280,4 +286,4 @@ function BorgoNew() {
   }
 }
 
-export default BorgoNew;
+export default Borgo;

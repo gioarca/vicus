@@ -8,9 +8,8 @@ function Work() {
 
   useEffect(() => {
     setTimeout(() => {
-      // inserito il timeout di 1.5 secondi
       setIsLoading(false);
-    }, 1500);
+    }, 1500); // inserito il timeout di 1.5 secondi
   }, []);
 
   if (isLoading) {

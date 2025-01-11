@@ -1,14 +1,17 @@
 import React, { useState, createRef } from "react";
 import { Transition } from "@headlessui/react";
 import { MenuAlt1Icon, XIcon } from "@heroicons/react/outline";
-import { useAuthState } from "react-firebase-hooks/auth";
+// import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useAuthContext } from "../hooks/auth/useAuthContext";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [user, loading] = useAuthState(auth);
+  // const [user, loading] = useAuthState(auth);
+  const { user } = useAuthContext(); // Uso il contesto di autenticazione
+
   const navigate = useNavigate();
   const divRef = createRef();
   const { t, i18n } = useTranslation();
@@ -68,6 +71,18 @@ function NavBar() {
                 className="relative bg-transparent w-screen justify-center items-center text-center z-10 lg:flex lg:items-center lg:w-auto"
               >
                 <div className="text-m lg:flex-grow lg:visible lg">
+                  <a
+                    href={"/registration"}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
+                  >
+                    {t("signUp")}
+                  </a>
+                  <a
+                    href={"/login"}
+                    className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
+                  >
+                    {t("Entra")}
+                  </a>
                   <a
                     href={"/about"}
                     className="block m-3 lg:inline-block lg:mt-0 hover:text-red-500"
@@ -134,7 +149,7 @@ function NavBar() {
             <Link to={"/dashboard"}>
               <button className="flex items-center px-2 py-2 rounded hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out">
                 <img
-                  src={user.photoURL}
+                  src={user.profilePicture}
                   alt={user.name}
                   referrerPolicy="no-referrer"
                   className="h-6 w-6 rounded-full items-center justify-center"

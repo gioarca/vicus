@@ -1,18 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate, Navigate } from "react-router-dom";
-import { auth } from "../utils/firebase";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useTranslation } from "react-i18next";
+import { animateScroll as scroll } from "react-scroll";
 
 function Registration({ user, data }) {
   const { t } = useTranslation();
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
+
   const navigate = useNavigate();
   const emailError = document.querySelector(".email.error");
   const passwordError = document.querySelector(".password.error");
+
+  const baseURL =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://vicus.netlify.app";
+
+  // const [formData, setFormData] = useState({
+  //   firstName: "",
+  //   lastName: "",
+  //   email: "",
+  //   taxId: "",
+  //   password: "",
+  //   confirmPassword: "",
+  // });
+
+  // const handleTaxIdChange = (event) => {
+  //   setTaxId(event.target.value);
+  // };
+
+  const handleNameChange = (event) => {
+    setFirstName(event.target.value);
+  };
+
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
+  };
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -21,6 +51,13 @@ function Registration({ user, data }) {
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
+
+  const handleConfirmPasswordChange = (event) => {
+    setConfirmPassword(event.target.value);
+  };
+
+  const emailErrorRef = useRef(null);
+  const passwordErrorRef = useRef(null);
 
   const handleSignUp = async () => {
     // event.preventDefault(); // aggiungi event all'interno delle parentesi se scegli questa strada
@@ -31,92 +68,64 @@ function Registration({ user, data }) {
     // const email = form.email.value;
     // const password = form.password.value;
 
+    if (emailErrorRef.current) emailErrorRef.current.textContent = "";
+    if (passwordErrorRef.current) passwordErrorRef.current.textContent = "";
+
     try {
       setError(null);
-      const res = await fetch("http://localhost:3000/api/v1/auth/signup", {
+      const res = await fetch(`${baseURL}/sign-up/`, {
+        // const res = await fetch("http://localhost:3000/sign-up", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          password,
+          confirmPassword,
+        }),
       });
 
       const data = await res.json();
       console.log("Registrazione avvenuta con successo:", data);
 
+      //     if (data.errors) {
+      //       emailError.textContent = data.errors.email;
+      //       passwordError.textContent = data.errors.password;
+      //     }
+      //     navigate("/dashboard");
+      //   } catch (error) {
+      //     setError(error.message);
+      //     console.error("Errore durante la registrazione:", error.message);
+      //   }
+      // };
+
       if (data.errors) {
-        emailError.textContent = data.errors.email;
-        passwordError.textContent = data.errors.password;
+        if (emailErrorRef.current)
+          emailErrorRef.current.textContent = data.errors.email || "";
+        if (passwordErrorRef.current)
+          passwordErrorRef.current.textContent = data.errors.password || "";
+      } else {
+        navigate("/dashboard");
       }
-      navigate("/dashboard");
     } catch (error) {
       setError(error.message);
       console.error("Errore durante la registrazione:", error.message);
-    }
-    // };
-
-    //   try {
-    //     setError(null);
-    //     const res = await fetch(
-    //       "http://localhost:3000/api/v1/authRoutes/signup",
-    //       {
-    //         method: "POST",
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({ email, password }), // Usa direttamente email e password dallo stato
-    //       }
-    //     );
-
-    //     const data = await res.json();
-    //     console.log("Registrazione avvenuta con successo:", data);
-
-    //     if (data.errors) {
-    //       // Gestione degli errori
-    //       document.querySelector(".email.error").textContent = data.errors.email;
-    //       document.querySelector(".password.error").textContent =
-    //         data.errors.password;
-    //     }
-
-    //     if (data.user) {
-    //       navigate("/dashboard"); // Usa navigate invece di location.assign
-    //     }
-    //   } catch (error) {
-    //     setError(error.message);
-    //     console.error("Errore durante la registrazione:", error.message);
-    //   }
-  };
-
-  const googleProvider = new GoogleAuthProvider();
-
-  const googleSignIn = async () => {
-    try {
-      const result = await signInWithPopup(auth, googleProvider);
-      const user = result.user;
-      console.log("Google Login Success:", user);
-
-      // const response = await fetch("http://localhost:3000/google-login", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({ email: user.email, uid: user.uid }),
-      // });
-
-      // const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.message || "Google Login failed");
-      }
-      navigate("/dashboard");
-    } catch (error) {
-      setError(error.message);
-      console.error("Errore durante il login con Google:", error.message);
     }
   };
 
   if (user) {
     return <Navigate to="/dashboard" />;
   }
+
+  useEffect(() => {
+    scroll.scrollToTop({
+      duration: 1000,
+      smooth: "easeInOutQuad",
+    });
+  }, []);
 
   return (
     <div className="min-h-full bg-gray-100 text-gray-900 flex justify-center">
@@ -126,34 +135,27 @@ function Registration({ user, data }) {
             <h1 className="text-2xl xl:text-3xl font-extrabold">
               {t("signUp")}
             </h1>
-            <div className="w-full flex-1 mt-8">
+            <div className="w-full flex-1 m-3">
               <div className="flex flex-col items-center">
-                <button
-                  onClick={googleSignIn}
-                  className="w-full max-w-xs font-bold shadow-sm rounded-full py-3 bg-transparent border-2 text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:bg-white hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
-                >
-                  <FcGoogle className="bg-white h-10 w-10 rounded-full inline-block" />
-                  <span className="ml-4">{t("continue_with_google")}</span>
-                </button>
-
-                <p className="m-5 text-xs text-gray-600 text-center">
-                  {t("accept_terms")} &nbsp;
-                  <a href="" className="border-b border-gray-500 border-dotted">
-                    {t("terms_of_service")}
-                  </a>
-                  &nbsp; {t("and")} &nbsp;
-                  <a href="" className="border-b border-gray-500 border-dotted">
-                    {t("privacy_policy")}
-                  </a>
-                </p>
-
-                <div className="lg:max-w-xl flex flex-col items-center">
-                  <div className="leading px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                    <p>{t("orSignUpWithEmail")}</p>
-                  </div>
+                <div className="m-5 flex flex-col items-center text-center justify-center text-gray-600 transform translate-y-1/2 lg:max-w-xl">
+                  <p>{t("SignUpWithEmail")}</p>
                 </div>
 
                 <div className="sm:w-96 flex flex-col items-center">
+                  <input
+                    className="sm:w-96 w-80 px-8 py-4 mt-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                    type="text"
+                    placeholder={t("name")}
+                    value={firstName}
+                    onChange={handleNameChange}
+                  />
+                  <input
+                    className="sm:w-96 w-80 px-8 py-4 mt-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                    type="text"
+                    placeholder={t("surname")}
+                    value={lastName}
+                    onChange={handleLastNameChange}
+                  />
                   <input
                     className="sm:w-96 w-80 px-8 py-4 mt-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                     type="email"
@@ -168,12 +170,35 @@ function Registration({ user, data }) {
                     value={password}
                     onChange={handlePasswordChange}
                   />
+                  <input
+                    className="sm:w-96 w-80 px-8 py-4 mt-5 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                    type="password"
+                    placeholder={t("confirm_password")}
+                    value={confirmPassword}
+                    onChange={handleConfirmPasswordChange}
+                  />
                   <button
                     className="sm:w-96 w-80 font-bold shadow-sm py-3 flex items-center justify-center bg-red-800 text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out focus:outline-none hover:shadow hover:border hover:border-red-800 hover:transition hover:ease-in-out focus:shadow-sm focus:shadow-outline mt-5"
                     onClick={handleSignUp}
                   >
                     <span>{t("signUp")}</span>
                   </button>
+                  <p className="m-5 text-xs text-gray-600 text-center">
+                    {t("accept_terms")} &nbsp;
+                    <a
+                      href=""
+                      className="border-b border-gray-500 border-dotted"
+                    >
+                      {t("terms_of_service")}
+                    </a>
+                    &nbsp; {t("and")} &nbsp;
+                    <a
+                      href=""
+                      className="border-b border-gray-500 border-dotted"
+                    >
+                      {t("privacy_policy")}
+                    </a>
+                  </p>
                 </div>
 
                 {error && (

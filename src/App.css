@@ -14,3 +14,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.Loader {
+  z-index: 10; /* Priorità adeguata */
+  position: absolute; /* Sovrapponi correttamente */
+  pointer-events: none; /* Non interferire con l'interazione */
+}

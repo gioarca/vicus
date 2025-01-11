@@ -179,7 +179,7 @@ function Home() {
               >
                 {t("email_us")}
               </a>
-              <p>{t("address")}</p>
+              {/* <p>{t("address")}</p> */}
             </div>
           </div>
         </div>

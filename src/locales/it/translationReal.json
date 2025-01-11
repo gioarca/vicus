@@ -1,5 +1,5 @@
 {
-  "title": "VICUS: La tua vita smart in borghi autentici",
+  "title": "La tua vita smart in borghi autentici",
   "tagline": "Lontano dal caos, vicino alla natura.",
   "intro": "Scopri una nuova dimensione per il tuo lavoro e il tuo tempo libero nei borghi più affascinanti del Sud Italia.",
   "whatIsVicus": "Cos’è VICUS?",
@@ -45,6 +45,7 @@
   "or_sign_in_with_email": "Oppure accedi con Email e Password",
   "email": "Email",
   "password": "Password",
+  "confirm_password": "Conferma Password",
   "sign_in": "Accedi",
   "error_occurred": "Si è verificato un errore",
   "no_account": "Non hai un account?",
@@ -56,7 +57,7 @@
   "continueWithGoogle": "Continua con Google",
   "termsOfService": "termini del servizio",
   "privacyPolicy": "privacy policy",
-  "orSignUpWithEmail": "Oppure iscriviti con Email e Password",
+  "SignUpWithEmail": "Compila tutti i campi sottostanti per registrarti in questa fantastica piattaforma",
   "emailPlaceholder": "Email",
   "passwordPlaceholder": "Password",
   "alreadyHaveAccount": "Hai già un account?",
@@ -119,6 +120,7 @@
   "contact_us": "Contattaci",
   "email_us": "mandaci una email",
   "address": "via Boccaccio, Ischia, Italia",
+  "phone": "Numero di telefono",
 
   "hello": "Ciao",
   "what_you_can_do": "Cosa puoi fare qui?",
@@ -171,5 +173,13 @@
     "goal_3_partners": "aziende locali, servizi infrastrutturali e pubblica amministrazione"
   },
 
-  "slowness": "Livello di lentezza:"
+  "slowness": "Livello di lentezza:",
+
+  "reservation": "Le tue prenotazioni",
+
+  "forgot_password": "Hai dimenticato la password?",
+
+  "update_profile": "Aggiorna il tuo profilo",
+
+  "delete_profile": "Cancella il tuo profilo"
 }

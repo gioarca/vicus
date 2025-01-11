@@ -163,17 +163,17 @@
 
 // export default Delete;
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import Loader from "../components/Loader";
+import Loader from "../../components/Loader";
 import { XIcon } from "@heroicons/react/outline";
-import { useAuth } from "../context/AuthContext";
+// import { useAuth } from "../context/AuthContext";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
 function Delete() {
   const { t } = useTranslation();
-  const { user } = useAuth();
+  // const { user } = useContext(AuthContext); // Uso il contesto di autenticazione
   const navigate = useNavigate();
   const [borghi, setBorghi] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -182,19 +182,28 @@ function Delete() {
 
   useEffect(() => {
     const fetchDetails = async () => {
+      const baseURL =
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:3000"
+          : "https://borghi-backend.onrender.com";
+
       setIsLoading(true);
       try {
-        const response = await fetch(
-          `https://borghi-backend.onrender.com/api/v1/borghi?page=${currentPage}`
-        );
-        const { borghi: newBorghi, totalPages } = await response.json();
+        const response = await fetch(`${baseURL}/borghi?page=${currentPage}`);
+        // const response = await fetch(`${baseURL}/borghi/`);
+        const { borghi: initialBorghi, totalPages } = await response.json();
 
-        setBorghi((prevBorghi) =>
-          [...prevBorghi, ...newBorghi].filter(
-            (borgo, index, self) =>
-              index === self.findIndex((b) => b._id === borgo._id)
-          )
-        );
+        // Unire i dati esistenti con i nuovi dati senza duplicati
+        const allBorghi = [...borghi, ...initialBorghi];
+
+        // Creare un set per evitare duplicati
+        const uniqueBorghi = Array.from(
+          new Set(allBorghi.map((borgo) => borgo._id))
+        ).map((id) => {
+          return allBorghi.find((borgo) => borgo._id === id);
+        });
+
+        setBorghi(uniqueBorghi.sort((a, b) => a.name.localeCompare(b.name)));
         setTotalPages(totalPages);
       } catch (error) {
         console.error("Errore durante il fetching dei borghi:", error);
@@ -209,16 +218,12 @@ function Delete() {
   const handleDeleteBorgo = async (borgoId) => {
     if (window.confirm("Sei sicuro di voler eliminare questo borgo?"))
       try {
-        const response = await fetch(
-          `https://borghi-backend.onrender.com/api/v1/borghi/${borgoId}`,
-          // `http://localhost:3000/api/v1/borghi/${borgoId}`,
-          {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await fetch(`${baseURL}/borghi/${borgoId}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
 
         if (response.ok) {
           alert("Borgo cancellato con successo!");

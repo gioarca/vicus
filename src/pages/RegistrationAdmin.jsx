@@ -263,6 +263,8 @@ function RegistrationAdmin({ user }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
+  const [taxId, setTaxId] = useState("");
+
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const emailError = document.querySelector(".email.error");
@@ -277,6 +279,10 @@ function RegistrationAdmin({ user }) {
   };
 
   const handleRoleChange = (event) => {
+    setRole(event.target.value);
+  };
+
+  const handleTaxIdChange = (event) => {
     setRole(event.target.value);
   };
 
@@ -321,11 +327,35 @@ function RegistrationAdmin({ user }) {
             <h1 className="text-3xl font-extrabold">{t("signUp")}</h1>
             <div className="sm:w-96 mt-8 flex flex-col">
               <input
+                name="name"
+                type="name"
+                placeholder={t("name")}
+                value={email}
+                onChange={handleEmailChange}
+                className="input-field"
+              />
+              <input
+                name="surname"
+                type="surname"
+                placeholder={t("surname")}
+                value={email}
+                onChange={handleEmailChange}
+                className="input-field"
+              />
+              <input
                 name="email"
                 type="email"
                 placeholder={t("email")}
                 value={email}
                 onChange={handleEmailChange}
+                className="input-field"
+              />
+              <input
+                name="tax id"
+                type="text"
+                placeholder={t("tax")}
+                value={taxId}
+                onChange={handleTaxIdChange}
                 className="input-field"
               />
               <input
@@ -337,13 +367,14 @@ function RegistrationAdmin({ user }) {
                 className="input-field"
               />
               <input
-                name="role"
-                type="text"
-                placeholder={t("ruolo")}
-                value={role}
-                onChange={handleRoleChange}
+                name="password"
+                type="password"
+                placeholder={t("confirmpassword")}
+                value={password}
+                onChange={handlePasswordChange}
                 className="input-field"
               />
+
               {status.error && (
                 <p className="text-red-600 mt-2">{status.error}</p>
               )}
@@ -351,7 +382,9 @@ function RegistrationAdmin({ user }) {
                 disabled={status.loading}
                 onClick={handleSignUp}
                 className={`submit-button ${
-                  status.loading ? "opacity-50" : ""
+                  status.loading
+                    ? "m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
+                    : ""
                 }`}
               >
                 {status.loading ? t("loading") : t("signUp")}

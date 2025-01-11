@@ -42,7 +42,7 @@
   "admin_or_structure": "Are you an administration or have a structure?",
 
   "welcome": "Welcome!",
-  "borghi_initiative": "Borghi: an initiative born from popular will for the rebirth of our villages.",
+  "borghi_initiative": "VICUS: an initiative born from popular will for the rebirth of our villages.",
   "promote_revitalization": "It was born to promote the revitalization of small realities.",
   "dedicated_to_change": "Dedicated to all those who believe in change:",
   "entrepreneurs_creators": "entrepreneurs, creators, marketing professionals, developers, and remote workers.",
@@ -106,7 +106,6 @@
   "borghi": "Borghi",
   "contacts": "Contacts",
 
-  "deutsch": "🇩🇪 German",
   "english": "🇬🇧 English",
   "italian": "🇮🇹 Italian",
 
@@ -140,5 +139,5 @@
     "goal_3_partners": "local companies, infrastructure services, and public administration."
   },
 
-  "slowness": "Livello di lentezza:"
+  "reservation": "Your reservations"
 }
