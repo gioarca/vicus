@@ -9,15 +9,15 @@ import Prenota from "../../components/Prenota";
 import {
   PaperAirplaneIcon,
   AcademicCapIcon,
-  DesktopComputerIcon,
-  OfficeBuildingIcon,
-  DeviceMobileIcon,
+  DeviceTabletIcon,
+  BuildingOffice2Icon,
+  DevicePhoneMobileIcon,
   HeartIcon,
   WifiIcon,
   CurrencyDollarIcon,
   HomeIcon,
-  GlobeIcon,
-} from "@heroicons/react/outline";
+  GlobeAmericasIcon,
+} from "@heroicons/react/20/solid";
 
 function Borgo() {
   const { user } = useAuthContext(); // Uso il contesto di autenticazione
@@ -180,7 +180,7 @@ function Borgo() {
                   >
                     <button className="m-1 px-6 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
                       <h3>
-                        <GlobeIcon className="h-5 inline-block mx-1" />
+                        <GlobeAmericasIcon className="h-5 inline-block mx-1" />
                         {t("experience")}
                       </h3>
                     </button>
@@ -225,7 +225,7 @@ function Borgo() {
                     >
                       <button className="m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
                         <li>
-                          <DeviceMobileIcon className="h-5 inline-block m-2" />
+                          <DevicePhoneMobileIcon className="h-5 inline-block m-2" />
                           {t("app_services")}
                         </li>
                       </button>
@@ -253,7 +253,7 @@ function Borgo() {
                     >
                       <button className="m-5 px-5 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
                         <li>
-                          <OfficeBuildingIcon className="h-5 inline-block m-2" />
+                          <BuildingOffice2Icon className="h-5 inline-block m-2" />
                           {t("municipality_site")}
                         </li>
                       </button>
@@ -267,7 +267,7 @@ function Borgo() {
                     >
                       <button className="m-5 px-8 py-2 text-center items-center justify-center font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none">
                         <li>
-                          <DesktopComputerIcon className="h-5 inline-block m-2" />
+                          <DeviceTabletIcon className="h-5 inline-block m-2" />
                           {t("coworking")}
                         </li>
                       </button>

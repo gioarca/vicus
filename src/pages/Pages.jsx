@@ -78,7 +78,14 @@ function Pages() {
             <Route path="/thanks" element={<Thanks />} />
             <Route path="/thankyouforyoursupport" element={<Support />} />
             <Route path="/workinprogress" element={<Work />} />
-            <Route path="/news" element={<News />} />
+            <Route
+              path="/news"
+              element={
+                <PrivateRoute>
+                  <News />
+                </PrivateRoute>
+              }
+            />
             {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             <Route path="/signout" element={<SignOut />} />
             <Route path="/goals" element={<Goals />} />

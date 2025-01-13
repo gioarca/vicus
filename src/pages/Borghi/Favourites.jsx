@@ -151,7 +151,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../../components/Loader";
 import { v4 as uuidv4 } from "uuid";
-import { HeartIcon } from "@heroicons/react/outline";
+import { HeartIcon } from "@heroicons/react/20/solid";
 
 function Favourites() {
   const [favoriteBorghi, setFavoriteBorghi] = useState([]);
@@ -165,10 +165,12 @@ function Favourites() {
 
     // Fetch dei borghi preferiti
     const fetchFavorites = async () => {
+      const baseURL =
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:3000"
+          : "https://borghi-backend.onrender.com";
       try {
-        const response = await fetch(
-          "https://borghi-backend.onrender.com/api/v1/borghi/"
-        );
+        const response = await fetch(`${baseURL}/borghi/?page=${currentPage}`);
         const { borghi } = await response.json();
         const filteredFavorites = borghi.filter((borgo) =>
           savedFavorites.includes(borgo._id)

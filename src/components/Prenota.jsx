@@ -1,4 +1,4 @@
-import { CreditCardIcon } from "@heroicons/react/outline/";
+import { CreditCardIcon } from "@heroicons/react/20/solid";
 import { useTranslation } from "react-i18next";
 
 function Prenota() {

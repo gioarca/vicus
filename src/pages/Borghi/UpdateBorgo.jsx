@@ -1,24 +1,24 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../../components/Loader";
-import { PencilIcon } from "@heroicons/react/outline";
+// import { PencilIcon } from "@heroicons/react/outline";
 // import { useAuth } from "../context/AuthContext";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../utils/firebase";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import {
-  PaperAirplaneIcon,
-  AcademicCapIcon,
-  DesktopComputerIcon,
-  OfficeBuildingIcon,
-  DeviceMobileIcon,
-  HeartIcon,
-  WifiIcon,
-  CurrencyDollarIcon,
-  HomeIcon,
-  GlobeIcon,
-} from "@heroicons/react/outline";
+// import {
+//   PaperAirplaneIcon,
+//   AcademicCapIcon,
+//   DeviceTabletIcon,
+//   BuildingOffice2Icon,
+//   DevicePhoneMobileIcon,
+//   HeartIcon,
+//   WifiIcon,
+//   CurrencyDollarIcon,
+//   HomeIcon,
+//   GlobeAmericasIcon,
+// } from "@heroicons/react/20/solid";
 // import { useAuthContext } from "../hooks/auth/useAuthContext";
 
 function UpdateBorgo() {

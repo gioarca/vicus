@@ -1,4 +1,4 @@
-import { CogIcon } from "@heroicons/react/outline";
+import { CogIcon } from "@heroicons/react/20/solid";
 import React from "react";
 import { useTranslation } from "react-i18next";
 

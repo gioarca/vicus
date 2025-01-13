@@ -166,7 +166,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader";
-import { XIcon } from "@heroicons/react/outline";
+import { XMarkIcon } from "@heroicons/react/20/solid";
 // import { useAuth } from "../context/AuthContext";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
@@ -280,7 +280,7 @@ function Delete() {
                 handleDeleteBorgo(borgo._id);
               }}
             >
-              <XIcon className="float-right my-3 mx-5 h-6 text-red-500" />
+              <XMarkIcon className="float-right my-3 mx-5 h-6 text-red-500" />
             </button>
           </div>
         ))}

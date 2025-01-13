@@ -157,7 +157,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader";
-import { HeartIcon } from "@heroicons/react/outline";
+import { HeartIcon } from "@heroicons/react/20/solid";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useAuthContext } from "../../hooks/auth/useAuthContext";
@@ -183,14 +183,23 @@ function Borghi() {
 
       try {
         const response = await fetch(`${baseURL}/borghi/?page=${currentPage}`);
-        const { borghi: fetchedBorghi, totalPages } = await response.json();
+        // const { borghi: fetchedBorghi, totalPages } = await response.json();
+        const { borghi: initialBorghi, totalPages } = await response.json();
 
-        setBorghi((prevBorghi) => [
-          ...prevBorghi,
-          ...fetchedBorghi.filter(
-            (borgo) => !prevBorghi.some((b) => b._id === borgo._id)
-          ),
-        ]);
+        // setBorghi((prevBorghi) => [
+        //   ...prevBorghi,
+        //   ...fetchedBorghi.filter(
+        //     (borgo) => !prevBorghi.some((b) => b._id === borgo._id)
+        //   ),
+        // ]);
+        const allBorghi = [...borghi, ...initialBorghi];
+        const uniqueBorghi = Array.from(
+          new Set(allBorghi.map((borgo) => borgo._id))
+        ).map((id) => {
+          return allBorghi.find((borgo) => borgo._id === id);
+        });
+        setBorghi(uniqueBorghi.sort((a, b) => a.name.localeCompare(b.name)));
+        setTotalPages(totalPages);
         setTotalPages(totalPages);
       } catch (error) {
         console.error("Errore durante il fetching dei borghi:", error);

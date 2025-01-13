@@ -1,6 +1,7 @@
 import React, { useState, createRef } from "react";
 import { Transition } from "@headlessui/react";
-import { MenuAlt1Icon, XIcon } from "@heroicons/react/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
+import {} from "@heroicons/react/20/solid";
 // import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
 import { Link, useNavigate } from "react-router-dom";
@@ -48,9 +49,9 @@ function NavBar() {
               className="flex items-center px-2 py-2 rounded hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out"
             >
               {isOpen ? (
-                <XIcon className="h-6 w-6" aria-hidden="true" />
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               ) : (
-                <MenuAlt1Icon className="h-6 w-6" aria-hidden="true" />
+                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
               )}
             </button>
           </div>
@@ -141,9 +142,9 @@ function NavBar() {
               className="flex items-center px-2 py-2 border-none rounded hover:border-2 hover:border-red-800 transition-all duration-300 ease-in-out"
             >
               {isOpen ? (
-                <XIcon className="h-6 w-6" aria-hidden="true" />
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               ) : (
-                <MenuAlt1Icon className="h-6 w-6" aria-hidden="true" />
+                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
               )}
             </button>
             <Link to={"/dashboard"}>

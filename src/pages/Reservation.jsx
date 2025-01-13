@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 import { v4 as uuidv4 } from "uuid";
-import { HeartIcon } from "@heroicons/react/outline";
+import { HeartIcon } from "@heroicons/react/20/solid";
 
 function Favourites() {
   const [favoriteBorghi, setFavoriteBorghi] = useState([]);

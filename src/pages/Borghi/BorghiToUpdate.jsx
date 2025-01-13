@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader";
-import { PencilIcon } from "@heroicons/react/outline";
+import { PencilIcon } from "@heroicons/react/20/solid";
 // import { useAuth } from "../context/AuthContext";
 import { useTranslation } from "react-i18next"; // Importa useTranslation
 import { motion } from "framer-motion";
@@ -19,11 +19,15 @@ function BorghiToUpdate() {
 
   useEffect(() => {
     const fetchDetails = async () => {
+      const baseURL =
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:3000"
+          : "https://borghi-backend.onrender.com";
+
       setIsLoading(true);
+
       try {
-        const response = await fetch(
-          `https://borghi-backend.onrender.com/api/v1/borghi/` // porta default per la produzione
-        );
+        const response = await fetch(`${baseURL}/borghi/`);
         const { borghi: initialBorghi, totalPages } = await response.json();
 
         // Unire i dati esistenti con i nuovi dati senza duplicati
