@@ -183,6 +183,9 @@ function Borghi() {
 
       try {
         const response = await fetch(`${baseURL}/borghi/?page=${currentPage}`);
+        // const response = await fetch(
+        //   `https://borghi-backend.onrender.com/borghi/?page=${currentPage}`
+        // );
         // const { borghi: fetchedBorghi, totalPages } = await response.json();
         const { borghi: initialBorghi, totalPages } = await response.json();
 
