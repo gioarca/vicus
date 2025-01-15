@@ -190,9 +190,9 @@ const Login = ({ model }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    twoFactorCode: "",
+    // twoFactorCode: "",
   });
-  const [isTwoFactorEnabled, setIsTwoFactorEnabled] = useState(false);
+  // const [isTwoFactorEnabled, setIsTwoFactorEnabled] = useState(false);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -203,9 +203,9 @@ const Login = ({ model }) => {
 
     try {
       const userData = await login({ formData, model });
-      if (userData.requiresTwoFactor) {
-        setIsTwoFactorEnabled(true);
-      }
+      // if (userData.requiresTwoFactor) {
+      //   setIsTwoFactorEnabled(true);
+      // }
       console.log("User data:", userData);
     } catch (error) {
       console.log("Error during login", error);
