@@ -16,7 +16,7 @@ export const useManageAuth = () => {
       ? "http://localhost:3000"
       : "https://borghi-backend.onrender.com";
 
-  const login = async ({ formData, model }) => {
+  const login = async ({ formData }) => {
     try {
       setIsLoading(true);
 
@@ -52,11 +52,11 @@ export const useManageAuth = () => {
         toast.success(`Welcome back, ${json.user.firstName}!`);
         setTimeout(() => {
           navigate(`/dashboard`);
-        }, 1000);
+        });
         return json;
-      } else if (codeRequested) {
-        setIsLoading(false);
-        return { requiresTwoFactor: true };
+        // } else if (codeRequested) {
+        //   setIsLoading(false);
+        //   return { requiresTwoFactor: true };
       }
     } catch (error) {
       console.error("Error during login", error);
