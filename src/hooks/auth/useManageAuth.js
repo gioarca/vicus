@@ -14,7 +14,7 @@ export const useManageAuth = () => {
   const baseURL =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
-      : "https://vicus.netlify.app";
+      : "https://borghi-backend.onrender.com";
 
   const login = async ({ formData, model }) => {
     try {
