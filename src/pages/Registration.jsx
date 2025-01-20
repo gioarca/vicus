@@ -91,8 +91,8 @@ function Registration({ user, data }) {
       //   }),
       // });
 
-      const data = await res.json();
-      console.log("Registrazione avvenuta con successo:", data);
+      // const data = await res.json();
+      console.log("Registrazione avvenuta con successo:", res);
 
       //     if (data.errors) {
       //       emailError.textContent = data.errors.email;
