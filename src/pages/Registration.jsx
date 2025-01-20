@@ -26,14 +26,13 @@ function Registration({ user, data }) {
 
   const { signUp } = useManageUsers();
 
-  // const [formData, setFormData] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   taxId: "",
-  //   password: "",
-  //   confirmPassword: "",
-  // });
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   // const handleTaxIdChange = (event) => {
   //   setTaxId(event.target.value);
@@ -117,6 +116,13 @@ function Registration({ user, data }) {
     } catch (error) {
       setError(error.message);
       console.error("Errore durante la registrazione:", error.message);
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
     }
   };
 
