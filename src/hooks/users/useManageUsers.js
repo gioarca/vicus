@@ -38,6 +38,7 @@ export const useManageUsers = () => {
     try {
       setIsLoading(true);
       const res = await axios.post(`${baseURL}/sign-up`, formData);
+      // const res = await axios.post(`${baseURL}/sign-up`, formData);
 
       if (res.status === 201) {
         setIsLoading(false);
