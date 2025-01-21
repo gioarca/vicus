@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { animateScroll as scroll } from "react-scroll";
-import { useManageUsers } from "../hooks/users/useManageUsers";
+// import { useManageUsers } from "../hooks/users/useManageUsers";
 
 function Registration({ user, data }) {
   const { t } = useTranslation();
@@ -19,12 +19,12 @@ function Registration({ user, data }) {
   const emailError = document.querySelector(".email.error");
   const passwordError = document.querySelector(".password.error");
 
-  // const baseURL =
-  //   process.env.NODE_ENV === "development"
-  //     ? "http://localhost:3000"
-  //     : "https://vicus.netlify.app";
+  const baseURL =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://vicus.netlify.app";
 
-  const { signUp } = useManageUsers();
+  // const { signUp } = useManageUsers();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -61,8 +61,8 @@ function Registration({ user, data }) {
   const emailErrorRef = useRef(null);
   const passwordErrorRef = useRef(null);
 
-  const handleSignUp = async () => {
-    // event.preventDefault(); // aggiungi event all'interno delle parentesi se scegli questa strada
+  const handleSignUp = async (e) => {
+    e.preventDefault(); // aggiungi event o e all'interno delle parentesi se scegli questa strada
 
     // emailError.textContent = "";
     // passwordError.textContent = "";
@@ -75,24 +75,25 @@ function Registration({ user, data }) {
 
     try {
       setError(null);
-      // const res = await fetch(`${baseURL}/sign-up`, {
-      // const res = await fetch("http://localhost:3000/sign-up", {
-      const res = await signUp({ formData });
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     firstName,
-      //     lastName,
-      //     email,
-      //     password,
-      //     confirmPassword,
-      //   }),
-      // });
+      const res = await fetch(`${baseURL}/sign-up`, {
+        // const res = await fetch("http://localhost:3000/sign-up", {
+        // const res = await signUp({ formData });
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          password,
+          confirmPassword,
+        }),
+      });
 
-      // const data = await res.json();
-      console.log("Registrazione avvenuta con successo:", res);
+      const data = await res.json();
+      console.log("Registrazione avvenuta con successo:", data);
+      alert("Registrazione avvenuta con successo, controlla la tua email.");
 
       //     if (data.errors) {
       //       emailError.textContent = data.errors.email;
@@ -114,8 +115,8 @@ function Registration({ user, data }) {
         navigate("/dashboard");
       }
     } catch (error) {
-      setError(error.message);
-      console.error("Errore durante la registrazione:", error.message);
+      // setError(error.message);
+      console.log("Errore durante la registrazione:", error);
       setFormData({
         firstName: "",
         lastName: "",
