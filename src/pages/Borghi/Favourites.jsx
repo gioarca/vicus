@@ -170,7 +170,7 @@ function Favourites() {
           ? "http://localhost:3000"
           : "https://borghi-backend.onrender.com";
       try {
-        const response = await fetch(`${baseURL}/borghi/?page=${currentPage}`);
+        const response = await fetch(`${baseURL}/borghi`);
         const { borghi } = await response.json();
         const filteredFavorites = borghi.filter((borgo) =>
           savedFavorites.includes(borgo._id)

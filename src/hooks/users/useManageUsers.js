@@ -10,7 +10,7 @@ export const useManageUsers = () => {
 
   const baseURL =
     process.env.NODE_ENV === "development"
-      ? "http://localhost:10000"
+      ? "http://localhost:3000"
       : "https://borghi-backend.onrender.com";
 
   const getUsers = async () => {

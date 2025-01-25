@@ -60,6 +60,9 @@ export const useManageAuth = () => {
       }
     } catch (error) {
       console.error("Error during login", error);
+      alert(
+        "Errore durante il login, i tuoi dati non sono corretti oppure il tuo account non è stato verificato"
+      );
       setIsLoading(false);
 
       if (
@@ -75,6 +78,15 @@ export const useManageAuth = () => {
           console.error("Error requesting new verification email:", err);
         }
       }
+
+      // if (
+      //   error.response &&
+      //   error.response.status === 404 &&
+      //   error.response.data.message ===
+      //     "Email not verified. Please check your email for verification instructions."
+      // ) {
+      //   alert("il tuo account non esiste, per favore registrati");
+      // }
 
       errorHandler(error);
     }

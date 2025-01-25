@@ -65,13 +65,13 @@ const EmailVerified = ({ model }) => {
       {!isLoading && verificationStatus === "success" && (
         <>
           <h3 className="text-[#168aad] text-3xl leading-9 font-semibold mb-6 text-center">
-            Mail verified!
+            Mail verificata!
           </h3>
           <div className="text-center md:h-screen">
             <div className="flex flex-col md:flex-row mx-auto justify-center items-center gap-3">
               <IoIosCheckmarkCircle className="w-[100px] h-[100px] text-green-400" />
               <p className="text-gray-500 text-xl font-semibold">
-                You can now Log in.
+                Ora puoi loggarti.
               </p>
             </div>
           </div>
