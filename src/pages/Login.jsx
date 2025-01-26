@@ -244,7 +244,6 @@ const Login = ({ model }) => {
                   onSubmit={handleSubmit}
                   className="flex flex-col items-center"
                 >
-                  {/* {!isTwoFactorEnabled && ( */}
                   <>
                     <div className="mb-5">
                       <input
@@ -271,20 +270,6 @@ const Login = ({ model }) => {
                       />
                     </div>
                   </>
-                  {/* )} */}
-                  {/* {isTwoFactorEnabled && (
-                  <div className="mb-5">
-                    <input
-                      type="text"
-                      placeholder="Enter your Authenticator Code"
-                      name="twoFactorCode"
-                      value={formData.twoFactorCode}
-                      onChange={handleInputChange}
-                      className="w-full py-3 pl-2 border-b border-solid border-gray-300 focus:outline-none focus:border-gray-800 text-xl leading-7 text-gray-500 cursor-pointer"
-                      required
-                    />
-                  </div>
-                  )}  */}
                   <div className="mt-7">
                     <button
                       disabled={isLoading}
