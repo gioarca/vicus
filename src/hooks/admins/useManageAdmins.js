@@ -13,10 +13,10 @@ export const useManageDoctors = () => {
       ? "http://localhost:3000"
       : "https://borghi-backend.onrender.com";
 
-  const getDoctors = async () => {
+  const getAdmins = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get(`${baseURL}/doctor`);
+      const res = await axios.get(`${baseURL}/admins`);
       if (res.status === 200) {
         setIsLoading(false);
         const doctors = res.data;
@@ -30,7 +30,7 @@ export const useManageDoctors = () => {
     }
   };
 
-  const getDoctorById = async (id) => {
+  const getAdminById = async (id) => {
     try {
       setIsLoading(true);
 
@@ -49,26 +49,26 @@ export const useManageDoctors = () => {
     }
   };
 
-  const getDoctorWeeklyAvailability = async (id) => {
-    try {
-      setIsLoading(true);
+  // const getDoctorWeeklyAvailability = async (id) => {
+  //   try {
+  //     setIsLoading(true);
 
-      const res = await axios.get(`${baseURL}/doctor/${id}/weeklyAvailability`);
+  //     const res = await axios.get(`${baseURL}/doctor/${id}/weeklyAvailability`);
 
-      if (res.status === 200) {
-        setIsLoading(false);
-        const availableSlots = res.data;
-        return availableSlots;
-      }
-    } catch (error) {
-      console.error("Error getting doctor's weekly availability:", error);
-      setIsLoading(false);
+  //     if (res.status === 200) {
+  //       setIsLoading(false);
+  //       const availableSlots = res.data;
+  //       return availableSlots;
+  //     }
+  //   } catch (error) {
+  //     console.error("Error getting doctor's weekly availability:", error);
+  //     setIsLoading(false);
 
-      errorHandler(error);
-    }
-  };
+  //     errorHandler(error);
+  //   }
+  // };
 
-  const createDoctor = async ({ formData }) => {
+  const createAdmin = async ({ formData }) => {
     try {
       setIsLoading(true);
 
@@ -78,10 +78,10 @@ export const useManageDoctors = () => {
 
       if (res.status === 201) {
         setIsLoading(false);
-        toast.success("Doctor created succesfully.");
+        toast.success("Admin created succesfully.");
       }
     } catch (error) {
-      console.error("Error adding a doctor:", error);
+      console.error("Error adding an admin:", error);
 
       if (error.response && error.response.status === 401) {
         console.log("Token expired. Logging out...");
@@ -97,7 +97,7 @@ export const useManageDoctors = () => {
     }
   };
 
-  const updateDoctor = async ({ formData }) => {
+  const updateAdmin = async ({ formData }) => {
     try {
       setIsLoading(true);
 
@@ -131,17 +131,17 @@ export const useManageDoctors = () => {
     }
   };
 
-  const deleteDoctor = async (id) => {
+  const deleteAdmin = async (id) => {
     try {
       setIsLoading(true);
 
-      const res = await axios.delete(`${baseURL}/doctor/delete/${id}`, {
+      const res = await axios.delete(`${baseURL}/admin/delete/${id}`, {
         withCredentials: true,
       });
 
       if (res.status === 200) {
         setIsLoading(false);
-        toast.success("Doctor deleted successfully.");
+        toast.success("Admin deleted successfully.");
       }
     } catch (error) {
       console.error("Error during deletion:", error);
@@ -162,11 +162,11 @@ export const useManageDoctors = () => {
 
   return {
     isLoading,
-    getDoctors,
-    getDoctorById,
-    getDoctorWeeklyAvailability,
-    createDoctor,
-    updateDoctor,
-    deleteDoctor,
+    getAdmins,
+    getAdminById,
+    // getDoctorWeeklyAvailability,
+    createAdmin,
+    updateAdmin,
+    deleteAdmin,
   };
 };

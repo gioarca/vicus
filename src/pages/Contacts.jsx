@@ -10,13 +10,16 @@ function Contacts() {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_4zk556a", "template_0t8cg1n", form.current, {
-        publicKey: "nBwk1Dh-6_dCdi75H",
-      })
+      .sendForm(
+        "service_4zk556a",
+        "template_0t8cg1n",
+        form.current,
+        "nBwk1Dh-6_dCdi75H"
+      )
       .then(
         () => {
           console.log("SUCCESS!");
-          window.location.href = "/grazie";
+          window.location.href = "/thanks";
         },
         (error) => {
           console.log("FAILED...", error.text);
@@ -64,11 +67,12 @@ function Contacts() {
             placeholder={t("message_placeholder")}
             className="m-2 md:w-96 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
           />
-          <input
+          <button
             type="submit"
-            value={t("send")}
             className="m-2 w-2/3 px-8 py-4 font-semibold bg-red-800 text-white rounded-full hover:bg-white hover:text-black hover:cursor-pointer hover:border hover:border-red-800 transition-all duration-300 ease-in-out focus:shadow-outline focus:outline-none"
-          />
+          >
+            {t("send")}
+          </button>
         </form>
       </div>
 
