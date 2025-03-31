@@ -181,28 +181,55 @@ function Borghi() {
           ? "http://localhost:3000"
           : "https://borghi-backend.onrender.com";
 
-      try {
-        const response = await fetch(`${baseURL}/borghi/?page=${currentPage}`);
-        // const response = await fetch(
-        //   `https://borghi-backend.onrender.com/borghi/?page=${currentPage}`
-        // );
-        // const { borghi: fetchedBorghi, totalPages } = await response.json();
-        const { borghi: initialBorghi, totalPages } = await response.json();
+      //     try {
+      //       const response = await fetch(`${baseURL}/borghi`);
+      //       console.log(response.json());
+      //       // const response = await fetch(
+      //       //   `https://borghi-backend.onrender.com/borghi/?page=${currentPage}`
+      //       // );
+      //       // const { borghi: fetchedBorghi, totalPages } = await response.json();
+      //       const { borghi: initialBorghi, totalPages } = await response.json();
 
-        // setBorghi((prevBorghi) => [
-        //   ...prevBorghi,
-        //   ...fetchedBorghi.filter(
-        //     (borgo) => !prevBorghi.some((b) => b._id === borgo._id)
-        //   ),
-        // ]);
+      //       // setBorghi((prevBorghi) => [
+      //       //   ...prevBorghi,
+      //       //   ...fetchedBorghi.filter(
+      //       //     (borgo) => !prevBorghi.some((b) => b._id === borgo._id)
+      //       //   ),
+      //       // ]);
+      //       const allBorghi = [...borghi, ...initialBorghi];
+      //       const uniqueBorghi = Array.from(
+      //         new Set(allBorghi.map((borgo) => borgo._id))
+      //       ).map((id) => {
+      //         return allBorghi.find((borgo) => borgo._id === id);
+      //       });
+      //       setBorghi(uniqueBorghi.sort((a, b) => a.name.localeCompare(b.name)));
+      //       setTotalPages(totalPages);
+      //     } catch (error) {
+      //       console.error("Errore durante il fetching dei borghi:", error);
+      //     } finally {
+      //       setIsLoading(false);
+      //     }
+      //   };
+
+      //   fetchDetails();
+      // }, [currentPage]);
+
+      try {
+        const response = await fetch(`${baseURL}/borghi`);
+        if (!response.ok) throw new Error(`HTTP error: ${response.statusText}`);
+
+        const { borghi: initialBorghi, totalPages } = await response.json();
+        // Unisci i borghi già esistenti con quelli appena ottenuti
         const allBorghi = [...borghi, ...initialBorghi];
+
+        // Utilizza una Map per eliminare i duplicati in base a _id in modo performante
         const uniqueBorghi = Array.from(
-          new Set(allBorghi.map((borgo) => borgo._id))
-        ).map((id) => {
-          return allBorghi.find((borgo) => borgo._id === id);
-        });
-        setBorghi(uniqueBorghi.sort((a, b) => a.name.localeCompare(b.name)));
-        setTotalPages(totalPages);
+          allBorghi
+            .reduce((map, borgo) => map.set(borgo._id, borgo), new Map())
+            .values()
+        ).sort((a, b) => a.name.localeCompare(b.name));
+
+        setBorghi(uniqueBorghi);
         setTotalPages(totalPages);
       } catch (error) {
         console.error("Errore durante il fetching dei borghi:", error);
@@ -210,7 +237,6 @@ function Borghi() {
         setIsLoading(false);
       }
     };
-
     fetchDetails();
   }, [currentPage]);
 

@@ -16,11 +16,10 @@ export const useManageAuth = () => {
       ? "http://localhost:3000"
       : "https://borghi-backend.onrender.com";
 
-  const login = async ({ formData }) => {
+  const userLogin = async ({ formData, model = "user" }) => {
     try {
       setIsLoading(true);
-
-      const res = await axios.post(`${baseURL}/user/sign-in`, formData, {
+      const res = await axios.post(`${baseURL}/${model}/login`, formData, {
         withCredentials: true,
       });
       const { codeRequested, ...json } = res.data;
@@ -45,9 +44,13 @@ export const useManageAuth = () => {
 
         setIsLoading(false);
 
-        // const userId = json.user._id;
-        // const profilePath = model === "user" ? "dashboard" : "admin/profile";
-        // navigate(`/${profilePath}/${userId}`);
+        if (model) {
+          console.log("Il parametro model è definito");
+        }
+
+        // const profilePath =
+        //   user.isAdmin === "false" ? "dashboard" : "dashboardadmin";
+        // navigate(`/${profilePath}/`);
 
         toast.success(`Welcome back, ${json.user.firstName}!`);
         setTimeout(() => {
@@ -78,16 +81,68 @@ export const useManageAuth = () => {
           console.error("Error requesting new verification email:", err);
         }
       }
+      errorHandler(error);
+    }
+  };
 
-      // if (
-      //   error.response &&
-      //   error.response.status === 404 &&
-      //   error.response.data.message ===
-      //     "Email not verified. Please check your email for verification instructions."
-      // ) {
-      //   alert("il tuo account non esiste, per favore registrati");
-      // }
+  const loginAdmin = async ({ formData, model = "admin" }) => {
+    try {
+      setIsLoading(true);
+      const res = await axios.post(`${baseURL}/${model}/login`, formData, {
+        withCredentials: true,
+      });
+      const { codeRequested, ...json } = res.data;
 
+      if (res.status === 200 && !codeRequested) {
+        dispatch({
+          type: "LOGIN",
+          payload: {
+            user: json.user,
+            token: {
+              token: json.token,
+              expiration: json.expiration,
+            },
+          },
+        });
+        console.log("json", json.user);
+
+        localStorage.setItem("admin", JSON.stringify(json.user));
+        localStorage.setItem(
+          "token",
+          JSON.stringify({ token: json.token, expiration: json.expiration })
+        );
+
+        setIsLoading(false);
+
+        if (model) {
+          console.log("Il parametro model è definito");
+        }
+        toast.success(`Welcome back, ${json.user.firstName}!`);
+        setTimeout(() => {
+          navigate(`/dashboardadmin`);
+        });
+        return json;
+      }
+    } catch (error) {
+      console.error("Error during login", error);
+      alert(
+        "Errore durante il login, i tuoi dati non sono corretti oppure il tuo account non è stato verificato"
+      );
+      setIsLoading(false);
+
+      if (
+        error.response &&
+        error.response.status === 401 &&
+        error.response.data.message ===
+          "Email not verified. Please check your email for verification instructions."
+      ) {
+        try {
+          await requestNewVerificationEmail(formData.email);
+          toast.success("New verification email requested successfully.");
+        } catch (err) {
+          console.error("Error requesting new verification email:", err);
+        }
+      }
       errorHandler(error);
     }
   };
@@ -108,14 +163,6 @@ export const useManageAuth = () => {
         toast.success("Logout successful!");
 
         navigate("/signout");
-
-        // const handleSignOut = () => {
-        //   setTimeout(async () => {
-        //     auth.signOut().then(() => {
-        //       navigate("/signout"); // Reindirizza dopo il logout
-        //     });
-        //   });
-        // };
       }
     } catch (error) {
       console.error("Error during logout:", error);
@@ -207,10 +254,10 @@ export const useManageAuth = () => {
 
       if (res.status === 200) {
         setIsLoading(false);
-        if (model === "user") {
-          navigate("/dashboard");
-        } else if (model === "doctor") {
-          navigate("/doctor/login");
+        if (model === "admin") {
+          navigate("/dashboardadmin");
+        } else if (model === "admin") {
+          navigate("/loginadmin");
         }
         toast.success(res.data.message);
       }
@@ -246,7 +293,8 @@ export const useManageAuth = () => {
   };
 
   return {
-    login,
+    userLogin,
+    loginAdmin,
     logout,
     verifyPassword,
     verifyMail,

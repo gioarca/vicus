@@ -20,7 +20,7 @@ import Goals from "./Goals";
 import Support from "./Support";
 import AddBorgo from "./Borghi/AddBorgo";
 import Favourites from "./Borghi/Favourites";
-import RegistrationAdmin from "../pages/RegistrationAdmin";
+import RegistrationAdmin from "./RegistrationAdmin";
 import DashboardAdmin from "./DashboardAdmin";
 import Delete from "./Borghi/DeleteBorgo";
 import Update from "./Borghi/UpdateBorgo";
@@ -31,9 +31,11 @@ import PasswordResetRequest from "../pages/PasswordReset/PasswordResetRequest.js
 import PasswordReset from "../pages/PasswordReset/PasswordReset.jsx";
 import PrivateRoute from "../components/PrivateRoute";
 import UpdateProfile from "./UpdateProfile.jsx";
+import LoginAdmin from "./LoginAdmin.jsx";
 
 function Pages() {
-  const { user } = useAuthContext();
+  const { user, admin } = useAuthContext();
+
   const location = useLocation();
 
   return (
@@ -47,6 +49,7 @@ function Pages() {
             <Route path="/about" element={<About />} />
             <Route path="/borghi/:_id" element={<Borgo />} />
             <Route path="/login" element={<Login user={user} />} />
+            <Route path="/loginadmin" element={<LoginAdmin admin={admin} />} />
             <Route path="/borghi" element={<Borghi />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/contacts" element={<Contacts />} />
@@ -56,9 +59,13 @@ function Pages() {
             <Route
               path="/news"
               element={
-                <PrivateRoute>
-                  <News />
-                </PrivateRoute>
+                user ? (
+                  <PrivateRoute>
+                    <News model="user" />
+                  </PrivateRoute>
+                ) : (
+                  <Login />
+                )
               }
             />
             <Route path="/signout" element={<SignOut />} />
@@ -66,38 +73,61 @@ function Pages() {
             <Route
               path="/addBorgo"
               element={
-                <PrivateRoute>
-                  <AddBorgo />
-                </PrivateRoute>
+                admin && admin.token ? (
+                  <PrivateRoute>
+                    <AddBorgo />
+                  </PrivateRoute>
+                ) : (
+                  <LoginAdmin />
+                )
               }
             />
             <Route
               path="/favourites"
               element={
-                <PrivateRoute>
-                  <Favourites />
-                </PrivateRoute>
+                user ? (
+                  <PrivateRoute>
+                    <Favourites model="user" />
+                  </PrivateRoute>
+                ) : (
+                  <Login />
+                )
               }
             />
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/registrationadmin" element={<RegistrationAdmin />} />
-            <Route path="/dashboardadmin" element={<DashboardAdmin />} />
+            <Route
+              path="/dashboardadmin"
+              element={
+                admin && admin.token ? (
+                  <PrivateRoute>
+                    <DashboardAdmin model="admin" />
+                  </PrivateRoute>
+                ) : (
+                  <LoginAdmin />
+                )
+              }
+            />
             <Route path="/deleteborgo" element={<Delete />} />
             <Route path="/updateborgo/:_id" element={<Update />} />
             <Route
               path="/updateborgo"
               element={
-                <PrivateRoute>
-                  <BorghiToUpdate />
-                </PrivateRoute>
+                // <PrivateRoute>
+                <BorghiToUpdate />
+                // </PrivateRoute>
               }
             />
             <Route
               path="/dashboard"
               element={
-                <PrivateRoute>
-                  <Dashboard />
-                </PrivateRoute>
+                user ? (
+                  <PrivateRoute>
+                    <Dashboard model="user" />
+                  </PrivateRoute>
+                ) : (
+                  <Login />
+                )
               }
             />
 

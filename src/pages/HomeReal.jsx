@@ -92,7 +92,9 @@ function Home() {
           alt="Melfi"
         />
       </div>
-      <BorgoForm />
+      <div className="mt-10">
+        <BorgoForm />
+      </div>
     </motion.div>
   );
 }

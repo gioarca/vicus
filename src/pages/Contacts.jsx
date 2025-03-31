@@ -90,14 +90,7 @@ function Contacts() {
               height="50"
             />
           </a>
-          &emsp;
-          <a
-            href={"mailto: borghisud@gmail.com"}
-            className="hover:text-red-500 hover:transition-all"
-          >
-            {t("email_us")}
-          </a>
-          <p>{t("address")}</p>
+          <p className="mt-5">{t("address")}</p>
         </div>
       </div>
     </div>

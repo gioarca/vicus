@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import Spinner from "../../components/Utils/Spinner";
+import Loader from "../../components/Loader";
 import { useManageAuth } from "../../hooks/auth/useManageAuth";
 
 const PasswordReset = ({ model }) => {
@@ -38,7 +38,7 @@ const PasswordReset = ({ model }) => {
         </h3>
         {isLoading && (
           <div className="flex items-center justify-center mx-auto py-10">
-            <Spinner />
+            <Loader />
           </div>
         )}
         {!isLoading && (

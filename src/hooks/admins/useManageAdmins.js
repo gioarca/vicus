@@ -4,9 +4,9 @@ import errorHandler from "../utils/errorHandler";
 import { useAuthContext } from "../auth/useAuthContext";
 import { toast } from "react-toastify";
 
-export const useManageDoctors = () => {
+export const useManageAdmin = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const { user, token, dispatch } = useAuthContext();
+  const { admin, token, dispatch } = useAuthContext();
 
   const baseURL =
     process.env.NODE_ENV === "development"
@@ -19,11 +19,11 @@ export const useManageDoctors = () => {
       const res = await axios.get(`${baseURL}/admins`);
       if (res.status === 200) {
         setIsLoading(false);
-        const doctors = res.data;
-        return doctors;
+        const admin = res.data;
+        return admin;
       }
     } catch (error) {
-      console.error("Error getting doctors:", error);
+      console.error("Error getting admin:", error);
       setIsLoading(false);
 
       errorHandler(error);
@@ -34,45 +34,26 @@ export const useManageDoctors = () => {
     try {
       setIsLoading(true);
 
-      const res = await axios.get(`${baseURL}/doctor/${id}`);
+      const res = await axios.get(`${baseURL}/admin/${id}`);
 
       if (res.status === 200) {
         setIsLoading(false);
-        const doctor = res.data;
-        return doctor;
+        const admin = res.data;
+        return admin;
       }
     } catch (error) {
-      console.error("Error getting doctor details:", error);
+      console.error("Error getting admin details:", error);
       setIsLoading(false);
 
       errorHandler(error);
     }
   };
 
-  // const getDoctorWeeklyAvailability = async (id) => {
-  //   try {
-  //     setIsLoading(true);
-
-  //     const res = await axios.get(`${baseURL}/doctor/${id}/weeklyAvailability`);
-
-  //     if (res.status === 200) {
-  //       setIsLoading(false);
-  //       const availableSlots = res.data;
-  //       return availableSlots;
-  //     }
-  //   } catch (error) {
-  //     console.error("Error getting doctor's weekly availability:", error);
-  //     setIsLoading(false);
-
-  //     errorHandler(error);
-  //   }
-  // };
-
   const createAdmin = async ({ formData }) => {
     try {
       setIsLoading(true);
 
-      const res = await axios.post(`${baseURL}/doctor/create`, formData, {
+      const res = await axios.post(`${baseURL}/admin/create`, formData, {
         withCredentials: true,
       });
 
@@ -85,7 +66,7 @@ export const useManageDoctors = () => {
 
       if (error.response && error.response.status === 401) {
         console.log("Token expired. Logging out...");
-        localStorage.removeItem("user");
+        localStorage.removeItem("admin");
         localStorage.removeItem("token");
         dispatch({ type: "LOGOUT" });
 
@@ -102,24 +83,24 @@ export const useManageDoctors = () => {
       setIsLoading(true);
 
       const res = await axios.put(
-        `${baseURL}/doctor/update/${user._id}`,
+        `${baseURL}/admin/update/${admin._id}`,
         formData,
         { withCredentials: true }
       );
 
       if (res.status === 200) {
         setIsLoading(false);
-        const updatedUser = res.data.user;
+        const updatedadmin = res.data.admin;
 
-        dispatch({ type: "LOGIN", payload: { user: updatedUser, token } });
+        dispatch({ type: "LOGIN", payload: { admin: updatedadmin, token } });
 
-        toast.success("Doctor updated successfully.");
+        toast.success("Admin updated successfully.");
       }
     } catch (error) {
       console.error("Error during update:", error);
       if (error.response && error.response.status === 401) {
         console.log("Token expired. Logging out...");
-        localStorage.removeItem("user");
+        localStorage.removeItem("admin");
         localStorage.removeItem("token");
         dispatch({ type: "LOGOUT" });
 
@@ -148,7 +129,7 @@ export const useManageDoctors = () => {
 
       if (error.response && error.response.status === 401) {
         console.log("Token expired. Logging out...");
-        localStorage.removeItem("user");
+        localStorage.removeItem("admin");
         localStorage.removeItem("token");
         dispatch({ type: "LOGOUT" });
 
@@ -164,7 +145,6 @@ export const useManageDoctors = () => {
     isLoading,
     getAdmins,
     getAdminById,
-    // getDoctorWeeklyAvailability,
     createAdmin,
     updateAdmin,
     deleteAdmin,

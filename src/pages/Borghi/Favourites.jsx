@@ -214,7 +214,7 @@ function Favourites() {
             className="max-w-80 rounded-lg overflow-hidden shadow-xl m-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
             key={uuidv4()}
           >
-            <Link to={`/borgo/${borgo._id}`}>
+            <Link to={`/borghi/${borgo._id}`}>
               <img
                 className="w-auto m-auto"
                 src={borgo.imgURL}
